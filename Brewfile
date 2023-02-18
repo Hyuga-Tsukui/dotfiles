@@ -1,0 +1,8 @@
+tap "homebrew/bundle"
+tap "homebrew/cask-fonts"
+tap "homebrew/core"
+brew "chezmoi"
+brew "gh"
+brew "git"
+cask "font-cousine-nerd-font"
+cask "font-fira-code-nerd-font"
