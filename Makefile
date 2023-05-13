@@ -1,5 +1,8 @@
 all: link brew
 
+init:
+	bin/init.sh
+
 link:
 	bin/link.sh
 
