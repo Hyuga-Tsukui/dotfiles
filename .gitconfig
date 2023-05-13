@@ -1,0 +1,9 @@
+[core]
+	autocrlf = input
+[alias]
+	co = checkout
+	br = branch
+	c = commit
+	st = status
+[include]
+	path = ~/.gitconfig.local
