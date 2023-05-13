@@ -1,9 +1,14 @@
-# zsh opt
+# setup zsh
 # -----------------------------------------------------------------
 setopt correct # コマンドのスペルミスのチェック
+setopt correct_all # コマンドライン全てのスペルチェックをする
 setopt hist_ignore_all_dups # 重複したコマンドはヒストリに追加しない
 setopt hist_reduce_blanks # ヒストリ追加時に連続した空白は一つにする
 setopt share_history # ホスト間でヒストリを共有する
+setopt nolistbeep # ビープ音を鳴らさない
+setopt auto_menu # 補完キー（Tab,  Ctrl+I) を連打するだけで順に補完候補を自動で補完する
+setopt auto_param_slash # パラメータ展開時に末尾のスラッシュを自動で補完する
+zstyle ':completion:*' list-colors di=34 fi=0 # 補完候補の色を設定
 
 
 # https://volta.sh/
