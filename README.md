@@ -11,5 +11,5 @@
 
 ### cmd-eikana
 
-left command → ei; right command → Jan
+left command → ei; right command → kana
 https://github.com/iMasanari/cmd-eikana
