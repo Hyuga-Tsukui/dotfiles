@@ -8,6 +8,7 @@
 	ss = status -s
 	# pull/push/fetch
 	ft = fetch
+	p = push origin
 	# commit
 	a = add .
 	c = commit
