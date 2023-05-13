@@ -1,0 +1,23 @@
+name: 'Dotfiles'
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  dotfiles:
+    name: 'Dotfiles'
+    runs-on: macos-latest
+
+    steps:
+    # Checkout the repository to the GitHub Actions runner
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      # Initialize and place dotfiles
+      - name: Setup Dotfiles
+        run: make
