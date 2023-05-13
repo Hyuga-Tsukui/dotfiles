@@ -3,6 +3,6 @@
 ## Installation
 
 ```bash
-> bash ./bin/install.sh
+> make
 ```
 
