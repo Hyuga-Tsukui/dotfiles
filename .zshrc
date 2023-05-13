@@ -30,7 +30,7 @@ export PATH=$PATH:$GOPATH/bin
 # -----------------------------------------------------------------
 # https://github.com/sharkdp/bat
 alias cat='bat -pP'
-alias brdump='brew bundle dump --force' # brew installしたあとに実行すると、Brewfileを更新する
+alias brdump='brew bundle dump --force --global' # brew installしたあとに実行すると、Brewfileを更新する
 
 # setup zsh-completions
 if type brew &>/dev/null; then
