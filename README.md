@@ -1,3 +1,8 @@
 # dotfiles
 
-## Get Started
+## Installation
+
+```bash
+> bash ./bin/install.sh
+```
+
