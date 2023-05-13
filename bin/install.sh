@@ -38,6 +38,8 @@ link_to_homedir() {
 
 link_to_homedir
 
+brew bundle --file="$HOME/.Brewfile" --global
+
 # https://qiita.com/ko1nksm/items/095bdb8f0eca6d327233#%E7%B5%90%E8%AB%96
 ESC=$(printf '\033') # \e や \x1b または $'\e' は使用しない
-command echo "${ESC}[1;36m Install completed!!!! ${ESC}[m"
+command echo "\n${ESC}[1;36m Install completed!!!! ${ESC}[m"
