@@ -1,3 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 
-brew bundle --file="$HOME/.Brewfile" --global
+if [ "$(uname)" != "Darwin" ] ; then
+	echo "Not macOS!"
+	exit 1
+fi
+
+brew bundle --global
