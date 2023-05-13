@@ -3,7 +3,19 @@
 [alias]
 	co = checkout
 	br = branch
-	c = commit
+	s = status
 	st = status
+	ss = status -s
+	# pull/push/fetch
+	ft = fetch
+	# commit
+	a = add .
+	c = commit
+	cam = commit -a --amend
+	# stash
+	sh = stash
+	shl = stash list
+	shp = stash pop
+	shc = stash clear
 [include]
 	path = ~/.gitconfig.local
