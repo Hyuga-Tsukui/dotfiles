@@ -18,6 +18,9 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 # https://git-scm.com/book/ms/v2/Appendix-A%3A-Git-in-Other-Environments-Git-in-Zsh
 autoload -Uz compinit && compinit
 
+# https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # setup starship
 # -----------------------------------------------------------------
 eval "$(starship init zsh)"
