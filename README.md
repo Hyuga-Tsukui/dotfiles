@@ -7,7 +7,7 @@
 ```
 
 
-## Manual Instraltion
+## Manual Installation
 
 ### cmd-eikana
 
