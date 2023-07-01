@@ -1,0 +1,27 @@
+[core]
+	autocrlf = input
+[alias]
+	co = checkout
+	br = branch
+	s = status
+	st = status
+	ss = status -s
+	# pull/push/fetch
+	ft = fetch
+	p = push origin
+	# commit
+	a = add .
+	c = commit
+	cam = commit -a --amend
+	# stash
+	sh = stash
+	shl = stash list
+	shp = stash pop
+	shc = stash clear
+[user]
+{{- if eq .chezmoi.hostname "TKKMAC00060" }}
+	email = "hyuga.tsukui@tkk.tokyu.co.jp"
+{{- else }}
+        email = "gakikiki407@gmail.com"
+{{- end }}
+        name = "Hyuga Tsukui"
