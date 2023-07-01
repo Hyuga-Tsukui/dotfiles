@@ -35,3 +35,11 @@ alias cat='bat -pP'
 alias brdump='brew bundle dump --force --global' # brew installしたあとに実行すると、Brewfileを更新する
 
 
+{{- if eq .chezmoi.hostname "TKKMAC00060" }}
+WORK_ZSH="${HOME}/.zsh/work.zsh"
+if [ -f "${WORK_ZSH}" ]; then
+  source "${WORK_ZSH}"
+fi
+{{- end }}
+
+
