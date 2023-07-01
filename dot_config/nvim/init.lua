@@ -38,6 +38,9 @@ end,
 Jetpack('nvim-lua/plenary.nvim')
 Jetpack('TimUntersberger/neogit')
 
+-- fuzzy finder
+Jetpack('ibhagwan/fzf-lua')
+
 vim.call('jetpack#end')
 
 -- LSP Server management
@@ -68,15 +71,29 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
 )
 -- Reference highlight
+
+vim.api.nvim_create_autocmd('LspAttach', {
+	callback = function (args)
+		local buffer = args.buf
+		local client = vim.lsp.get_client_by_id(args.data.client_id)
+		vim.cmd[[
+		" let s:bl = ['json'] " set blacklist filetype
+		augroup lsp_document_highlight
+		  " autocmd! * <buffer>
+		  " autocmd CursorHold,CursorHoldI <buffer> if index(s:bl, &ft) < 0 | lua vim.lsp.buf.document_highlight()
+		  " autocmd CursorMoved,CursorMovedI <buffer> if index(s:bl, &ft) < 0 | lua vim.lsp.buf.clear_references()
+		  autocmd! * <buffer>
+		  autocmd CursorHold,CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
+		  autocmd CursorMoved,CursorMovedI <buffer> lua vim.lsp.buf.clear_references()
+		augroup END
+		]]
+	end,
+})
+
 vim.cmd [[
-set updatetime=500
 highlight LspReferenceText  cterm=underline ctermfg=1 ctermbg=8 gui=underline guifg=#A00000 guibg=#104040
 highlight LspReferenceRead  cterm=underline ctermfg=1 ctermbg=8 gui=underline guifg=#A00000 guibg=#104040
 highlight LspReferenceWrite cterm=underline ctermfg=1 ctermbg=8 gui=underline guifg=#A00000 guibg=#104040
-augroup lsp_document_highlight
-  autocmd!
-  autocmd CursorMoved,CursorMovedI * lua vim.lsp.buf.clear_references()
-augroup END
 ]]
 -- 3. completion (hrsh7th/nvim-cmp)
 local cmp = require("cmp")
@@ -107,6 +124,10 @@ cmp.setup({
 -- Neogit setup
 local neogit = require('neogit')
 neogit.setup {}
+
+-- fzf-lua setup
+local fzf = require('fzf-lua')
+fzf.setup {}
 
 -- colorscheme -----------------------------------------------------------------
 -- vim.g.everforest_enable_italic = 0
@@ -153,6 +174,7 @@ vim.opt.history = 5000
 vim.opt.swapfile = false  -- disable swap file
 
 vim.opt.clipboard = "unnamedplus"
+vim.opt.updatetime = 500
 
 -- keymap
 vim.g.mapleader = " "
