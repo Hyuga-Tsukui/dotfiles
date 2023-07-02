@@ -6,7 +6,7 @@ vim.call('jetpack#begin')
 
 Jetpack('tani/vim-jetpack', { opt = 1 })
 Jetpack('neovim/nvim-lspconfig')
-Jetpack('williamboman/mason.nvim')
+Jetpack('williamboman/mason.nvim', { ['do'] = ':MasonUpdate' })
 Jetpack('williamboman/mason-lspconfig.nvim')
 
 Jetpack('hrsh7th/nvim-cmp')
@@ -45,12 +45,31 @@ vim.call('jetpack#end')
 
 -- LSP Server management
 require('mason').setup()
-require('mason-lspconfig').setup_handlers({ function(server)
-	local opt = {
-		capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-	}
-	require('lspconfig')[server].setup(opt)
-end })
+require('mason-lspconfig').setup()
+
+-- Automatically setup LSP server
+local lspconfig = require('lspconfig')
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+local lspconfig_handlers = {
+	function (server)
+		require('lspconfig')[server].setup({ capabilities = capabilities })
+	end,
+	["gopls"] = function ()
+	 	lspconfig.gopls.setup {
+			capabilities = capabilities,
+			cmd = {"gopls", "serve"},
+			filetypes = {"go", "gomod"},
+			on_attach = require('mason-lspconfig').on_attach,
+			settings = {
+				gopls = {
+					completeUnimported = true,
+				},
+			},
+	 	}
+	 end,
+}
+require('mason-lspconfig').setup_handlers(lspconfig_handlers)
 
 -- build-in LSP function
 -- keyboard shortcut
@@ -159,6 +178,7 @@ highlight FzfLuaBorder guibg=#383850 gui=bold
 vim.opt.termguicolors = true
 vim.opt.cursorline = true
 vim.opt.relativenumber = true
+vim.opt.number = true
 vim.opt.title = true
 vim.opt.wrap = true
 
