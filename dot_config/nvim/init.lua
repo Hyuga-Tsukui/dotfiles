@@ -54,16 +54,32 @@ require('mason-lspconfig').setup()
 local lspconfig = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+local on_attach = function (client, bufnr)
+    if client.server_capabilities.documentHighlightProvider then
+        vim.api.nvim_exec(
+            [[
+            augroup lsp_document_highlight
+              autocmd! * <buffer>
+              autocmd CursorHold,CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
+              autocmd CursorMoved,CursorMovedI <buffer> lua vim.lsp.buf.clear_references()
+            augroup END
+            ]],
+            false
+        )
+    end
+    require('mason-lspconfig').on_attach(client, bufnr)
+end
+
 local lspconfig_handlers = {
 	function (server)
-		require('lspconfig')[server].setup({ capabilities = capabilities })
+		require('lspconfig')[server].setup({ capabilities = capabilities, on_attach = on_attach })
 	end,
 	["gopls"] = function ()
 	 	lspconfig.gopls.setup {
 			capabilities = capabilities,
 			cmd = {"gopls", "serve"},
 			filetypes = {"go", "gomod"},
-			on_attach = require('mason-lspconfig').on_attach,
+			on_attach = on_attach,
 			settings = {
 				gopls = {
 					completeUnimported = true,
@@ -127,23 +143,23 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 )
 -- Reference highlight
 
-vim.api.nvim_create_autocmd('LspAttach', {
-	callback = function (args)
-		local buffer = args.buf
-		local client = vim.lsp.get_client_by_id(args.data.client_id)
-		vim.cmd[[
-		" let s:bl = ['json'] " set blacklist filetype
-		augroup lsp_document_highlight
-		  " autocmd! * <buffer>
-		  " autocmd CursorHold,CursorHoldI <buffer> if index(s:bl, &ft) < 0 | lua vim.lsp.buf.document_highlight()
-		  " autocmd CursorMoved,CursorMovedI <buffer> if index(s:bl, &ft) < 0 | lua vim.lsp.buf.clear_references()
-		  autocmd! * <buffer>
-		  autocmd CursorHold,CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
-		  autocmd CursorMoved,CursorMovedI <buffer> lua vim.lsp.buf.clear_references()
-		augroup END
-		]]
-	end,
-})
+-- vim.api.nvim_create_autocmd('LspAttach', {
+-- 	callback = function (args)
+-- 		local buffer = args.buf
+-- 		local client = vim.lsp.get_client_by_id(args.data.client_id)
+-- 		 vim.cmd[[
+-- 		 " let s:bl = ['json'] " set blacklist filetype
+-- 		 augroup lsp_document_highlight
+-- 		   " autocmd! * <buffer>
+-- 		   " autocmd CursorHold,CursorHoldI <buffer> if index(s:bl, &ft) < 0 | lua vim.lsp.buf.document_highlight()
+-- 		   " autocmd CursorMoved,CursorMovedI <buffer> if index(s:bl, &ft) < 0 | lua vim.lsp.buf.clear_references()
+-- 		   autocmd! * <buffer>
+-- 		   autocmd CursorHold,CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
+-- 		   autocmd CursorMoved,CursorMovedI <buffer> lua vim.lsp.buf.clear_references()
+-- 		 augroup END
+-- 		 ]]
+-- 	end,
+-- })
 
 vim.cmd [[
 highlight LspReferenceText  cterm=underline ctermfg=1 ctermbg=8 gui=underline guifg=#A00000 guibg=#104040
