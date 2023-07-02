@@ -1,3 +1,5 @@
+require("lua.core.options")
+
 vim.cmd [[packadd vim-jetpack]]
 
 local Jetpack = vim.fn['jetpack#add']
@@ -224,33 +226,6 @@ highlight link LspFloatWinNormal NormalFloat
 highlight FzfLuaNormal guibg=#383850
 highlight FzfLuaBorder guibg=#383850 gui=bold
 ]]
-
--- vim settings ----------------------------------------------------------------
--- appearance 
-vim.opt.termguicolors = true
-vim.opt.cursorline = true
-vim.opt.relativenumber = true
-vim.opt.number = true
-vim.opt.title = true
-vim.opt.wrap = true
-
--- search
-vim.opt.hlsearch = true
-vim.opt.incsearch = true
-
--- indent
-vim.opt.smartindent = true
-vim.opt.expandtab = true
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.autoindent = true
-
--- log
-vim.opt.history = 5000
-vim.opt.swapfile = false  -- disable swap file
-
-vim.opt.clipboard = "unnamedplus"
-vim.opt.updatetime = 500
 
 -- keymap
 vim.g.mapleader = " "
