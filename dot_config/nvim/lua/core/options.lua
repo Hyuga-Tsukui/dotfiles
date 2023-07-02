@@ -6,7 +6,7 @@ opt.number = true
 
 -- tab & indentation
 opt.tabstop = 2
-opt.shifwidth = 2
+opt.shiftwidth = 2
 opt.expandtab = true
 opt.autoindent = true
 

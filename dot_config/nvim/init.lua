@@ -1,4 +1,4 @@
-require("lua.core.options")
+require("core.options")
 
 vim.cmd [[packadd vim-jetpack]]
 
@@ -143,25 +143,6 @@ vim.keymap.set('n', 'g[', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
 )
--- Reference highlight
-
--- vim.api.nvim_create_autocmd('LspAttach', {
--- 	callback = function (args)
--- 		local buffer = args.buf
--- 		local client = vim.lsp.get_client_by_id(args.data.client_id)
--- 		 vim.cmd[[
--- 		 " let s:bl = ['json'] " set blacklist filetype
--- 		 augroup lsp_document_highlight
--- 		   " autocmd! * <buffer>
--- 		   " autocmd CursorHold,CursorHoldI <buffer> if index(s:bl, &ft) < 0 | lua vim.lsp.buf.document_highlight()
--- 		   " autocmd CursorMoved,CursorMovedI <buffer> if index(s:bl, &ft) < 0 | lua vim.lsp.buf.clear_references()
--- 		   autocmd! * <buffer>
--- 		   autocmd CursorHold,CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
--- 		   autocmd CursorMoved,CursorMovedI <buffer> lua vim.lsp.buf.clear_references()
--- 		 augroup END
--- 		 ]]
--- 	end,
--- })
 
 vim.cmd [[
 highlight LspReferenceText  cterm=underline ctermfg=1 ctermbg=8 gui=underline guifg=#A00000 guibg=#104040
