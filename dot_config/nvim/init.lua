@@ -64,6 +64,10 @@ local lspconfig_handlers = {
 			settings = {
 				gopls = {
 					completeUnimported = true,
+                    usePlaceholders = true,
+                    analyses = {
+                        unusedparams = true,
+                    },
 				},
 			},
 	 	}
