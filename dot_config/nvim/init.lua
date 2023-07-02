@@ -41,6 +41,9 @@ Jetpack('TimUntersberger/neogit')
 -- fuzzy finder
 Jetpack('ibhagwan/fzf-lua')
 
+-- code acction hook.
+Jetpack('jose-elias-alvarez/null-ls.nvim')
+
 vim.call('jetpack#end')
 
 -- LSP Server management
@@ -74,6 +77,35 @@ local lspconfig_handlers = {
 	 end,
 }
 require('mason-lspconfig').setup_handlers(lspconfig_handlers)
+
+-- LSP code acction
+local null_ls = require('null-ls')
+local soruces = {
+    null_ls.builtins.formatting.gofmt,
+    null_ls.builtins.formatting.goimports,
+}
+local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
+null_ls.setup(
+    {
+        ft = 'go',
+        sources = soruces,
+        on_attach = function (client, bufnr)
+            if client.supports_method("textDocument/formatting") then
+                vim.api.nvim_clear_autocmds({
+                    group = augroup,
+                    buffer = bufnr,
+                })
+                vim.api.nvim_create_autocmd("BufWritePre", {
+                    group = augroup,
+                    buffer = bufnr,
+                    callback = function ()
+                        vim.lsp.buf.format({ bufnr = bufnr })
+                    end,
+                })
+            end
+        end,
+    }
+)
 
 -- build-in LSP function
 -- keyboard shortcut
