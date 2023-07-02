@@ -1,4 +1,5 @@
 require("core.options")
+require("core.keymaps")
 
 vim.cmd [[packadd vim-jetpack]]
 
@@ -208,6 +209,3 @@ highlight FzfLuaNormal guibg=#383850
 highlight FzfLuaBorder guibg=#383850 gui=bold
 ]]
 
--- keymap
-vim.g.mapleader = " "
-vim.keymap.set('i', 'jj', '<ESC>')
