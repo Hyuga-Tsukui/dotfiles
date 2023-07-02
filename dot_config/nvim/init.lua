@@ -188,6 +188,10 @@ vim.opt.incsearch = true
 
 -- indent
 vim.opt.smartindent = true
+vim.opt.expandtab = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.autoindent = true
 
 -- log
 vim.opt.history = 5000
