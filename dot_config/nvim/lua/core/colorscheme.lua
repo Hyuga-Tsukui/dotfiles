@@ -1,7 +1,7 @@
-local ok, _ = pcall(require, 'iceberg')
-if not ok then
-  return
-end
+--local ok, _ = pcall(require, 'iceberg')
+--if not ok then
+--  return
+--end
 -- colorscheme -----------------------------------------------------------------
 vim.cmd [[
 autocmd ColorScheme * highlight Normal ctermbg=none guibg=none
