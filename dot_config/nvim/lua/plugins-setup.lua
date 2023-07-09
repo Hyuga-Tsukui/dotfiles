@@ -45,4 +45,6 @@ Jetpack('ibhagwan/fzf-lua')
 -- code acction hook.
 Jetpack('jose-elias-alvarez/null-ls.nvim')
 
+Jetpack('tpope/vim-surround')
+
 vim.call('jetpack#end')
