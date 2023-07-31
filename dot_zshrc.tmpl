@@ -41,3 +41,10 @@ fi
 {{- end }}
 
 
+{{- if eq .chezmoi.hostname "private" }}
+PRIVATE_ZSH="${HOME}/.zsh/private.zsh"
+if [ -f "${PRIVATE_ZSH}" ]; then
+  source "${PRIVATE_ZSH}"
+fi
+{{- end }}
+
