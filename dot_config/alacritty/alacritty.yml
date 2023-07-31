@@ -14,4 +14,11 @@ font:
     family: 'FiraCode Nerd Font'
     style: Bold
   size: 17.0
+key_bindings:
+  - { key: Back,     mods: Command, chars: "\x15"                        } # Delete line
+  - { key: Back,     mods: Alt,     chars: "\x1b\x7f"                    } # Delete word
+  - { key: Left,     mods: Alt,     chars: "\x1bb"                       } # Skip word left
+  - { key: Right,    mods: Alt,     chars: "\x1bf"                       } # Skip word right
+  - { key: Left,     mods: Command, chars: "\x1bOH",   mode: AppCursor   } # Home
+  - { key: Right,    mods: Command, chars: "\x1bOF",   mode: AppCursor   } # End
 live_config_reload: true
