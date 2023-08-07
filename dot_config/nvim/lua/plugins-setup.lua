@@ -1,50 +1,40 @@
-vim.cmd [[packadd vim-jetpack]]
+local ensure_packer = function()
+local fn = vim.fn
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.cmd [[packadd packer.nvim]]
+    return true
+end
+return false
+end
+  
+local packer_bootstrap = ensure_packer()
 
-local Jetpack = vim.fn['jetpack#add']
+return require('packer').startup(function(use)
+use 'wbthomason/packer.nvim'
 
-vim.call('jetpack#begin')
-
-Jetpack('tani/vim-jetpack', { opt = 1 })
-Jetpack('neovim/nvim-lspconfig')
-Jetpack('williamboman/mason.nvim', { ['do'] = ':MasonUpdate' })
-Jetpack('williamboman/mason-lspconfig.nvim')
-
-Jetpack('hrsh7th/nvim-cmp')
-Jetpack('hrsh7th/cmp-nvim-lsp')
-Jetpack('hrsh7th/vim-vsnip')
-
--- Color Schem Plugin
-Jetpack('cocopon/iceberg.vim')
-
--- GitHub Copilot
-Jetpack('github/copilot.vim', { config = function()
-	vim.g.coplilot_no_tab_map = true
-
-	local keymap = vim.keymap.set
-	keymap(
-	    "i",
-	    "<C-g>",
-	    'copilot#Accept("<CR>")',
-	    { silent = true, expr = true, script = true, replace_keycodes = false }
-	)
-	keymap("i", "<C-j>", "<Plug>(copilot-next)")
-	keymap("i", "<C-k>", "<Plug>(copilot-previous)")
-	keymap("i", "<C-o>", "<Plug>(copilot-dismiss)")
-	keymap("i", "<C-s>", "<Plug>(copilot-suggest)")
-end,
-})
-
-
--- Git
-Jetpack('nvim-lua/plenary.nvim')
-Jetpack('NeogitOrg/neogit')
+use 'lambdalisue/fern.vim'
 
 -- fuzzy finder
-Jetpack('ibhagwan/fzf-lua')
+use { 'junegunn/fzf', run = ":call fzf#install()" }
+use { 'junegunn/fzf.vim' }
 
--- code acction hook.
-Jetpack('jose-elias-alvarez/null-ls.nvim')
+-- color scheme
+use 'sainnhe/everforest'
 
-Jetpack('tpope/vim-surround')
+-- LSP
+use 'williamboman/mason.nvim'
+use 'williamboman/mason-lspconfig.nvim'
+use 'neovim/nvim-lspconfig'
+use 'hrsh7th/nvim-cmp'
+use 'hrsh7th/cmp-nvim-lsp'
+use 'hrsh7th/vim-vsnip'
+use { 'jose-elias-alvarez/null-ls.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
-vim.call('jetpack#end')
+-- Automatically set up your configuration after cloning packer.nvim
+-- Put this at the end after all plugins
+if packer_bootstrap then
+    require('packer').sync()
+end
+end)
