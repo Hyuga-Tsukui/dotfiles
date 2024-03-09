@@ -25,3 +25,8 @@
         email = "gakikiki407@gmail.com"
 {{- end }}
         name = "Hyuga Tsukui"
+
+{{- if eq .chezmoi.hostname "private" }}
+[http]
+	cookiefile = /Users/hyugatsukui/.gitcookies
+{{- end }}
