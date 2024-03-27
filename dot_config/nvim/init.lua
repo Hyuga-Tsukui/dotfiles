@@ -8,21 +8,23 @@
 -- require('plugins.fzf-setup')
 
 if not vim.g.vscode then
-
 	local opt = vim.opt
 	opt.number = true	
 	opt.clipboard:append("unnamedplus")
+	
+	-- manage plugins.
+	vim.cmd.packadd "packer.nvim"
+	require("packer").startup(function()
+		use 'wbthomason/packer.nvim' 
+		use 'rstacruz/vim-closer'
+		use {
+			'neovim/nvim-lspconfig',
+			config = function()
+				require('lspconfig').ocamllsp.setup{}
+			end,
+		}
+	end)
 
-
---	vim.api.nvim_create_augroup('go', {})
---	vim.api.nvim_create_autocmd("BufWritePre", {
---	    group = 'go',
---	    pattern = "*.go",
---	    callback = function()
---		vim.cmd("silent !go fmt %")
---		vim.cmd("e!")
---	    end,
---	})
 end
 
 local keymap = vim.keymap
