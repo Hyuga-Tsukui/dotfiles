@@ -2,7 +2,6 @@
 #!/bin/sh
 
 # Install brew
-section "Install brew"
 if [ ! -x "$(command -v brew)" ] ; then
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" > /dev/null
 else
@@ -10,6 +9,9 @@ else
 fi
 
 brew bundle --no-lock --file=/dev/stdin <<EOF
+{{ range .packages.darwin.taps -}}
+tap {{ . | quote }}
+{{ end -}}
 {{ range .packages.darwin.brews -}}
 brew {{ . | quote }}
 {{ end -}}
