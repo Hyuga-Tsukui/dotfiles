@@ -1,0 +1,6 @@
+[user]
+    name = "Hyuga Tsukui"
+    email = "gakikiki407@gmail.com"
+[http]
+    cookiefile = /Users/hyugatsukui/.gitcookies
+

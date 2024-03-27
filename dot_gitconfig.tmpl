@@ -18,15 +18,10 @@
 	shl = stash list
 	shp = stash pop
 	shc = stash clear
-[user]
-{{- if eq .chezmoi.hostname "TKKMAC00060" }}
-	email = "hyuga.tsukui@tkk.tokyu.co.jp"
-{{- else }}
-        email = "gakikiki407@gmail.com"
-{{- end }}
-        name = "Hyuga Tsukui"
-
+[include]
 {{- if eq .chezmoi.hostname "private" }}
-[http]
-	cookiefile = /Users/hyugatsukui/.gitcookies
+	path = ~/.gitconfig.private
+{{- else }}
+	path = ~/.gitconfig.work
 {{- end }}
+
