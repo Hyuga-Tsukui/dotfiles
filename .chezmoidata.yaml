@@ -3,9 +3,10 @@ packages:
     taps:
       - 'homebrew/cask-fonts'
     brews:
+      - 'gh'
       - 'git'
       - 'jq'
-      - 'gh'
+      - 'tmux'
       - 'starship'
       - 'zsh-autosuggestions'
       - 'zsh-completions'
