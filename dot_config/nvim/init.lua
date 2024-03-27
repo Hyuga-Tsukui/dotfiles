@@ -9,18 +9,18 @@
 
 if not vim.g.vscode then
 	local opt = vim.opt
-	opt.number = true	
+	opt.number = true
 	opt.clipboard:append("unnamedplus")
-	
+
 	-- manage plugins.
-	vim.cmd.packadd "packer.nvim"
+	vim.cmd.packadd("packer.nvim")
 	require("packer").startup(function()
-		use 'wbthomason/packer.nvim' 
-		use 'rstacruz/vim-closer'
-		use {
-			'neovim/nvim-lspconfig',
+		use("wbthomason/packer.nvim")
+		use("rstacruz/vim-closer")
+		use({
+			"neovim/nvim-lspconfig",
 			config = function()
-				local status_ok, lspconfig = pcall(require, 'lspconfig')
+				local status_ok, lspconfig = pcall(require, "lspconfig")
 				if not status_ok then
 					print("lspconfig is not installed")
 					return
@@ -30,73 +30,73 @@ if not vim.g.vscode then
 
 				-- Lua.
 				if lspconfig.lua_ls then
-					lspconfig.lua_ls.setup{}
+					lspconfig.lua_ls.setup({})
 				end
 
 				-- OCaml.
 				if lspconfig.ocamllsp then
-					lspconfig.ocamllsp.setup{}
+					lspconfig.ocamllsp.setup({})
 				end
 
 				-- Lsp Keymaps.
 				-- global.
-				vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
-				vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-				vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-				vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+				vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
+				vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
+				vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
+				vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
 
 				-- after the language server attaches to the current buffer
-				vim.api.nvim_create_autocmd('LspAttach', {
-					group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+				vim.api.nvim_create_autocmd("LspAttach", {
+					group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 					callback = function(ev)
-						vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
-						
+						vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+
 						local opts = { buffer = ev.buf }
-						vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-						vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-						vim.keymap.set('n', '<space>k', vim.lsp.buf.hover, opts)
-						vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
-						vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+						vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+						vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+						vim.keymap.set("n", "<space>k", vim.lsp.buf.hover, opts)
+						vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
+						vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
 					end,
 				})
 			end,
-		}
-		use {
-			'nvimtools/none-ls.nvim',
-			requires = { { 'nvim-lua/plenary.nvim' }},
+		})
+		use({
+			"nvimtools/none-ls.nvim",
+			requires = { { "nvim-lua/plenary.nvim" } },
 			config = function()
-				local null_ls = require('null-ls')
+				local null_ls = require("null-ls")
 				null_ls.setup({
 					sources = {
-						null_ls.builtins.formatting.ocamlformat
+						null_ls.builtins.formatting.ocamlformat,
+						null_ls.builtins.formatting.stylua,
 					},
 					on_attach = function(_, bufnr)
-						vim.keymap.set('n', '<space>f', function()
+						vim.keymap.set("n", "<space>f", function()
 							vim.lsp.buf.format({
 								async = true,
 								filter = function(client)
-									return client.name == 'null-ls'
+									return client.name == "null-ls"
 								end,
 							})
 						end, { buffer = bufnr })
 					end,
 				})
-			end
-		}
+			end,
+		})
 	end)
-
 end
 
 local keymap = vim.keymap
-keymap.set('i', 'jj', '<ESC>')
-keymap.set('n', '<leader>nh', ':nohl<CR>')
+keymap.set("i", "jj", "<ESC>")
+keymap.set("n", "<leader>nh", ":nohl<CR>")
 
-keymap.set('n', '<S-k>', '10<UP>')
-keymap.set('n', '<S-j>', '10<DOWN>')
-keymap.set('n', '<S-h>', '10<LEFT>')
-keymap.set('n', '<S-l>', '10<RIGHT>')
+keymap.set("n", "<S-k>", "10<UP>")
+keymap.set("n", "<S-j>", "10<DOWN>")
+keymap.set("n", "<S-h>", "10<LEFT>")
+keymap.set("n", "<S-l>", "10<RIGHT>")
 
-keymap.set('v', '<S-k>', '10<UP>')
-keymap.set('v', '<S-j>', '10<DOWN>')
-keymap.set('v', '<S-h>', '10<LEFT>')
-keymap.set('v', '<S-l>', '10<RIGHT>')
+keymap.set("v", "<S-k>", "10<UP>")
+keymap.set("v", "<S-j>", "10<DOWN>")
+keymap.set("v", "<S-h>", "10<LEFT>")
+keymap.set("v", "<S-l>", "10<RIGHT>")
