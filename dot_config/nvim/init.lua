@@ -61,6 +61,28 @@ if not vim.g.vscode then
 				})
 			end,
 		}
+		use {
+			'nvimtools/none-ls.nvim',
+			requires = { { 'nvim-lua/plenary.nvim' }},
+			config = function()
+				local null_ls = require('null-ls')
+				null_ls.setup({
+					sources = {
+						null_ls.builtins.formatting.ocamlformat
+					},
+					on_attach = function(_, bufnr)
+						vim.keymap.set('n', '<space>f', function()
+							vim.lsp.buf.format({
+								async = true,
+								filter = function(client)
+									return client.name == 'null-ls'
+								end,
+							})
+						end, { buffer = bufnr })
+					end,
+				})
+			end
+		}
 	end)
 
 end
