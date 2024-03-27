@@ -1,0 +1,8 @@
+packages:
+  darwin:
+    brews:
+      - 'git'
+      - 'jq'
+    casks:
+      - 'alacritty'
+

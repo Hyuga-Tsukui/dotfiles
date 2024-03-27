@@ -1,0 +1,21 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/bin/sh
+
+# Install brew
+section "Install brew"
+if [ ! -x "$(command -v brew)" ] ; then
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" > /dev/null
+else
+	echo "brew already installed"
+fi
+
+brew bundle --no-lock --file=/dev/stdin <<EOF
+{{ range .packages.darwin.brews -}}
+brew {{ . | quote }}
+{{ end -}}
+{{ range .packages.darwin.casks -}}
+cask {{ . | quote }}
+{{ end -}}
+EOF
+{{ end -}}
+

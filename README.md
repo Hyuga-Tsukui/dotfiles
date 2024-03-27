@@ -1,4 +1,12 @@
-# Install
+# install
 
-## Jetpack
-curl -fLo ~/.local/share/nvim/site/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim --create-dirs https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim
+[chezmoi](https://www.chezmoi.io/)
+
+```sh
+chezmoi init --apply https://github.com/Hyuga-Tsukui/dotfiles-via-chezmoi.git
+```
+
+# setup editor
+
+[wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim)
+
