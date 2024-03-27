@@ -22,3 +22,9 @@ key_bindings:
   - { key: Left,     mods: Command, chars: "\x1bOH",   mode: AppCursor   } # Home
   - { key: Right,    mods: Command, chars: "\x1bOF",   mode: AppCursor   } # End
 live_config_reload: true
+shell:
+  program: /bin/zsh
+  args:
+    - -l
+    - -c
+    - "tmux a -t 0 || tmux"
