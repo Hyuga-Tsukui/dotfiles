@@ -38,6 +38,11 @@ if not vim.g.vscode then
 					lspconfig.ocamllsp.setup({})
 				end
 
+				-- Go.
+				if lspconfig.gopls then
+					lspconfig.gopls.setup({})
+				end
+
 				-- Lsp Keymaps.
 				-- global.
 				vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
