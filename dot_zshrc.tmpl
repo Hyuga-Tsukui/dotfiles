@@ -26,25 +26,14 @@ source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 export PATH="$HOME/go/bin:$PATH"
 
-# alias
-# -----------------------------------------------------------------
-# https://github.com/sharkdp/bat
-alias cat='bat -pP'
-alias brdump='brew bundle dump --force --global' # brew installしたあとに実行すると、Brewfileを更新する
 
-
-{{- if eq .chezmoi.hostname "TKKMAC00060" }}
 WORK_ZSH="${HOME}/.zsh/work.zsh"
-if [ -f "${WORK_ZSH}" ]; then
+if [[ -f "${WORK_ZSH}" ]]; then
   source "${WORK_ZSH}"
 fi
-{{- end }}
 
-
-{{- if eq .chezmoi.hostname "private" }}
 PRIVATE_ZSH="${HOME}/.zsh/private.zsh"
-if [ -f "${PRIVATE_ZSH}" ]; then
+if [[ -f "${PRIVATE_ZSH}" ]]; then
   source "${PRIVATE_ZSH}"
 fi
-{{- end }}
 
