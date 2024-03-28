@@ -1,6 +1,7 @@
 packages:
   darwin:
     taps:
+      - 'homebrew/cask-versions'
       - 'homebrew/cask-fonts'
     brews:
       - 'gh'
@@ -11,7 +12,7 @@ packages:
       - 'zsh-autosuggestions'
       - 'zsh-completions'
     casks:
-      - 'alacritty'
+      - 'wezterm-nightly'
       - 'font-cousine-nerd-font'
       - 'font-fira-code-nerd-font'
 
