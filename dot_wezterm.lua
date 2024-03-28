@@ -13,27 +13,35 @@ config.keys = {
 	{
 		key = "LeftArrow",
 		mods = "CMD",
-		action = act.SendKey {
+		action = act.SendKey({
 			key = "b",
 			mods = "META",
-		},
+		}),
 	},
 	{
 		key = "RightArrow",
 		mods = "CMD",
-		action = act.SendKey {
+		action = act.SendKey({
 			key = "f",
 			mods = "META",
-		},
+		}),
 	},
 	{
-		key = 'Backspace',
-		mods = 'CTRL',
-		action = act.SendKey {
-			key = 'w',
-			mods = 'CTRL',
-		}
+		key = "Backspace",
+		mods = "CTRL",
+		action = act.SendKey({
+			key = "w",
+			mods = "CTRL",
+		}),
+	},
+}
 
+config.mouse_bindings = {
+	-- Ctrl-click will open the link under the mouse cursor
+	{
+		event = { Up = { streak = 1, button = "Left" } },
+		mods = "CTRL",
+		action = act.OpenLinkAtMouseCursor,
 	},
 }
 
