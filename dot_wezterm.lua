@@ -28,7 +28,7 @@ config.keys = {
 	},
 	{
 		key = "Backspace",
-		mods = "CTRL",
+		mods = "CMD",
 		action = act.SendKey({
 			key = "w",
 			mods = "CTRL",
