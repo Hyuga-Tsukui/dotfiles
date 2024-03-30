@@ -73,7 +73,14 @@ if not vim.g.vscode then
 				local null_ls = require("null-ls")
 				null_ls.setup({
 					sources = {
-						null_ls.builtins.formatting.ocamlformat,
+						null_ls.builtins.formatting.ocamlformat.with({
+							cwd = function(params)
+								conf = vim.fn.findfile('.ocamlformat', params.root)
+								if conf then
+									return vim.fn.fnamemodify(conf, ':p:h')
+								end
+							end,
+						}),
 						null_ls.builtins.formatting.stylua,
 						null_ls.builtins.formatting.gofmt,
 						null_ls.builtins.formatting.goimports,
