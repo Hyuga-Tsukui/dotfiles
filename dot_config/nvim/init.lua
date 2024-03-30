@@ -1,15 +1,9 @@
--- require("plugins-setup")
--- require("core.options")
--- require("core.keymaps")
--- require('core.colorscheme')
--- require('plugins.fern-setup')
--- require('plugins.lsp-setup')
--- require('plugins.git-client')
--- require('plugins.fzf-setup')
-
 if not vim.g.vscode then
 	local opt = vim.opt
-	opt.number = true
+	opt.tabstop = 4
+	opt.expandtab = true
+	opt.shiftwidth = 4
+	opt.smartindent = true
 	opt.clipboard:append("unnamedplus")
 
 	-- manage plugins.
@@ -30,7 +24,17 @@ if not vim.g.vscode then
 
 				-- Lua.
 				if lspconfig.lua_ls then
-					lspconfig.lua_ls.setup({})
+					lspconfig.lua_ls.setup({
+						settings = {
+							Lua = {
+								diagnostics = {
+									globals = {
+										"vim",
+									},
+								},
+							},
+						},
+					})
 				end
 
 				-- OCaml.
@@ -75,9 +79,9 @@ if not vim.g.vscode then
 					sources = {
 						null_ls.builtins.formatting.ocamlformat.with({
 							cwd = function(params)
-								conf = vim.fn.findfile('.ocamlformat', params.root)
+								conf = vim.fn.findfile(".ocamlformat", params.root)
 								if conf then
-									return vim.fn.fnamemodify(conf, ':p:h')
+									return vim.fn.fnamemodify(conf, ":p:h")
 								end
 							end,
 						}),
