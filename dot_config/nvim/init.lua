@@ -10,7 +10,8 @@ if not vim.g.vscode then
 	vim.cmd.packadd("packer.nvim")
 	require("packer").startup(function()
 		use("wbthomason/packer.nvim")
-		use("rstacruz/vim-closer")
+		-- use("rstacruz/vim-closer")
+        use("cohama/lexima.vim")
 		use({
 			"neovim/nvim-lspconfig",
 			config = function()
@@ -46,6 +47,10 @@ if not vim.g.vscode then
 				if lspconfig.gopls then
 					lspconfig.gopls.setup({})
 				end
+
+                if lspconfig.terraformls then
+                    lspconfig.terraformls.setup{}
+                end
 
 				-- Lsp Keymaps.
 				-- global.
