@@ -5,6 +5,7 @@ if not vim.g.vscode then
 	opt.shiftwidth = 4
 	opt.smartindent = true
 	opt.clipboard:append("unnamedplus")
+    opt.relativenumber = true
 
 	-- manage plugins.
 	vim.cmd.packadd("packer.nvim")
