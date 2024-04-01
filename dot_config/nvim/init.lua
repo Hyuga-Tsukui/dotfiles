@@ -7,6 +7,13 @@ if not vim.g.vscode then
 	opt.clipboard:append("unnamedplus")
     opt.relativenumber = true
 
+    local undodir = vim.fn.stdpath('config') .. '/undo'
+    if vim.fn.isdirectory(undodir) == 0 then
+        vim.fn.mkdir(undodir, 'p')
+    end
+    vim.opt.undodir = undodir
+    vim.opt.undofile = true
+
 	-- manage plugins.
 	vim.cmd.packadd("packer.nvim")
 	require("packer").startup(function()
