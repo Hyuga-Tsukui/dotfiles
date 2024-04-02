@@ -5,26 +5,27 @@ if not vim.g.vscode then
 	opt.shiftwidth = 4
 	opt.smartindent = true
 	opt.clipboard:append("unnamedplus")
-    opt.relativenumber = true
+	opt.relativenumber = true
 
-    -- keymaps.
-    vim.keymap.set("n", '<C-j>', ':bprev<CR>', { noremap = true, silent = true })
-    vim.keymap.set("n", '<C-k>', ':bnext<CR>', { noremap = true, silent = true })
+	-- keymaps.
+	vim.keymap.set("n", "<C-j>", ":bprev<CR>", { noremap = true, silent = true })
+	vim.keymap.set("n", "<C-k>", ":bnext<CR>", { noremap = true, silent = true })
+	vim.keymap.set("n", "<C-p>", ":FzfLua files<CR>", { noremap = true })
 
-    local undodir = vim.fn.stdpath('config') .. '/undo'
-    if vim.fn.isdirectory(undodir) == 0 then
-        vim.fn.mkdir(undodir, 'p')
-    end
-    vim.opt.undodir = undodir
-    vim.opt.undofile = true
+	local undodir = vim.fn.stdpath("config") .. "/undo"
+	if vim.fn.isdirectory(undodir) == 0 then
+		vim.fn.mkdir(undodir, "p")
+	end
+	vim.opt.undodir = undodir
+	vim.opt.undofile = true
 
 	-- manage plugins.
 	vim.cmd.packadd("packer.nvim")
 	require("packer").startup(function()
 		use("wbthomason/packer.nvim")
 		-- use("rstacruz/vim-closer")
-        use("cohama/lexima.vim")
-        use("ibhagwan/fzf-lua")
+		use("cohama/lexima.vim")
+		use("ibhagwan/fzf-lua")
 		use({
 			"neovim/nvim-lspconfig",
 			config = function()
@@ -61,9 +62,9 @@ if not vim.g.vscode then
 					lspconfig.gopls.setup({})
 				end
 
-                if lspconfig.terraformls then
-                    lspconfig.terraformls.setup{}
-                end
+				if lspconfig.terraformls then
+					lspconfig.terraformls.setup({})
+				end
 
 				-- Lsp Keymaps.
 				-- global.
@@ -121,26 +122,26 @@ if not vim.g.vscode then
 			end,
 		})
 
-        -- Lsp Complement.
-        use("hrsh7th/cmp-nvim-lsp")
-        use("hrsh7th/cmp-buffer")
-        use("hrsh7th/nvim-cmp")
-        use("L3MON4D3/LuaSnip")
-        use("saadparwaiz1/cmp_luasnip")
+		-- Lsp Complement.
+		use("hrsh7th/cmp-nvim-lsp")
+		use("hrsh7th/cmp-buffer")
+		use("hrsh7th/nvim-cmp")
+		use("L3MON4D3/LuaSnip")
+		use("saadparwaiz1/cmp_luasnip")
 
-        local cmp = require("cmp")
-        cmp.setup({
-            snippet = {
-                expand = function(args)
-                    require("luasnip").lsp_expand(args.body)
-                end,
-            },
-            sources = cmp.config.sources({
-                { name = "nvim_lsp" },
-                { name = "luasnip" },
-            }),
-            { name = "buffer"},
-        })
+		local cmp = require("cmp")
+		cmp.setup({
+			snippet = {
+				expand = function(args)
+					require("luasnip").lsp_expand(args.body)
+				end,
+			},
+			sources = cmp.config.sources({
+				{ name = "nvim_lsp" },
+				{ name = "luasnip" },
+			}),
+			{ name = "buffer" },
+		})
 	end)
 end
 
