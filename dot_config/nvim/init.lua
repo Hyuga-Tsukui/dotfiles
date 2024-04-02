@@ -24,6 +24,7 @@ if not vim.g.vscode then
 		use("wbthomason/packer.nvim")
 		-- use("rstacruz/vim-closer")
         use("cohama/lexima.vim")
+        use("ibhagwan/fzf-lua")
 		use({
 			"neovim/nvim-lspconfig",
 			config = function()
