@@ -7,10 +7,18 @@ if not vim.g.vscode then
 	opt.clipboard:append("unnamedplus")
 	opt.relativenumber = true
 
+	function Open_cheatsheet()
+		local che = vim.fn.stdpath("config") .. "/cheatsheet.md"
+		vim.cmd("split " .. che)
+        vim.cmd("setlocal readonly")
+		vim.cmd("resize 10")
+	end
+
 	-- keymaps.
 	vim.keymap.set("n", "<C-j>", ":bprev<CR>", { noremap = true, silent = true })
 	vim.keymap.set("n", "<C-k>", ":bnext<CR>", { noremap = true, silent = true })
 	vim.keymap.set("n", "<C-p>", ":FzfLua files<CR>", { noremap = true })
+	vim.keymap.set("n", "<leader>cs", "<cmd>lua Open_cheatsheet()<CR>", { noremap = true, silent = true })
 
 	local undodir = vim.fn.stdpath("config") .. "/undo"
 	if vim.fn.isdirectory(undodir) == 0 then
