@@ -13,6 +13,15 @@ setopt auto_menu # 補完キー（Tab,  Ctrl+I) を連打するだけで順に�
 setopt auto_param_slash # パラメータ展開時に末尾のスラッシュを自動で補完する
 zstyle ':completion:*' list-colors di=34 fi=0 # 補完候補の色を設定
 
+eval "$(fzf --zsh)"
+
+# incremental git switch
+fsw() {
+  local branches branch
+  branches=$(git branch -vv) &&
+  branch=$(echo "$branches" | fzf +m) &&
+  git switch $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+}
 
 # https://volta.sh/
 export VOLTA_HOME="$HOME/.volta"

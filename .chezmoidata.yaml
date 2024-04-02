@@ -4,6 +4,7 @@ packages:
       - 'homebrew/cask-versions'
       - 'homebrew/cask-fonts'
     brews:
+      - 'fzf'
       - 'gh'
       - 'git'
       - 'jq'
@@ -12,7 +13,6 @@ packages:
       - 'zsh-autosuggestions'
       - 'zsh-completions'
     casks:
+      - 'font-ricty-diminished'
       - 'wezterm-nightly'
-      - 'font-cousine-nerd-font'
-      - 'font-fira-code-nerd-font'
 
