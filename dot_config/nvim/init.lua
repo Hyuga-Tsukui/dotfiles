@@ -7,6 +7,10 @@ if not vim.g.vscode then
 	opt.clipboard:append("unnamedplus")
     opt.relativenumber = true
 
+    -- keymaps.
+    vim.keymap.set("n", '<C-j>', ':bprev<CR>', { noremap = true, silent = true })
+    vim.keymap.set("n", '<C-k>', ':bnext<CR>', { noremap = true, silent = true })
+
     local undodir = vim.fn.stdpath('config') .. '/undo'
     if vim.fn.isdirectory(undodir) == 0 then
         vim.fn.mkdir(undodir, 'p')
@@ -115,6 +119,27 @@ if not vim.g.vscode then
 				})
 			end,
 		})
+
+        -- Lsp Complement.
+        use("hrsh7th/cmp-nvim-lsp")
+        use("hrsh7th/cmp-buffer")
+        use("hrsh7th/nvim-cmp")
+        use("L3MON4D3/LuaSnip")
+        use("saadparwaiz1/cmp_luasnip")
+
+        local cmp = require("cmp")
+        cmp.setup({
+            snippet = {
+                expand = function(args)
+                    require("luasnip").lsp_expand(args.body)
+                end,
+            },
+            sources = cmp.config.sources({
+                { name = "nvim_lsp" },
+                { name = "luasnip" },
+            }),
+            { name = "buffer"},
+        })
 	end)
 end
 
