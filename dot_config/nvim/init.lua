@@ -10,11 +10,12 @@ if not vim.g.vscode then
 	function Open_cheatsheet()
 		local che = vim.fn.stdpath("config") .. "/cheatsheet.md"
 		vim.cmd("split " .. che)
-        vim.cmd("setlocal readonly")
+		vim.cmd("setlocal readonly")
 		vim.cmd("resize 10")
 	end
 
 	-- keymaps.
+	vim.keymap.set("n", "[b", ":bprev<CR>", { noremap = true, silent = true })
 	vim.keymap.set("n", "<C-j>", ":bprev<CR>", { noremap = true, silent = true })
 	vim.keymap.set("n", "<C-k>", ":bnext<CR>", { noremap = true, silent = true })
 	vim.keymap.set("n", "<C-p>", ":FzfLua files<CR>", { noremap = true })
@@ -58,6 +59,11 @@ if not vim.g.vscode then
 							},
 						},
 					})
+				end
+
+				-- TypeScript.
+				if lspconfig.tsserver then
+					lspconfig.tsserver.setup({})
 				end
 
 				-- OCaml.
