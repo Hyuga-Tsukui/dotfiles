@@ -21,6 +21,8 @@ if not vim.g.vscode then
 	vim.keymap.set("n", "<C-p>", ":FzfLua files<CR>", { noremap = true })
 	vim.keymap.set("n", "<leader>cs", "<cmd>lua Open_cheatsheet()<CR>", { noremap = true, silent = true })
 
+	vim.keymap.set("t", "<A-j>", "<C-\\><C-n><C-w>w", { noremap = true, silent = true })
+
 	local undodir = vim.fn.stdpath("config") .. "/undo"
 	if vim.fn.isdirectory(undodir) == 0 then
 		vim.fn.mkdir(undodir, "p")
