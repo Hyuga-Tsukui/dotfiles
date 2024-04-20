@@ -4,8 +4,8 @@ local config = wezterm.config_builder()
 config.font = wezterm.font("Ricty Diminished")
 -- config.font = wezterm.font("FiraCode Nerd Font")
 config.color_scheme = "Tokyo Night"
-config.font_size = 16.5
---config.window_background_opacity = 0.9
+config.font_size = 18
+config.window_background_opacity = 0.9
 
 -- config.default_prog = {"/bin/zsh", "-l", "-c", "`tmux attach -t 0 || tmux`"}
 
@@ -35,6 +35,12 @@ config.keys = {
 			mods = "CTRL",
 		}),
 	},
+	-- disabled tab activation.
+	{
+		key = "t",
+		mods = "CMD",
+		action = act.DisableDefaultAssignment,
+	},
 }
 
 config.mouse_bindings = {
@@ -45,5 +51,7 @@ config.mouse_bindings = {
 		action = act.OpenLinkAtMouseCursor,
 	},
 }
+
+config.hide_tab_bar_if_only_one_tab = true
 
 return config
