@@ -17,4 +17,5 @@ packages:
     casks:
       - 'font-ricty-diminished'
       - 'wezterm-nightly'
+      - 'amethyst'
 
