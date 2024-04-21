@@ -6,6 +6,7 @@ packages:
     brews:
       - 'fd'
       - 'fzf'
+      - 'zoxide'
       - 'gh'
       - 'git'
       - 'jq'
