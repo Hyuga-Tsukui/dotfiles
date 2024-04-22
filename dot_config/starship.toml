@@ -1,4 +1,4 @@
-
+command_timeout = 1000
 # ~/.config/starship.toml
 [aws]
 disabled = true
