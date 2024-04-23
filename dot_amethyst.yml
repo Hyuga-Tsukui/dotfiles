@@ -38,7 +38,7 @@ mod1:
   - option
   - shift
   # - control
-  # - command
+  - command
 
 # Second mod (default option + shift + control).
 mod2:
