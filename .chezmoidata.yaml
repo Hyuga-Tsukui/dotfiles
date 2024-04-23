@@ -15,7 +15,8 @@ packages:
       - 'zsh-autosuggestions'
       - 'zsh-completions'
     casks:
-      - 'font-ricty-diminished'
-      - 'wezterm-nightly'
       - 'amethyst'
+      - 'font-ricty-diminished'
+      - 'google-cloud-sdk'
+      - 'wezterm-nightly'
 
