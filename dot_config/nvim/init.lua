@@ -6,6 +6,7 @@ if not vim.g.vscode then
 	opt.smartindent = true
 	opt.clipboard:append("unnamedplus")
 	opt.relativenumber = true
+    opt.cmdheight = 0
 
 	function Open_cheatsheet()
 		local che = vim.fn.stdpath("config") .. "/cheatsheet.md"
