@@ -4,7 +4,6 @@ if not vim.g.vscode then
 	opt.expandtab = true
 	opt.shiftwidth = 4
 	opt.smartindent = true
-	opt.clipboard:append("unnamedplus")
 	opt.relativenumber = true
     opt.cmdheight = 0
 
@@ -175,3 +174,5 @@ keymap.set("v", "<S-k>", "10<UP>")
 keymap.set("v", "<S-j>", "10<DOWN>")
 keymap.set("v", "<S-h>", "10<LEFT>")
 keymap.set("v", "<S-l>", "10<RIGHT>")
+
+vim.opt.clipboard:append("unnamedplus")
