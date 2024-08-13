@@ -3,9 +3,8 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 config.font = wezterm.font("Ricty Diminished")
 -- config.font = wezterm.font("FiraCode Nerd Font")
-config.color_scheme = "Tokyo Night"
+-- config.color_scheme = "Tokyo Night"
 config.font_size = 18
-config.window_background_opacity = 0.9
 
 -- config.default_prog = {"/bin/zsh", "-l", "-c", "`tmux attach -t 0 || tmux`"}
 
