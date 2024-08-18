@@ -30,6 +30,14 @@ if not vim.g.vscode then
 	vim.opt.undodir = undodir
 	vim.opt.undofile = true
 
+    vim.diagnostic.config({
+        virtual_text = {
+            format = function(diagnostic)
+                return string.format("%s (%s: %s)", diagnostic.message, diagnostic.source, diagnostic.code)
+            end,
+        },
+    })
+
 	-- manage plugins.
 	vim.cmd.packadd("packer.nvim")
 	require("packer").startup(function()
