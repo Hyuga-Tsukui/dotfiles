@@ -1,4 +1,5 @@
 if not vim.g.vscode then
+    vim.cmd[[colorscheme tokyonight]]
 	local opt = vim.opt
 	opt.tabstop = 4
 	opt.expandtab = true
@@ -166,6 +167,9 @@ if not vim.g.vscode then
 			}),
 			{ name = "buffer" },
 		})
+        
+        -- Color
+        use("folke/tokyonight.nvim")
 	end)
 end
 
