@@ -1,4 +1,5 @@
 if not vim.g.vscode then
+    require("core.keymaps")
 	local opt = vim.opt
 	opt.tabstop = 4
 	opt.expandtab = true
