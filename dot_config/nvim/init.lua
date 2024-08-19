@@ -1,5 +1,6 @@
 if not vim.g.vscode then
-    vim.cmd[[colorscheme tokyonight]]
+  require("core.keymaps")
+  vim.cmd[[colorscheme tokyonight]]
 	local opt = vim.opt
 	opt.tabstop = 4
 	opt.expandtab = true
