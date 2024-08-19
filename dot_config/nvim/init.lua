@@ -1,5 +1,6 @@
 if not vim.g.vscode then
-    require("core.keymaps")
+  require("core.keymaps")
+  vim.cmd[[colorscheme tokyonight]]
 	local opt = vim.opt
 	opt.tabstop = 4
 	opt.expandtab = true
@@ -30,6 +31,14 @@ if not vim.g.vscode then
 	end
 	vim.opt.undodir = undodir
 	vim.opt.undofile = true
+
+    vim.diagnostic.config({
+        virtual_text = {
+            format = function(diagnostic)
+                return string.format("%s (%s: %s)", diagnostic.message, diagnostic.source, diagnostic.code)
+            end,
+        },
+    })
 
 	-- manage plugins.
 	vim.cmd.packadd("packer.nvim")
@@ -159,6 +168,9 @@ if not vim.g.vscode then
 			}),
 			{ name = "buffer" },
 		})
+        
+        -- Color
+        use("folke/tokyonight.nvim")
 	end)
 end
 
