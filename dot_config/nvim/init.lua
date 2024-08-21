@@ -171,6 +171,12 @@ if not vim.g.vscode then
         
         -- Color
         use("folke/tokyonight.nvim")
+        use({
+            "glidenote/memolist.vim",
+            config = function()
+                vim.g.memolist_path = vim.fn.expand("~/.config/memo/_posts")
+            end,
+        })
 	end)
 end
 
