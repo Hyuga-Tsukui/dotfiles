@@ -1,6 +1,6 @@
 if not vim.g.vscode then
-  require("core.keymaps")
-  vim.cmd[[colorscheme tokyonight]]
+    require("core.keymaps")
+    vim.cmd[[colorscheme tokyonight]]
 	local opt = vim.opt
 	opt.tabstop = 4
 	opt.expandtab = true
@@ -8,6 +8,19 @@ if not vim.g.vscode then
 	opt.smartindent = true
 	opt.relativenumber = true
     opt.cmdheight = 0
+    opt.conceallevel = 2
+
+    vim.keymap.set('t', '<C-w>h', "<C-\\><C-n><C-w>h",{silent = true})
+
+    -- autocmd
+    vim.api.nvim_create_autocmd("TermOpen", {
+      pattern = "*",
+      callback = function()
+          opt.relativenumber = false
+          opt.number = false
+      end,
+    })
+
 
 	function Open_cheatsheet()
 		local che = vim.fn.stdpath("config") .. "/cheatsheet.md"
@@ -176,6 +189,47 @@ if not vim.g.vscode then
             config = function()
                 vim.g.memolist_path = vim.fn.expand("~/.config/memo/_posts")
             end,
+        })
+
+        -- obsidian
+        use({
+          "epwalsh/obsidian.nvim",
+          tag = "*",  -- recommended, use latest release instead of latest commit
+          requires = {
+            -- Required.
+            "nvim-lua/plenary.nvim",
+
+            -- see below for full list of optional dependencies 👇
+          },
+          config = function()
+            require("obsidian").setup({
+              workspaces = {
+                {
+                  name = "personal",
+                  path = vim.fn.expand("~/obsidian")
+                },
+              },
+
+              -- see below for full list of options 👇
+              disable_frontmatter = true,
+              note_id_func = function(title)
+                -- Create note IDs in a Zettelkasten format with a timestamp and a suffix.
+                -- In this case a note with the title 'My new note' will be given an ID that looks
+                -- like '1657296016-my-new-note', and therefore the file name '1657296016-my-new-note.md'
+                local suffix = ""
+                if title ~= nil then
+                  -- If title is given, transform it into valid file name.
+                  suffix = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
+                else
+                  -- If title is nil, just add 4 random uppercase letters to the suffix.
+                  for _ = 1, 4 do
+                    suffix = suffix .. string.char(math.random(65, 90))
+                  end
+                end
+                return tostring(os.time()) .. "-" .. suffix
+              end,
+            })
+          end,
         })
 	end)
 end
