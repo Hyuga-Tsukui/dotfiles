@@ -1,7 +1,7 @@
 if not vim.g.vscode then
-    require("plugins-setup")
+	-- require("plugins-setup")
 	require("core.keymaps")
-	vim.cmd([[colorscheme tokyonight]])
+	require("config.lazy")
 	local opt = vim.opt
 	opt.tabstop = 4
 	opt.expandtab = true
