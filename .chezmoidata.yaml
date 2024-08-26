@@ -8,6 +8,7 @@ packages:
       - 'gh'
       - 'git'
       - 'jq'
+      - 'ripgrep'
       - 'thefuck'
       - 'tmux'
       - 'starship'
