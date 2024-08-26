@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 
 local config = wezterm.config_builder()
-config.font = wezterm.font("Ricty Diminished")
+config.font = wezterm.font("Hack")
 config.font_size = 18
 config.color_scheme = 'tokyonight'
 
