@@ -19,5 +19,5 @@ packages:
       - 'amethyst'
       - 'font-ricty-diminished'
       - 'google-cloud-sdk'
-      - 'wezterm-nightly'
+      - 'wezterm@nightly'
 
