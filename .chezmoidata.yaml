@@ -1,8 +1,6 @@
 packages:
   darwin:
     taps:
-      - 'homebrew/cask-versions'
-      - 'homebrew/cask-fonts'
     brews:
       - 'fd'
       - 'fzf'
@@ -16,7 +14,6 @@ packages:
       - 'zsh-autosuggestions'
       - 'zsh-completions'
     casks:
-      - 'amethyst'
       - 'font-ricty-diminished'
       - 'google-cloud-sdk'
       - 'wezterm@nightly'
