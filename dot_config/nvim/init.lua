@@ -11,6 +11,7 @@ if not vim.g.vscode then
 	opt.cmdheight = 0
 	opt.conceallevel = 2
 
+
 	vim.keymap.set("t", "<C-w>h", "<C-\\><C-n><C-w>h", { silent = true })
 
 	-- autocmd
