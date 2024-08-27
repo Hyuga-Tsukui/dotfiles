@@ -11,6 +11,9 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
 
+# REF: https://github.com/zdharma-continuum/zinit/discussions/312 zoxside(zi) And zinit(zi) in conflict. 
+unalias zi
+
 # install zsh plugins
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 
