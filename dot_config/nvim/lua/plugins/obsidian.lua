@@ -29,6 +29,12 @@ local opts = {
 		return tostring(os.time()) .. "-" .. suffix
 	end,
 
+	note_path_func = function(spec)
+		-- This is equivalent to the default behavior.
+		local path = spec.dir / spec.title
+		return path:with_suffix(".md")
+	end,
+
 	picker = {
 		name = "fzf-lua",
 	},
@@ -41,6 +47,7 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"ibhagwan/fzf-lua",
+	    "hrsh7th/nvim-cmp",
 	},
 	opts = opts,
 }
