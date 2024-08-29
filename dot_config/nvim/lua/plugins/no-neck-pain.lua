@@ -1,13 +1,7 @@
 return {
 	"shortcuts/no-neck-pain.nvim",
-	-- cmd = {
-	-- 	"NoNeckPain",
-	-- },
-    event = "VimEnter",
+	event = "VimEnter",
 	config = function()
-		-- vim.api.nvim_create_autocmd({"VimEnter"}, {
-		-- 	command = ":NoNeckPain<CR>",
-		-- })
-        vim.cmd("NoNeckPain")
+		vim.cmd("NoNeckPain")
 	end,
 }
