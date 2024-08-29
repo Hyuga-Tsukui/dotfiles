@@ -2,6 +2,7 @@ packages:
   darwin:
     taps:
     brews:
+      - 'bat'
       - 'fd'
       - 'fzf'
       - 'zoxide'
@@ -15,7 +16,6 @@ packages:
       - 'zsh-autosuggestions'
       - 'zsh-completions'
     casks:
-      - 'font-Hack-nerd-font'
       - 'google-cloud-sdk'
       - 'wezterm@nightly'
       - 'font-hackgen'
