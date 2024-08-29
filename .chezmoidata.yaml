@@ -18,4 +18,5 @@ packages:
       - 'font-Hack-nerd-font'
       - 'google-cloud-sdk'
       - 'wezterm@nightly'
+      - 'font-hackgen'
 
