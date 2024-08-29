@@ -3,10 +3,20 @@
 # 1. Search for text in files using Ripgrep
 # 2. Interactively narrow down the list using fzf
 # 3. Open the file in Vim
+
+
+# # 引数にディレクトリパスが渡されている場合、そのディレクトリに移動
+if [ -n "$1" ]; then
+  cd "$1" || exit
+  shift # ディレクトリパスの引数を削除して、残りの引数に対応
+fi
+
 rg --color=always --line-number --no-heading --smart-case "${*:-}" |
   fzf --ansi \
       --color "hl:-1:underline,hl+:-1:underline:reverse" \
       --delimiter : \
       --preview 'bat --color=always {1} --highlight-line {2}' \
       --preview-window 'up,60%,border-bottom,+{2}+3/3,~3' \
-      --bind 'enter:become(nvim {1} +{2})'
+      --bind 'enter:become(nvim {1} +{2})' \
+      --height 100%
+
