@@ -1,11 +1,15 @@
 local opt = vim.opt
 
 -- line numbers
-opt.number = true
+-- opt.number = true
+opt.relativenumber = true
+opt.cmdheight = 0
+opt.conceallevel = 2
 
+opt.smartindent = true
 -- tab & indentation
-opt.tabstop = 2
-opt.shiftwidth = 2
+opt.tabstop = 4
+opt.shiftwidth = 4
 opt.expandtab = true
 opt.autoindent = true
 
@@ -43,3 +47,10 @@ opt.swapfile = false
 opt.updatetime = 500
 
 opt.iskeyword:append("-")
+
+local undodir = vim.fn.stdpath("config") .. "/undo"
+if vim.fn.isdirectory(undodir) == 0 then
+	vim.fn.mkdir(undodir, "p")
+end
+vim.opt.undodir = undodir
+vim.opt.undofile = true
