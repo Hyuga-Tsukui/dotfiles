@@ -3,7 +3,9 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 config.font = wezterm.font("HackGen Console")
 config.font_size = 18
-config.color_scheme = 'tokyonight'
+config.color_scheme = 'Tokyo Night Moon'
+
+config.enable_tab_bar = false
 
 local act = wezterm.action
 config.keys = {
