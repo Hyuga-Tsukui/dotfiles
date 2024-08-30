@@ -1,23 +1,4 @@
-local copilot = {
-	"zbirenbaum/copilot-cmp",
-	dependencies = "copilot.lua",
-	-- config = function(_, opts)
-	-- 	local copilot_cmp = require("copilot.cmp")
-	-- 	copilot_cmp.setup(opts)
-	--
-	-- 	LazyVim.lsp.on_attach(function(_)
-	-- 		copilot_cmp._on_insert_enter({})
-	-- 	end, "copilot")
-	-- end,
-	-- opts = function(_, opts)
-	-- 	table.insert(opts.sources, 1, {
-	-- 		name = "copilot",
-	-- 		group_index = 1,
-	-- 		priority = 100,
-	-- 	})
-	-- end,
-}
-
+-- REF: https://github.com/zbirenbaum/copilot-cmp?tab=readme-ov-file#tab-completion-configuration-highly-recommended
 local has_words_before = function()
 	if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then
 		return false
@@ -36,7 +17,13 @@ return {
 		"hrsh7th/cmp-cmdline",
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
-		copilot,
+		{
+			"zbirenbaum/copilot-cmp",
+            dependencies = "copilot.lua",
+			config = function()
+				require("copilot_cmp").setup({})
+			end,
+		},
 	},
 	config = function()
 		local cmp = require("cmp")
@@ -49,7 +36,7 @@ return {
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
-				{ name = "copilot", group_index = 2 },
+				{ name = "copilot" },
 			}, {
 				{ name = "buffer" },
 			}),
