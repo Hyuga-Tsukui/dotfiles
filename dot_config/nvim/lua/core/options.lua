@@ -34,7 +34,6 @@ opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes"
 opt.title = true
-opt.colorcolumn = "80"
 
 -- backspace
 opt.backspace = "indent,eol,start"
@@ -48,7 +47,7 @@ opt.splitbelow = true
 
 -- log
 opt.history = 500
-opt.updatetime = 500
+opt.updatetime = 50
 
 opt.iskeyword:append("-")
 
