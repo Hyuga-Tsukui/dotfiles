@@ -1,7 +1,9 @@
 local opt = vim.opt
 
+opt.guicursor = ""
+
 -- line numbers
--- opt.number = true
+opt.nu = true
 opt.relativenumber = true
 opt.cmdheight = 0
 opt.conceallevel = 2
@@ -19,8 +21,10 @@ opt.wrap = false
 -- search settings
 opt.ignorecase = true
 opt.smartcase = true
--- opt.incsearch = true
--- opt.hlsearch = true
+opt.incsearch = true
+opt.hlsearch = false
+
+opt.scrolloff = 8
 
 -- cursorline
 opt.cursorline = true
@@ -30,6 +34,7 @@ opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes"
 opt.title = true
+opt.colorcolumn = "80"
 
 -- backspace
 opt.backspace = "indent,eol,start"
@@ -43,10 +48,13 @@ opt.splitbelow = true
 
 -- log
 opt.history = 500
-opt.swapfile = false
 opt.updatetime = 500
 
 opt.iskeyword:append("-")
+
+-- backup
+opt.swapfile = false
+opt.backup = false
 
 local undodir = vim.fn.stdpath("config") .. "/undo"
 if vim.fn.isdirectory(undodir) == 0 then
