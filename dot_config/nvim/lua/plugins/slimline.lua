@@ -17,6 +17,19 @@ return {
 				folder = " ",
 				lines = " ",
 			},
+            spaces = {
+                compnents = "",
+                left = "",
+                right = "",
+            },
+            sep = {
+                hide = {
+                    first = true,
+                    last = true,
+                },
+                left = "",
+                right = ""
+            }
 		})
 	end,
 }
