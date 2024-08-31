@@ -5,7 +5,6 @@ packages:
       - 'bat'
       - 'fd'
       - 'fzf'
-      - 'zoxide'
       - 'gh'
       - 'git'
       - 'jq'
@@ -15,9 +14,11 @@ packages:
       - 'starship'
       - 'zsh-autosuggestions'
       - 'zsh-completions'
+      - 'zoxide'
     casks:
-      - 'google-cloud-sdk'
       - 'wezterm@nightly'
       - 'font-hackgen'
       - 'nikitabobko/tap/aerospace'
+    heads:
+      - 'nvim'
 
