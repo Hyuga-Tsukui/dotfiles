@@ -3,10 +3,7 @@
 [chezmoi](https://www.chezmoi.io/)
 
 ```sh
-chezmoi init --apply https://github.com/Hyuga-Tsukui/dotfiles-via-chezmoi.git
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply Hyuga-Tsukui
 ```
 
-# setup editor
-
-[wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim)
 
