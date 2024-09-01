@@ -1,4 +1,4 @@
-local trigger_key = "<C-`>"
+local trigger_key = "<C-\\>"
 local toggle = [[<Cmd>exe v:count1 .. "ToggleTerm"<CR>]]
 
 return {
