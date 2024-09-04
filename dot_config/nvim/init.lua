@@ -1,5 +1,4 @@
 if not vim.g.vscode then
-	require("core.options")
 	require("config.lazy")
 
 	vim.diagnostic.config({
@@ -11,5 +10,5 @@ if not vim.g.vscode then
 	})
 end
 
+require("core.options")
 require("core.keymaps")
-
