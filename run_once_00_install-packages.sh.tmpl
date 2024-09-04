@@ -18,9 +18,6 @@ brew {{ . | quote }}
 {{ range .packages.darwin.casks -}}
 cask {{ . | quote }}
 {{ end -}}
-{{ range .packages.darwin.heads -}}
-brew {{ . | quote }}, args: ["HEAD"]
-{{ end -}}
 EOF
 {{ end -}}
 

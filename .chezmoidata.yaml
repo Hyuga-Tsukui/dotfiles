@@ -19,6 +19,4 @@ packages:
       - 'wezterm@nightly'
       - 'font-hackgen'
       - 'nikitabobko/tap/aerospace'
-    heads:
-      - 'nvim'
 
