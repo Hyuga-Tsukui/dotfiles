@@ -88,11 +88,3 @@ eval $(thefuck --alias fk)
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# auto update chezmoi
-
-if command -v chezmoi > /dev/null 2>&1; then
-    chezmoi update
-else
-    echo "\033[33mWarning:\033[0m chezmoi is not installed. Please install it."
-fi
