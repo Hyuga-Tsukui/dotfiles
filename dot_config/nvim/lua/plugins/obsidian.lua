@@ -3,6 +3,20 @@ local cmd = {
 	"ObsidianSearch",
 }
 
+local rules = {
+	{ pattern = "[%s /\\?*]", replace = "-" },
+}
+
+-- Replace all characters in a string that match a pattern.
+-- @param s string: The string to replace characters in.
+-- @return string: The string with characters replaced.
+local replace = function(s)
+	for _, rule in ipairs(rules) do
+		s = s:gsub(rule.pattern, rule.replace)
+	end
+	return s
+end
+
 local opts = {
 	workspaces = {
 		{
@@ -10,7 +24,7 @@ local opts = {
 			path = vim.fn.expand("~/obsidian"),
 		},
 	},
-	notes_subdir = "Inbox",
+	notes_subdir = "inbox",
 	-- disable_frontmatter = true,
 	note_id_func = function(title)
 		-- Create note IDs in a Zettelkasten format with a timestamp and a suffix.
@@ -19,7 +33,7 @@ local opts = {
 		local suffix = ""
 		if title ~= nil then
 			-- If title is given, transform it into valid file name.
-			suffix = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
+			suffix = replace(title)
 		else
 			-- If title is nil, just add 4 random uppercase letters to the suffix.
 			for _ = 1, 4 do
@@ -30,9 +44,13 @@ local opts = {
 	end,
 
 	note_path_func = function(spec)
-		-- This is equivalent to the default behavior.
-		local path = spec.dir / spec.title
-		return path:with_suffix(".md")
+		local file_name = ""
+		if spec.title ~= nil then
+			file_name = replace(spec.title)
+		else
+			file_name = spec.id
+		end
+		return (spec.dir / file_name):with_suffix(".md")
 	end,
 
 	picker = {
@@ -42,12 +60,11 @@ local opts = {
 
 return {
 	"epwalsh/obsidian.nvim",
-	lazy = true,
 	cmd = cmd,
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"ibhagwan/fzf-lua",
-	    "hrsh7th/nvim-cmp",
+		"hrsh7th/nvim-cmp",
 	},
 	opts = opts,
 }
