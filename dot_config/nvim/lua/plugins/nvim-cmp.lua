@@ -19,7 +19,7 @@ return {
 		"saadparwaiz1/cmp_luasnip",
 		{
 			"zbirenbaum/copilot-cmp",
-            dependencies = "copilot.lua",
+			dependencies = "copilot.lua",
 			config = function()
 				require("copilot_cmp").setup({})
 			end,
@@ -27,6 +27,7 @@ return {
 	},
 	config = function()
 		local cmp = require("cmp")
+		local lua_snip = require("luasnip")
 		cmp.setup({
 			snippet = {
 				expand = function(args)
@@ -49,6 +50,8 @@ return {
 				["<Tab>"] = vim.schedule_wrap(function(fallback)
 					if cmp.visible() and has_words_before() then
 						cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+					elseif lua_snip.expand_or_jumpable() then
+						lua_snip.expand_or_jump()
 					else
 						fallback()
 					end
