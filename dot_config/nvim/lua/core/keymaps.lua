@@ -15,3 +15,4 @@ if not vim.g.vscode then
 	-- vim.keymap.set("n", "<C-p>", ":FzfLua files<CR>", { noremap = true })
 	-- vim.keymap.set("n", "<leader>dq", ":lua vim.diagnostic.setloclist()<CR>")
 end
+-- vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
