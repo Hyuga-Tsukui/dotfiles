@@ -25,8 +25,8 @@ return {
 		end
 
 		-- TypeScript.
-		if lspconfig.tsserver then
-			lspconfig.tsserver.setup({})
+		if lspconfig.ts_ls then
+			lspconfig.ts_ls.setup({})
 		end
 
 		-- OCaml.
