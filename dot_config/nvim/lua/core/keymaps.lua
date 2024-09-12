@@ -12,7 +12,7 @@ vim.keymap.set("x", "<leader>p", '"_dp')
 
 if not vim.g.vscode then
 	-- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-	-- vim.keymap.set("n", "<C-p>", ":FzfLua files<CR>", { noremap = true })
-	-- vim.keymap.set("n", "<leader>dq", ":lua vim.diagnostic.setloclist()<CR>")
+	vim.keymap.set("n", "<C-p>", ":FzfLua files<CR>", { noremap = true })
+	vim.keymap.set("n", "<leader>dq", ":lua vim.diagnostic.setloclist()<CR>")
+	vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
 end
--- vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
