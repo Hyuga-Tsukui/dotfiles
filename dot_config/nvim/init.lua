@@ -1,5 +1,7 @@
 if not vim.g.vscode then
-    -- disable netrw at the very start of your init.lua
+	require("core.options")
+	require("core.keymaps")
+	-- disable netrw at the very start of your init.lua
 	vim.g.loaded_netrw = 1
 	vim.g.loaded_netrwPlugin = 1
 
@@ -13,6 +15,3 @@ if not vim.g.vscode then
 		},
 	})
 end
-
-require("core.options")
-require("core.keymaps")
