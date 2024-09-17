@@ -3,7 +3,7 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 	},
-    event = {"BufRead", "BufNewFile"},
+	event = { "BufRead", "BufNewFile" },
 	config = function()
 		local null_ls = require("null-ls")
 		null_ls.setup({
@@ -19,6 +19,7 @@ return {
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.formatting.gofmt,
 				null_ls.builtins.formatting.goimports,
+				null_ls.builtins.formatting.terraform_fmt,
 
 				null_ls.builtins.formatting.prettierd.with({
 					filetypes = { "html", "json", "js", "tsx", "ts", "css" },
