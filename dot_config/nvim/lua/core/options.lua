@@ -1,8 +1,5 @@
 local opt = vim.opt
 
--- appearence
-opt.guicursor = ""
-
 -- clipboard
 opt.clipboard:append("unnamedplus")
 opt.scrolloff = 8
@@ -12,6 +9,8 @@ opt.incsearch = true
 opt.hlsearch = false
 
 if not vim.g.vscode then
+	-- appearence
+	opt.guicursor = ""
 	-- line numbers
 	opt.nu = true
 	opt.relativenumber = true
