@@ -11,6 +11,7 @@ packages:
       - 'ripgrep'
       - 'thefuck'
       - 'tmux'
+      - 'typos-cli'
       - 'starship'
       - 'zsh-autosuggestions'
       - 'zsh-completions'
