@@ -43,6 +43,14 @@ return {
 			lspconfig.terraformls.setup({})
 		end
 
+		if lspconfig.typos_lsp then
+			lspconfig.typos_lsp.setup({
+				init_options = {
+					config = "~/.config/typos/.typos.toml",
+				},
+			})
+		end
+
 		-- Lsp Keymaps.
 		-- global.
 		vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
