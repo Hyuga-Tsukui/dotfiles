@@ -40,9 +40,9 @@ return {
 			lspconfig.gopls.setup({})
 		end
 
-		if lspconfig.terraformls then
-			lspconfig.terraformls.setup({})
-		end
+		-- if lspconfig.terraformls then
+		-- 	lspconfig.terraformls.setup({})
+		-- end
 
 		if lspconfig.typos_lsp then
 			lspconfig.typos_lsp.setup({
