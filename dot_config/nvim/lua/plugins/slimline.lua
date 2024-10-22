@@ -18,7 +18,7 @@ return {
 				lines = " ",
 			},
             spaces = {
-                compnents = "",
+                components = "",
                 left = "",
                 right = "",
             },
