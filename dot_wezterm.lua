@@ -5,6 +5,8 @@ config.font = wezterm.font("HackGen Console")
 config.font_size = 18
 config.color_scheme = 'Tokyo Night Moon'
 
+config.audible_bell = 'Disabled'
+
 config.enable_tab_bar = false
 
 local act = wezterm.action
