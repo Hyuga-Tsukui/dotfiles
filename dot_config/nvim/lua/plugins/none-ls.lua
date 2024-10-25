@@ -24,6 +24,8 @@ return {
 				null_ls.builtins.formatting.prettierd.with({
 					filetypes = { "html", "json", "js", "tsx", "ts", "css" },
 				}),
+
+                null_ls.builtins.formatting.sqlfmt,
 			},
 			on_attach = function(_, bufnr)
 				vim.keymap.set("n", "<space>f", function()
