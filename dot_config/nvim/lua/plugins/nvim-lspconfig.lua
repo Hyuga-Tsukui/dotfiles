@@ -1,6 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
-    event = {"BufReadPre", "BufNewFile"},
+	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		local status_ok, lspconfig = pcall(require, "lspconfig")
 		if not status_ok then
@@ -41,7 +41,11 @@ return {
 		end
 
 		if lspconfig.terraformls then
-			lspconfig.terraformls.setup({})
+			lspconfig.terraformls.setup({
+              on_attach = function(client, _)
+                  client.server_capabilities.semanticTokensProvider = nil
+              end,
+		    })
 		end
 
 		if lspconfig.typos_lsp then
