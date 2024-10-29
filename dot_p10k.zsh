@@ -573,7 +573,7 @@
   typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VERBOSE=true
   # Custom icon.
   # typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VISUAL_IDENTIFIER_EXPANSION='⭐'
-  typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VISUAL_IDENTIFIER_EXPANSION='  ${${jobstates[(I)*]}+${#jobstates[@]}}'
+  typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VISUAL_IDENTIFIER_EXPANSION='   ${${jobstates[(I)*]}+${#jobstates[@]}}'
 
   #######################[ direnv: direnv status (https://direnv.net/) ]########################
   # Direnv color.
