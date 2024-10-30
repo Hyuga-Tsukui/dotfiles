@@ -4,7 +4,6 @@ return {
 	event = "VeryLazy",
 	config = function()
 		require("nvim-tree").setup({})
-		vim.g.mapleader = " "
 		vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
 	end,
 }
