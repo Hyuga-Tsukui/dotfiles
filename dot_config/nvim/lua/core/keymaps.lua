@@ -17,8 +17,6 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 -- vim.keymap.set("x", "i<space>", "iW", { noremap = true, silent = true })
 
 if not vim.g.vscode then
-	-- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 	vim.keymap.set("n", "<C-p>", ":FzfLua files<CR>", { noremap = true })
 	vim.keymap.set("n", "<leader>dq", ":lua vim.diagnostic.setloclist()<CR>")
-	vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
 end
