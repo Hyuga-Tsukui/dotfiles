@@ -5,6 +5,10 @@ config.font = wezterm.font("HackGen Console")
 config.font_size = 18
 config.color_scheme = 'Tokyo Night Moon'
 
+config.window_padding = {
+    bottom = 0,
+}
+
 config.audible_bell = 'Disabled'
 
 config.enable_tab_bar = false
@@ -38,6 +42,11 @@ config.keys = {
 	-- disabled tab activation.
 	{
 		key = "t",
+		mods = "CMD",
+		action = act.DisableDefaultAssignment,
+	},
+	{
+		key = "n",
 		mods = "CMD",
 		action = act.DisableDefaultAssignment,
 	},
