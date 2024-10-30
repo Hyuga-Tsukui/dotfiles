@@ -38,8 +38,6 @@
     background_jobs         # presence of background jobs
     # =========================[ Line #2 ]=========================
     newline                 # \n
-    gcloud                  # google cloud cli account and project (https://cloud.google.com/)
-    newline                 # \n
     prompt_char             # prompt symbol
   )
 
@@ -84,6 +82,7 @@
     aws                     # aws profile (https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)
     aws_eb_env              # aws elastic beanstalk environment (https://aws.amazon.com/elasticbeanstalk/)
     azure                   # azure account name (https://docs.microsoft.com/en-us/cli/azure)
+    gcloud                  # google cloud cli account and project (https://cloud.google.com/)
     google_app_cred         # google application credentials (https://cloud.google.com/docs/authentication/production)
     toolbox                 # toolbox name (https://github.com/containers/toolbox)
     context                 # user@hostname
@@ -108,7 +107,7 @@
     taskwarrior             # taskwarrior task count (https://taskwarrior.org/)
     per_directory_history   # Oh My Zsh per-directory-history local/global indicator
     # cpu_arch              # CPU architecture
-    # time                    # current time
+    time                    # current time
     # =========================[ Line #2 ]=========================
     newline
     # ip                    # ip address and bandwidth usage for a specified network interface
@@ -819,7 +818,7 @@
   typeset -g POWERLEVEL9K_CHEZMOI_SHELL_FOREGROUND=0
   typeset -g POWERLEVEL9K_CHEZMOI_SHELL_BACKGROUND=4
   # Custom icon.
-  typeset -g POWERLEVEL9K_CHEZMOI_SHELL_VISUAL_IDENTIFIER_EXPANSION='chezmoi'
+  # typeset -g POWERLEVEL9K_CHEZMOI_SHELL_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
   ##################################[ disk_usage: disk usage ]##################################
   # Colors for different levels of disk usage.
