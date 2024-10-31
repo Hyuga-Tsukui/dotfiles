@@ -20,8 +20,10 @@ return {
 				-- Or, specify all three
 				Outline = { event = "BufWinLeave", text = "symbols-outline", align = "right" },
 			},
+            animation = false,
 		})
 		vim.keymap.set("n", "<TAB>", "<Cmd>BufferPrevious<CR>", { noremap = true, silent = true })
 		vim.keymap.set("n", "<S-TAB>", "<Cmd>BufferNext<CR>", { noremap = true, silent = true })
+		vim.keymap.set("n", "<leader>p", "<Cmd>BufferPick<CR>", { noremap = true, silent = true })
 	end,
 }

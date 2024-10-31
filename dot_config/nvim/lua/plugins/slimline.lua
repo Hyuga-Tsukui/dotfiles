@@ -17,19 +17,20 @@ return {
 				folder = " ",
 				lines = " ",
 			},
-            spaces = {
-                components = "",
-                left = "",
-                right = "",
-            },
-            sep = {
-                hide = {
-                    first = true,
-                    last = true,
-                },
-                left = "",
-                right = ""
-            }
+			spaces = {
+				components = "",
+				left = "",
+				right = "",
+			},
+			sep = {
+				hide = {
+					first = true,
+					last = true,
+				},
+				left = "",
+				right = "",
+			},
+            exclude_ft = {"NvimTree"}
 		})
 	end,
 }
