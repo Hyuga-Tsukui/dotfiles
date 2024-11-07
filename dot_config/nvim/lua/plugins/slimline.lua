@@ -4,33 +4,33 @@ return {
 	dependencies = "lewis6991/gitsigns.nvim",
 	config = function()
 		require("slimline").setup({
-			icons = {
-				diagnostics = {
-					ERROR = " ",
-					WARN = " ",
-					HINT = " ",
-					INFO = " ",
+			components = {
+				left = {
+					"mode",
+					function()
+						local h = require("slimline.highlights")
+						local recording = vim.fn.reg_recording()
+						if recording ~= "" then
+							return h.hl_component({ primary = "recording @" .. recording }, h.hls.component, {
+								hide = {
+									first = true,
+									last = true,
+								},
+							})
+						end
+						return ""
+					end,
+					"path",
+					"git",
 				},
-				git = {
-					branch = "",
-				},
-				folder = " ",
-				lines = " ",
 			},
-			spaces = {
-				components = "",
-				left = "",
-				right = "",
-			},
+			style = "fg",
 			sep = {
 				hide = {
 					first = true,
 					last = true,
 				},
-				left = "",
-				right = "",
 			},
-            exclude_ft = {"NvimTree"}
 		})
 	end,
 }
