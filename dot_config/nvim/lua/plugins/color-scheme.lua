@@ -1,7 +1,7 @@
 return {
-	-- "folke/tokyonight.nvim",
-	-- lazy = false,
-	-- config = function()
-	-- 	vim.cmd([[colorscheme tokyonight]])
-	-- end,
+	"nvimdev/pure.vim",
+	lazy = false,
+	config = function()
+		vim.cmd([[colorscheme pure]])
+	end,
 }
