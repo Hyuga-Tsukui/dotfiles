@@ -23,7 +23,13 @@ return {
 				map("v", "<leader>hr", function()
 					gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
 				end)
+
+				vim.api.nvim_set_hl(0, "GitSignsAddNr", { fg = "#4CAF50", bg = "#e0e2ea" })
+				vim.api.nvim_set_hl(0, "GitSignsChangeNr", { fg = "#FF9800", bg = "#e0e2ea" })
+				vim.api.nvim_set_hl(0, "GitSignsDeleteNr", { fg = "#F44336", bg = "#e0e2ea" })
 			end,
+			numhl = true,
+			signcolumn = false,
 		})
 	end,
 }
