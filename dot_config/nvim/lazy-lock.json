@@ -28,7 +28,6 @@
   "plenary.nvim": { "branch": "master", "commit": "2d9b06177a975543726ce5c73fca176cedbffe9d" },
   "pure.vim": { "branch": "main", "commit": "fd60519d047e038b73947a663c2680e29ca6facb" },
   "slimline.nvim": { "branch": "main", "commit": "3f5477bf70d74af1e006dee6e8adb3209be12137" },
-  "toggleterm.nvim": { "branch": "main", "commit": "5969229c0352ff1ed7f6e24aba9c6554e1842939" },
   "vim-maketable": { "branch": "master", "commit": "d72e73f333c64110524197ec637897bd1464830f" },
   "wezterm-move.nvim": { "branch": "master", "commit": "e2954ee4ddc9fee427ffa4d17f781875b9461103" }
 }
