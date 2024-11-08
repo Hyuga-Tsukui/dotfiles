@@ -24,9 +24,7 @@ return {
                 null_ls.builtins.formatting.goimports,
                 null_ls.builtins.formatting.terraform_fmt,
 
-                null_ls.builtins.formatting.prettierd.with({
-                    filetypes = { "html", "json", "js", "tsx", "ts", "css" },
-                }),
+                null_ls.builtins.formatting.prettierd.with({}),
 
                 null_ls.builtins.formatting.sqlfmt,
             },
