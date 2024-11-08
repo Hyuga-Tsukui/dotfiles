@@ -1,16 +1,13 @@
 return {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufNewFile" },
+	dependencies = {
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+	},
 	config = function()
-		local status_ok, lspconfig = pcall(require, "lspconfig")
-		if not status_ok then
-			print("lspconfig is not installed")
-			return
-		end
+		local lspconfig = require("lspconfig")
 
-		-- Start Language server.
-
-		-- Lua.
 		if lspconfig.lua_ls then
 			lspconfig.lua_ls.setup({
 				settings = {
@@ -25,27 +22,24 @@ return {
 			})
 		end
 
-		-- TypeScript.
 		if lspconfig.ts_ls then
 			lspconfig.ts_ls.setup({})
 		end
 
-		-- OCaml.
 		if lspconfig.ocamllsp then
 			lspconfig.ocamllsp.setup({})
 		end
 
-		-- Go.
 		if lspconfig.gopls then
 			lspconfig.gopls.setup({})
 		end
 
 		if lspconfig.terraformls then
 			lspconfig.terraformls.setup({
-              on_attach = function(client, _)
-                  client.server_capabilities.semanticTokensProvider = nil
-              end,
-		    })
+				on_attach = function(client, _)
+					client.server_capabilities.semanticTokensProvider = nil
+				end,
+			})
 		end
 
 		if lspconfig.typos_lsp then
