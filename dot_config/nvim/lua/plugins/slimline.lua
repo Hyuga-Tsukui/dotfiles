@@ -13,12 +13,6 @@ return {
 				},
 			},
 			style = "fg",
-			sep = {
-				hide = {
-					first = true,
-					last = true,
-				},
-			},
 		})
 	end,
 }

@@ -25,7 +25,7 @@ return {
 		vim.keymap.set("n", "<TAB>", "<Cmd>BufferPrevious<CR>", { noremap = true, silent = true })
 		vim.keymap.set("n", "<S-TAB>", "<Cmd>BufferNext<CR>", { noremap = true, silent = true })
 		vim.keymap.set("n", "<leader>p", "<Cmd>BufferPick<CR>", { noremap = true, silent = true })
-		-- vim.keymap.set("n", "<leader>w", "<Cmd>BufferClose<CR>", { noremap = true, silent = true })
+		vim.keymap.set("n", "<leader>w", "<Cmd>BufferClose<CR>", { noremap = true, silent = true })
 		vim.keymap.set("n", "<leader>ac", "<Cmd>BufferCloseAllButCurrent<CR>", { noremap = true, silent = true })
 
 		local max_buf = 6
