@@ -7,19 +7,7 @@ return {
 			components = {
 				left = {
 					"mode",
-					function()
-						local h = require("slimline.highlights")
-						local recording = vim.fn.reg_recording()
-						if recording ~= "" then
-							return h.hl_component({ primary = "recording @" .. recording }, h.hls.component, {
-								hide = {
-									first = true,
-									last = true,
-								},
-							})
-						end
-						return ""
-					end,
+					"recording",
 					"path",
 					"git",
 				},
