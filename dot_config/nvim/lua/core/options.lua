@@ -4,9 +4,29 @@ local opt = vim.opt
 opt.clipboard:append("unnamedplus")
 opt.scrolloff = 8
 
--- search settings
-opt.incsearch = true
-opt.hlsearch = false
+vim.opt.incsearch = true
+vim.opt.hlsearch = true
+
+-- ハイライトのトグルを設定
+local function toggle_hlsearch(enable)
+  vim.opt.hlsearch = enable
+end
+
+-- コマンドラインに検索ワード入力が開始されたらハイライトを有効化
+vim.api.nvim_create_autocmd("CmdlineEnter", {
+  pattern = "/,?",
+  callback = function()
+    toggle_hlsearch(true)
+  end,
+})
+
+-- 検索確定後（コマンドラインを離れたら）ハイライトをオフに
+vim.api.nvim_create_autocmd("CmdlineLeave", {
+  pattern = "/,?",
+  callback = function()
+    toggle_hlsearch(false)
+  end,
+})
 
 if not vim.g.vscode then
 	-- appearence
