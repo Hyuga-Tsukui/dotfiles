@@ -27,6 +27,7 @@ return {
                 null_ls.builtins.formatting.prettierd.with({}),
 
                 null_ls.builtins.formatting.sqlfmt,
+                null_ls.builtins.formatting.nixpkgs_fmt,
             },
             on_attach = function(client, bufnr)
                 vim.keymap.set("n", "<space>f", function()
