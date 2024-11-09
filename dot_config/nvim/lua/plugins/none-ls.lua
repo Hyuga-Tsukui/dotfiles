@@ -48,6 +48,7 @@ return {
                         end,
                     })
 
+                    -- TODO: 2024/11/09 様子見する、undoが直感的にじゃなくなるので.
                     vim.api.nvim_create_autocmd("InsertLeave", {
                         group = augroup,
                         buffer = bufnr,
