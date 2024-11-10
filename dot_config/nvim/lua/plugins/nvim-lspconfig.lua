@@ -22,6 +22,10 @@ return {
             })
         end
 
+        -- Python LSP.
+        lspconfig.pylsp.setup({})
+        lspconfig.ruff.setup({})
+
         if lspconfig.ts_ls then
             lspconfig.ts_ls.setup({})
         end
