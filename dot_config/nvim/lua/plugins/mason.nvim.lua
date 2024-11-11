@@ -41,19 +41,4 @@ return {
             })
         end,
     },
-    -- {
-    --     "dense-analysis/ale",
-    --     config = function()
-    --         -- Pythonのformatterにruffを設定
-    --         vim.g.ale_fixers = {
-    --             python = { "ruff", "black" },
-    --         }
-    --         vim.g.ale_linters = {
-    --             python = { "ruff" },
-    --         }
-    --         vim.g.ale_fix_on_save = 1
-    --         vim.fn.expand("~/.local/share/nvim/mason/bin/ruff")
-    --         vim.fn.expand("~/.local/share/nvim/mason/bin/black")
-    --     end,
-    -- },
 }
