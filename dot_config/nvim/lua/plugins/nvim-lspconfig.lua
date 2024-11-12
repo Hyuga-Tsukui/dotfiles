@@ -5,16 +5,23 @@ return {
 			require("mason").setup({})
 		end,
 		cmd = { "Mason" },
+		lazy = true,
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({})
 		end,
+		lazy = true,
 	},
 	{
 		"neovim/nvim-lspconfig",
 		event = { "BufReadPre", "BufNewFile" },
+		cond = function()
+			-- 現在のバッファのファイルタイプが特定のもの (例: NvimTree) でないことを確認
+			local exclude_filetypes = { "NvimTree" }
+			return not vim.tbl_contains(exclude_filetypes, vim.bo.filetype)
+		end,
 		config = function()
 			local lspconfig = require("lspconfig")
 			require("mason-lspconfig").setup_handlers({
