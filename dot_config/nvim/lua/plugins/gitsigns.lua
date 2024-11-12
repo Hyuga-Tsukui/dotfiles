@@ -1,5 +1,12 @@
 return {
 	"lewis6991/gitsigns.nvim",
+	event = { "BufRead", "BufNewFile" },
+	cond = function()
+		-- 現在のバッファのファイルタイプが特定のもの (例: NvimTree) でないことを確認
+		local exclude_filetypes = { "NvimTree" }
+		return not vim.tbl_contains(exclude_filetypes, vim.bo.filetype)
+	end,
+
 	config = function()
 		require("gitsigns").setup({
 			on_attach = function(bufnr)

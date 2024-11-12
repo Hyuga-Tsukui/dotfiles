@@ -1,5 +1,9 @@
 return {
 	"ibhagwan/fzf-lua",
+	keys = {
+		"<C-p>",
+		"<C-r>",
+	},
 	config = function()
 		require("fzf-lua").setup({
 			keymap = {
