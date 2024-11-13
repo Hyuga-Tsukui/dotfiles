@@ -1,3 +1,4 @@
 return {
-	"cohama/lexima.vim",
+    "cohama/lexima.vim",
+    event = "InsertEnter",
 }
