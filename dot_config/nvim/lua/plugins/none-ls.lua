@@ -9,11 +9,14 @@ return {
     config = function()
         require("mason").setup()
         require("mason-null-ls").setup({
-            handlers = {}
+            handlers = {},
         })
         local null_ls = require("null-ls")
         local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
         null_ls.setup({
+            sources = {
+                null_ls.builtins.formatting.terraform_fmt,
+            },
             on_attach = function(client, bufnr)
                 vim.keymap.set("n", "<space>f", function()
                     vim.lsp.buf.format({ async = true })
