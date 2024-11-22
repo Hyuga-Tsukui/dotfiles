@@ -22,14 +22,12 @@ return {
         local function javascript_project()
             local biome_config = vim.fn.findfile("biome.json", ".;")
             if biome_config ~= "" then
-                print("Using biome with biome.json")
                 return {
                     null_ls.builtins.formatting.biome.with({
                         extra_args = { "--config", biome_config }, -- biome.json を明示的に指定
                     }),
                 }
             else
-                print("Using prettierd")
                 return {
                     null_ls.builtins.formatting.prettierd.with({
                         cwd = vim.fn.getcwd(),
