@@ -65,6 +65,12 @@ return {
                         },
                     })
                 end,
+
+                ["biome"] = function()
+                    lspconfig.biome.setup({
+                        cmd = { "npx", "biome", "lsp-proxy" },
+                    })
+                end,
             })
 
             -- Lsp Keymaps.
