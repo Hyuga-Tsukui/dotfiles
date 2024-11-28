@@ -1,3 +1,11 @@
+local function include(array, value)
+    for _, v in ipairs(array) do
+        if v == value then
+            return true
+        end
+    end
+    return false
+end
 return {
     "nvimtools/none-ls.nvim",
     dependencies = {
@@ -21,7 +29,7 @@ return {
         -- JavaScript プロジェクト用のフォーマッター選択
         local function javascript_project()
             local biome_config = vim.fn.findfile("biome.json", ".;")
-            if biome_config ~= "" then
+            if biome_config ~= "" and include({ "javascript", "typescript" }, vim.bo.filetype) then
                 return {
                     null_ls.builtins.formatting.biome.with({
                         extra_args = { "--config", biome_config }, -- biome.json を明示的に指定
@@ -30,7 +38,9 @@ return {
             else
                 return {
                     null_ls.builtins.formatting.prettierd.with({
-                        cwd = vim.fn.getcwd(),
+                        cwd = function()
+                            return vim.fn.getcwd()
+                        end,
                     }),
                 }
             end
