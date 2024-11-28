@@ -69,6 +69,13 @@ return {
                 ["biome"] = function()
                     lspconfig.biome.setup({
                         cmd = { "npx", "biome", "lsp-proxy" },
+                        root_dir = function(fname)
+                            local util = require("lspconfig.util")
+                            -- biome.json を探すロジック
+                            return util.root_pattern("biome.json")(fname) -- biome.json を基準にルートディレクトリを設定
+                                or util.find_git_ancestor(fname) -- .git を基準にルートディレクトリを設定
+                                or util.path.dirname(fname) -- デフォルトは現在のファイルのディレクトリ
+                        end,
                     })
                 end,
             })
