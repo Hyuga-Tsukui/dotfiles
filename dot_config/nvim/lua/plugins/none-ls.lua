@@ -19,7 +19,7 @@ return {
         require("mason-null-ls").setup({
             handlers = {
                 prettierd = function() end, -- prettierd の自動セットアップを無効化
-                biome = function() end, -- biome の自動セットアップを無効化
+                biome = function() end,     -- biome の自動セットアップを無効化
             },
         })
 
@@ -51,7 +51,7 @@ return {
             -- sources の結合
             sources = vim.list_extend({
                 null_ls.builtins.formatting.terraform_fmt, -- デフォルト
-            }, javascript_project()),          -- JavaScript プロジェクト用のフォーマッター
+            }, javascript_project()),                      -- JavaScript プロジェクト用のフォーマッター
             on_attach = function(client, bufnr)
                 vim.keymap.set("n", "<space>f", function()
                     vim.lsp.buf.format({ async = true })
