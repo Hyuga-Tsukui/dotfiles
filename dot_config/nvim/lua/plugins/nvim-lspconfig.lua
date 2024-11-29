@@ -1,3 +1,11 @@
+local function my_format()
+    vim.lsp.buf.format({
+        timeout_ms = 2000,
+        filter = function(client)
+            return client.name ~= "tsserver"
+        end,
+    })
+end
 return {
     {
         "williamboman/mason.nvim",
@@ -69,6 +77,12 @@ return {
                 ["biome"] = function()
                     lspconfig.biome.setup({
                         cmd = { "npx", "biome", "lsp-proxy" },
+                        on_new_config = function(new_config, new_root_dir)
+                            -- 環境変数で biome.json を指定
+                            new_config.cmd_env = {
+                                BIOME_CONFIG = new_root_dir .. "/biome.json",
+                            }
+                        end,
                         root_dir = function(fname)
                             local util = require("lspconfig.util")
                             -- biome.json を探すロジック
@@ -86,10 +100,10 @@ return {
             vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
             vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
             vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
-
             -- after the language server attaches to the current buffer
+            local g = vim.api.nvim_create_augroup("UserLspConfig", {})
             vim.api.nvim_create_autocmd("LspAttach", {
-                group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+                group = g,
                 callback = function(ev)
                     vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
@@ -99,6 +113,24 @@ return {
                     vim.keymap.set("n", "<space>k", vim.lsp.buf.hover, opts)
                     vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
                     vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+
+                    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+                    if client == nil then
+                        return
+                    end
+
+                    if client.supports_method("textDocument/formatting") then
+                        vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+                            group = g,
+                            buffer = ev.bufnr,
+                            callback = function()
+                                my_format()
+                            end,
+                        })
+                        vim.api.nvim_create_user_command("Format", function()
+                            my_format()
+                        end, {})
+                    end
                 end,
             })
         end,
