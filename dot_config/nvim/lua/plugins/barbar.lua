@@ -31,16 +31,5 @@ return {
         vim.keymap.set("n", "<leader>p", "<Cmd>BufferPick<CR>", { noremap = true, silent = true })
         vim.keymap.set("n", "<leader>w", "<Cmd>BufferClose<CR>", { noremap = true, silent = true })
         vim.keymap.set("n", "<leader>ac", "<Cmd>BufferCloseAllButCurrent<CR>", { noremap = true, silent = true })
-
-        -- local max_buf = 6
-        -- local function close_buffer()
-        --     local buffer_count = vim.fn.len(vim.fn.getbufinfo({ buflisted = 1 }))
-        --     if buffer_count >= max_buf then
-        --         vim.cmd("BufferCloseAllButCurrent")
-        --     end
-        -- end
-        -- vim.api.nvim_create_autocmd("BufEnter", {
-        --     callback = close_buffer,
-        -- })
     end,
 }
