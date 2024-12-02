@@ -1,5 +1,6 @@
 local function my_format()
     vim.lsp.buf.format({
+        async = false,
         timeout_ms = 2000,
         filter = function(client)
             return client.name ~= "tsserver"
