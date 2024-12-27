@@ -70,7 +70,11 @@ export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
 # https://git-scm.com/book/ms/v2/Appendix-A%3A-Git-in-Other-Environments-Git-in-Zsh
+autoload bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
+
+# aws cli auto complete
+complete -C '/usr/local/bin/aws_completer' aws
 
 # https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
