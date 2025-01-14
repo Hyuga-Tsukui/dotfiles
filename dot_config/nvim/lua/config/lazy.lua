@@ -15,5 +15,32 @@ if not vim.g.vscode then
 		end
 	end
 	vim.opt.rtp:prepend(lazypath)
-	require("lazy").setup("plugins")
+	require("lazy").setup({
+		require("plugins.Comment"),
+		require("plugins.barbar"),
+		require("plugins.color-scheme"),
+		require("plugins.copilot"),
+		require("plugins.dial"),
+		require("plugins.fidget"),
+		require("plugins.fzf"),
+		require("plugins.gitsigns"),
+		require("plugins.harpoon"),
+		require("plugins.hlchunk"),
+		require("plugins.lexima"),
+		require("plugins.mason-null-ls"),
+		require("plugins.mason"),
+		require("plugins.memolist"),
+		require("plugins.no-neck-pain"),
+		require("plugins.none-ls"),
+		require("plugins.nvim-cmp"),
+		require("plugins.nvim-lspconfig"),
+		require("plugins.nvim-surround"),
+		require("plugins.nvim-tree"),
+		require("plugins.nvim-treesitter"),
+		require("plugins.obsidian"),
+		require("plugins.slimline"),
+		require("plugins.tmux-navigator"),
+		require("plugins.vim-maketable"),
+		require("plugins.wezterm-move"),
+	})
 end
