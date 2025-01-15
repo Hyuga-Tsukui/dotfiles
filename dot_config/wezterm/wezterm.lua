@@ -3,7 +3,9 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 config.font = wezterm.font("HackGen Console")
 config.font_size = 18
--- config.color_scheme = "NvimDark"
+config.window_background_opacity = 0.85
+config.line_height = 1.1
+config.colors = require("cyberdream")
 config.window_decorations = "RESIZE"
 config.use_ime = true
 
@@ -16,127 +18,15 @@ config.window_padding = {
 
 config.audible_bell = "Disabled"
 
--- config.hide_tab_bar_if_only_one_tab = true
 config.show_new_tab_button_in_tab_bar = false
 config.show_close_tab_button_in_tabs = false
-config.colors = {
-	tab_bar = {
-		inactive_tab_edge = "none",
-	},
-}
-
-local SOLID_LEFT_ARROW = wezterm.nerdfonts.ple_lower_right_triangle
-local SOLID_RIGHT_ARROW = wezterm.nerdfonts.ple_upper_left_triangle
-wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
-	local background = "#5c6d74"
-	local foreground = "#FFFFFF"
-	local edge_background = "none"
-	if tab.is_active then
-		background = "#ae8b2d"
-		foreground = "#FFFFFF"
-	end
-	local edge_foreground = background
-	local title = "   " .. wezterm.truncate_right(tab.active_pane.title, max_width - 1) .. "   "
-	return {
-		{ Background = { Color = edge_background } },
-		{ Foreground = { Color = edge_foreground } },
-		{ Text = SOLID_LEFT_ARROW },
-		{ Background = { Color = background } },
-		{ Foreground = { Color = foreground } },
-		{ Text = title },
-		{ Background = { Color = edge_background } },
-		{ Foreground = { Color = edge_foreground } },
-		{ Text = SOLID_RIGHT_ARROW },
-	}
-end)
+config.hide_tab_bar_if_only_one_tab = true
 
 -- keybindigs
 -- config.leader = { key = "Space", mods = "CTRL", timeout_milliseconds = 1000 }
 local act = wezterm.action
 
-local function is_vim(pane)
-	local process_info = pane:get_foreground_process_info()
-	local process_name = process_info and process_info.name
-	return process_name == "nvim" or process_name == "vim"
-end
-
--- local direction_keys = {
--- 	Left = "h",
--- 	Down = "j",
--- 	Up = "k",
--- 	Right = "l",
--- 	-- reverse lookup
--- 	h = "Left",
--- 	j = "Down",
--- 	k = "Up",
--- 	l = "Right",
--- }
-
-local function split_nav(resize_or_move, key)
-	return {
-		key = key,
-		mods = resize_or_move == "resize" and "META" or "CTRL",
-		action = wezterm.action_callback(function(win, pane)
-			if is_vim(pane) then
-				-- Vimでアクティブな場合はキーをそのまま送信
-				win:perform_action({
-					SendKey = { key = key, mods = resize_or_move == "resize" and "META" or "CTRL" },
-				}, pane)
-			else
-				win:perform_action({ ActivatePaneDirection = direction_keys[key] }, pane)
-			end
-		end),
-	}
-end
-
 config.keys = {
-	-- move between split panes
-	-- split_nav("move", "h"),
-	-- split_nav("move", "j"),
-	-- split_nav("move", "k"),
-	-- split_nav("move", "l"),
-	-- {
-	-- 	key = "LeftArrow",
-	-- 	mods = "CMD",
-	-- 	action = act.SendKey({
-	-- 		key = "b",
-	-- 		mods = "META",
-	-- 	}),
-	-- },
-	-- {
-	-- 	key = "RightArrow",
-	-- 	mods = "CMD",
-	-- 	action = act.SendKey({
-	-- 		key = "f",
-	-- 		mods = "META",
-	-- 	}),
-	-- },
-	-- {
-	-- 	key = "Backspace",
-	-- 	mods = "CMD",
-	-- 	action = act.SendKey({
-	-- 		key = "w",
-	-- 		mods = "CTRL",
-	-- 	}),
-	-- },
-	-- tmux like key
-	-- {
-	-- 	key = "c",
-	-- 	mods = "LEADER",
-	-- 	action = act.SpawnTab("CurrentPaneDomain"),
-	-- },
-	-- {
-	-- 	key = "n",
-	-- 	mods = "LEADER",
-	-- 	action = act.ActivateTabRelative(-1),
-	-- },
-	-- {
-	-- 	key = "%",
-	-- 	mods = "LEADER",
-	-- 	action = wezterm.action.SplitPane({
-	-- 		direction = "Right",
-	-- 	}),
-	-- },
 	{ key = "[", mods = "LEADER", action = act.ActivateCopyMode },
 	-- disabled tab activation.
 	{
@@ -149,11 +39,6 @@ config.keys = {
 		mods = "CMD",
 		action = act.DisableDefaultAssignment,
 	},
-	-- {
-	-- 	key = "h",
-	-- 	mods = "LEADER",
-	-- 	action = act.Search({ CaseSensitiveString = "" }),
-	-- },
 }
 
 -- 現在の`copy_mode`のデフォルト設定を取得
