@@ -4,6 +4,7 @@ local config = wezterm.config_builder()
 config.font = wezterm.font("HackGen Console")
 config.font_size = 18
 config.window_background_opacity = 0.85
+config.macos_window_background_blur = 100
 config.line_height = 1.1
 config.colors = require("cyberdream")
 config.window_decorations = "RESIZE"
