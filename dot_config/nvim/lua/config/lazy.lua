@@ -44,5 +44,6 @@ if not vim.g.vscode then
 		require("plugins.vim-maketable"),
 		-- require("plugins.wezterm-move"),
 		require("plugins.alpha-nvim"),
+		require("plugins.nvim-hlslens"),
 	})
 end

@@ -6,6 +6,8 @@ return {
 	},
 	cmd = "FzfLua",
 	config = function()
+		-- keep the default actions
+		local actions = require("fzf-lua").actions
 		require("fzf-lua").setup({
 			keymap = {
 				fzf = {
@@ -14,14 +16,16 @@ return {
 			},
 			actions = {
 				files = {
-					["ctrl-b"] = function()
+					["ctrl-b"] = function() -- switch to buffers
 						require("fzf-lua").buffers()
 					end,
+					["default"] = actions.file_edit,
 				},
 				buffers = {
-					["ctrl-f"] = function()
+					["ctrl-f"] = function() -- switch to files
 						require("fzf-lua").files()
 					end,
+					["default"] = actions.file_edit,
 				},
 			},
 		})
