@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+branches=$(git branch -vv 2>/dev/null)
+
+if [[ $? -ne 0 ]]; then
+  echo "このディレクトリはGitリポジトリではありません。" >&2
+  exit 1
+fi
+
+branch=$(echo "$branches" | fzf +m)
+
+if [[ -z "$branch" ]]; then
+  echo "ブランチが選択されませんでした。" >&2
+  exit 0
+fi
+
+branch_name=$(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+if [[ -n "$branch_name" ]]; then
+  git switch "$branch_name"
+else
+  echo "ブランチ名を解析できませんでした。" >&2
+  exit 1
+fi
