@@ -8,76 +8,77 @@ local has_words_before = function()
 end
 
 return {
-	"hrsh7th/nvim-cmp",
-	event = { "InsertEnter" },
-	keys = { { ":", mode = "n" }, { "/", mode = "n" } },
-	dependencies = {
-		"hrsh7th/cmp-buffer",
-		"hrsh7th/cmp-nvim-lsp",
-		"hrsh7th/cmp-cmdline",
-		"L3MON4D3/LuaSnip",
-		"saadparwaiz1/cmp_luasnip",
-		{
-			"zbirenbaum/copilot-cmp",
-			dependencies = "copilot.lua",
-			config = function()
-				require("copilot_cmp").setup({})
-			end,
-		},
+	{
+		"zbirenbaum/copilot-cmp",
+		event = { "InsertEnter" },
+		config = function()
+			require("copilot_cmp").setup({})
+		end,
 	},
-	config = function()
-		local cmp = require("cmp")
-		local lua_snip = require("luasnip")
-		cmp.setup({
-			snippet = {
-				expand = function(args)
-					require("luasnip").lsp_expand(args.body)
-				end,
-			},
-			sources = cmp.config.sources({
-				{ name = "nvim_lsp" },
-				{ name = "luasnip" },
-				{ name = "copilot" },
-			}, {
-				{ name = "buffer" },
-			}),
-			mapping = cmp.mapping.preset.insert({
-				["<C-b>"] = cmp.mapping.scroll_docs(-4),
-				["<C-f>"] = cmp.mapping.scroll_docs(4),
-				["<C-Space>"] = cmp.mapping.complete(),
-				-- ["<C-e>"] = cmp.mapping.abort(),
-				["<CR>"] = cmp.mapping.confirm({ select = false }),
-				["<Tab>"] = vim.schedule_wrap(function(fallback)
-					if cmp.visible() and has_words_before() then
-						cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-					elseif lua_snip.expand_or_jumpable() then
-						lua_snip.expand_or_jump()
-					else
-						fallback()
-					end
-				end),
-			}),
-		})
-
-		cmp.setup.cmdline("/", {
-			mapping = cmp.mapping.preset.cmdline(),
-			sources = {
-				{ name = "buffer" },
-			},
-		})
-
-		cmp.setup.cmdline(":", {
-			mapping = cmp.mapping.preset.cmdline(),
-			sources = cmp.config.sources({
-				{ name = "path" },
-			}, {
-				{
-					name = "cmdline",
-					option = {
-						ignore_cmds = { "Man", "!" },
-					},
+	{
+		"hrsh7th/nvim-cmp",
+		event = { "InsertEnter" },
+		keys = { { ":", mode = "n" }, { "/", mode = "n" } },
+		dependencies = {
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-cmdline",
+			"L3MON4D3/LuaSnip",
+			"saadparwaiz1/cmp_luasnip",
+		},
+		config = function()
+			local cmp = require("cmp")
+			local lua_snip = require("luasnip")
+			cmp.setup({
+				snippet = {
+					expand = function(args)
+						require("luasnip").lsp_expand(args.body)
+					end,
 				},
-			}),
-		})
-	end,
+				sources = cmp.config.sources({
+					{ name = "nvim_lsp" },
+					{ name = "luasnip" },
+					{ name = "copilot" },
+				}, {
+					{ name = "buffer" },
+				}),
+				mapping = cmp.mapping.preset.insert({
+					["<C-b>"] = cmp.mapping.scroll_docs(-4),
+					["<C-f>"] = cmp.mapping.scroll_docs(4),
+					["<C-Space>"] = cmp.mapping.complete(),
+					["<CR>"] = cmp.mapping.confirm({ select = false }),
+					["<Tab>"] = vim.schedule_wrap(function(fallback)
+						if cmp.visible() and has_words_before() then
+							cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+						elseif lua_snip.expand_or_jumpable() then
+							lua_snip.expand_or_jump()
+						else
+							fallback()
+						end
+					end),
+				}),
+			})
+
+			cmp.setup.cmdline("/", {
+				mapping = cmp.mapping.preset.cmdline(),
+				sources = {
+					{ name = "buffer" },
+				},
+			})
+
+			cmp.setup.cmdline(":", {
+				mapping = cmp.mapping.preset.cmdline(),
+				sources = cmp.config.sources({
+					{ name = "path" },
+				}, {
+					{
+						name = "cmdline",
+						option = {
+							ignore_cmds = { "Man", "!" },
+						},
+					},
+				}),
+			})
+		end,
+	},
 }
