@@ -81,7 +81,7 @@ return {
                         on_new_config = function(new_config, new_root_dir)
                             -- 環境変数で biome.json を指定
                             new_config.cmd_env = {
-                                BIOME_CONFIG = new_root_dir .. "/biome.json",
+                                BIOME_CONFIG_PATH = new_root_dir .. "/biome.json",
                             }
                         end,
                         root_dir = function(fname)
