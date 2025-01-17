@@ -3,7 +3,7 @@ local function my_format()
         async = false,
         timeout_ms = 2000,
         filter = function(client)
-            return client.name ~= "tsserver"
+            return client.name ~= "ts_ls"
         end,
     })
 end
@@ -32,6 +32,7 @@ return {
             return not vim.tbl_contains(exclude_filetypes, vim.bo.filetype)
         end,
         config = function()
+            vim.lsp.set_log_level("ERROR")
             local lspconfig = require("lspconfig")
             require("mason-lspconfig").setup_handlers({
                 -- 1. デフォルトのハンドラー
