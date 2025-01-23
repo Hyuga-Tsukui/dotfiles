@@ -42,7 +42,6 @@ if not vim.g.vscode then
         require("plugins.slimline"),
         require("plugins.tmux-navigator"),
         require("plugins.vim-maketable"),
-        -- require("plugins.wezterm-move"),
         require("plugins.alpha-nvim"),
         require("plugins.nvim-hlslens"),
         -- require("plugins.transparent-nvim"),
