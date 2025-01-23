@@ -82,7 +82,7 @@ if not vim.g.vscode then
     opt.swapfile = false
     opt.backup = false
 
-    local undodir = vim.fn.stdpath("config") .. "/undo"
+    local undodir = vim.fn.expand("$HOME/.local/share/nvim/undo")
     if vim.fn.isdirectory(undodir) == 0 then
         vim.fn.mkdir(undodir, "p")
     end
