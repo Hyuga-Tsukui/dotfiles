@@ -70,7 +70,10 @@ return {
 
                     local wk = require("which-key")
                     wk.add({
-                        { "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", desc = "Go to definition" },
+                        { "gd",        "<cmd>lua vim.lsp.buf.definition()<CR>",  desc = "Go to definition" },
+                        { "gD",        "<cmd>lua vim.lsp.buf.declaration()<CR>", desc = "Go to declaration" },
+                        { "gr",        "<cmd>lua vim.lsp.buf.references()<CR>",  desc = "Go to references" },
+                        { "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>",      desc = "Rename" },
                     })
 
                     local client = vim.lsp.get_client_by_id(ev.data.client_id)
