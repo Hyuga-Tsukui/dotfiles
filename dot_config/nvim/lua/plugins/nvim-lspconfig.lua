@@ -112,9 +112,14 @@ return {
                     local opts = { buffer = ev.buf }
                     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
                     vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-                    vim.keymap.set("n", "<space>k", vim.lsp.buf.hover, opts)
+                    -- vim.keymap.set("n", "<space>k", vim.lsp.buf.hover, opts)
                     vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
                     vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+
+                    local wk = require("which-key")
+                    wk.add({
+                        { "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", desc = "Go to definition" },
+                    })
 
                     local client = vim.lsp.get_client_by_id(ev.data.client_id)
                     if client == nil then
@@ -129,9 +134,7 @@ return {
                                 my_format()
                             end,
                         })
-                        vim.api.nvim_create_user_command("Format", function()
-                            my_format()
-                        end, {})
+                        vim.keymap.set("n", "<space>f", my_format, opts)
                     end
                 end,
             })
