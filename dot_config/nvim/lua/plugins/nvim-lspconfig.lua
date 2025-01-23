@@ -90,6 +90,9 @@ return {
                             end,
                         })
                         vim.keymap.set("n", "<space>f", my_format, opts)
+                        wk.add({
+                            { "<space>f", "<cmd>lua my_format()<CR>", desc = "Format" },
+                        })
                     end
                 end,
             })
