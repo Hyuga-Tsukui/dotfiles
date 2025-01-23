@@ -47,5 +47,6 @@ if not vim.g.vscode then
         require("plugins.nvim-hlslens"),
         -- require("plugins.transparent-nvim"),
         require("plugins.auto-session"),
+        require("plugins.which-key-nvim"),
     })
 end
