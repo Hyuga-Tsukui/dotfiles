@@ -16,7 +16,6 @@ if not vim.g.vscode then
     end
     vim.opt.rtp:prepend(lazypath)
     require("lazy").setup({
-        -- require("plugins.ale"),
         require("plugins.Comment"),
         require("plugins.barbar"),
         require("plugins.color-scheme"),
@@ -44,7 +43,6 @@ if not vim.g.vscode then
         require("plugins.vim-maketable"),
         require("plugins.alpha-nvim"),
         require("plugins.nvim-hlslens"),
-        -- require("plugins.transparent-nvim"),
         require("plugins.auto-session"),
         require("plugins.which-key-nvim"),
     })
