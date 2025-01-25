@@ -89,10 +89,10 @@ return {
                                 my_format()
                             end,
                         })
-                        vim.keymap.set("n", "<space>f", my_format, opts)
-                        wk.add({
-                            { "<space>f", "<cmd>lua my_format()<CR>", desc = "Format" },
-                        })
+                        -- vim.keymap.set("n", "<space>f", my_format, opts)
+                        -- wk.add({
+                        --     { "<space>f", "<cmd>lua my_format()<CR>", desc = "Format" },
+                        -- })
                     end
                 end,
             })
