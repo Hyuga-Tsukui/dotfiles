@@ -17,7 +17,7 @@ if not vim.g.vscode then
     vim.opt.rtp:prepend(lazypath)
     require("lazy").setup({
         require("plugins.Comment"),
-        -- require("plugins.barbar"),
+        require("plugins.barbar"),
         require("plugins.color-scheme"),
         require("plugins.copilot"),
         require("plugins.dial"),
