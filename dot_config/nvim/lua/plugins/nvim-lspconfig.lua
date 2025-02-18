@@ -1,6 +1,6 @@
 local function my_format()
     vim.lsp.buf.format({
-        async = true,
+        async = false,
         timeout_ms = 2000,
         filter = function(client)
             return client.name ~= "ts_ls"
@@ -58,7 +58,7 @@ return {
 
             vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
             vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
-            vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, { silent = true, desc = "quickfix diagnostics"})
+            vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, { silent = true, desc = "quickfix diagnostics" })
 
             -- after the language server attaches to the current buffer
             local g = vim.api.nvim_create_augroup("UserLspConfig", {})
@@ -110,7 +110,7 @@ return {
                         not vim.tbl_contains(disable_auto_format_clients, client.name)
                         and client.supports_method("textDocument/formatting")
                     then
-                        vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+                        vim.api.nvim_create_autocmd({ "BufWritePre" }, {
                             group = g,
                             buffer = ev.bufnr,
                             callback = function()
