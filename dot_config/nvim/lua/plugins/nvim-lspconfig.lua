@@ -1,6 +1,6 @@
 local function my_format()
     vim.lsp.buf.format({
-        async = false,
+        async = true,
         timeout_ms = 2000,
         filter = function(client)
             return client.name ~= "ts_ls"
@@ -18,6 +18,11 @@ local function load_server_config(server_name)
         end
     end
 end
+
+-- 保存時のフォーマットを無効化するクライアントのリストを設定する
+local disable_auto_format_clients = {
+    "ts_ls", -- js,tsはフォーマッターにbiomeやprettierを使うことが一般的なので無効化する
+}
 return {
     {
         "williamboman/mason.nvim",
@@ -77,22 +82,23 @@ return {
                     })
 
                     local client = vim.lsp.get_client_by_id(ev.data.client_id)
+
                     if client == nil then
                         return
                     end
 
-                    if client.supports_method("textDocument/formatting") then
-                        vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+                    -- 保存時の自動フォーマットの設定
+                    if
+                        not vim.tbl_contains(disable_auto_format_clients, client.name)
+                        and client.supports_method("textDocument/formatting")
+                    then
+                        vim.api.nvim_create_autocmd({ "InsertLeave" }, {
                             group = g,
                             buffer = ev.bufnr,
                             callback = function()
                                 my_format()
                             end,
                         })
-                        -- vim.keymap.set("n", "<space>f", my_format, opts)
-                        -- wk.add({
-                        --     { "<space>f", "<cmd>lua my_format()<CR>", desc = "Format" },
-                        -- })
                     end
                 end,
             })

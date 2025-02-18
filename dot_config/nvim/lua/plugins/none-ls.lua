@@ -26,26 +26,6 @@ return {
         local null_ls = require("null-ls")
         local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
-        -- JavaScript プロジェクト用のフォーマッター選択
-        local function javascript_project()
-            local biome_config = vim.fn.findfile("biome.json", ".;")
-            if biome_config ~= "" and include({ "javascript", "typescript" }, vim.bo.filetype) then
-                return {
-                    null_ls.builtins.formatting.biome.with({
-                        extra_args = { "--config", biome_config }, -- biome.json を明示的に指定
-                    }),
-                }
-            else
-                return {
-                    null_ls.builtins.formatting.prettierd.with({
-                        cwd = function()
-                            return vim.fn.getcwd()
-                        end,
-                    }),
-                }
-            end
-        end
-
         -- null-ls のセットアップ
         null_ls.setup({
             -- sources の結合
@@ -57,16 +37,16 @@ return {
                 -- vim.lsp.buf.format({ async = true })
                 -- end, { buffer = bufnr })
 
-                if client.supports_method("textDocument/formatting") then
-                    vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-                    vim.api.nvim_create_autocmd("BufWritePre", {
-                        group = augroup,
-                        buffer = bufnr,
-                        callback = function()
-                            vim.lsp.buf.format({ async = false })
-                        end,
-                    })
-                end
+                -- if client.supports_method("textDocument/formatting") then
+                --     vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+                --     vim.api.nvim_create_autocmd("BufWritePre", {
+                --         group = augroup,
+                --         buffer = bufnr,
+                --         callback = function()
+                --             vim.lsp.buf.format({ async = false })
+                --         end,
+                --     })
+                -- end
             end,
         })
     end,
