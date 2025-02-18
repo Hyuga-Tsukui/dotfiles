@@ -13,8 +13,8 @@ if not vim.g.vscode then
     -- appearance
     opt.guicursor = ""
     -- line numbers
-    opt.nu = true
-    opt.relativenumber = true
+    opt.nu = false
+    opt.relativenumber = false
     opt.cmdheight = 0
     opt.conceallevel = 2
 
@@ -66,5 +66,5 @@ if not vim.g.vscode then
         vim.fn.mkdir(undodir, "p")
     end
     vim.opt.undodir = undodir
-    vim.opt.undofile = true
+    ndofile = true
 end
