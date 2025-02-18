@@ -58,7 +58,7 @@ return {
 
             vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
             vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
-            vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
+            vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, { silent = true, desc = "quickfix diagnostics"})
 
             -- after the language server attaches to the current buffer
             local g = vim.api.nvim_create_augroup("UserLspConfig", {})
@@ -67,19 +67,37 @@ return {
                 callback = function(ev)
                     vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
-                    local opts = { buffer = ev.buf }
-                    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-                    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-                    vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
-                    vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-
-                    local wk = require("which-key")
-                    wk.add({
-                        { "gd",        "<cmd>lua vim.lsp.buf.definition()<CR>",  desc = "Go to definition" },
-                        { "gD",        "<cmd>lua vim.lsp.buf.declaration()<CR>", desc = "Go to declaration" },
-                        { "gr",        "<cmd>lua vim.lsp.buf.references()<CR>",  desc = "Go to references" },
-                        { "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>",      desc = "Rename" },
-                    })
+                    local opts = { buffer = ev.buf, silent = true }
+                    vim.keymap.set(
+                        "n",
+                        "gD",
+                        vim.lsp.buf.declaration,
+                        vim.tbl_extend("force", opts, { desc = "lsp declaration" })
+                    )
+                    vim.keymap.set(
+                        "n",
+                        "gd",
+                        vim.lsp.buf.definition,
+                        vim.tbl_extend("force", opts, { desc = "lsp definition" })
+                    )
+                    vim.keymap.set(
+                        "n",
+                        "<space>rn",
+                        vim.lsp.buf.rename,
+                        vim.tbl_extend("force", opts, { desc = "lsp rename" })
+                    )
+                    vim.keymap.set(
+                        "n",
+                        "gr",
+                        vim.lsp.buf.references,
+                        vim.tbl_extend("force", opts, { desc = "lsp references" })
+                    )
+                    vim.keymap.set(
+                        "n",
+                        "<leader>ls",
+                        vim.lsp.buf.signature_help,
+                        vim.tbl_extend("force", opts, { desc = "lsp signature_help" })
+                    )
 
                     local client = vim.lsp.get_client_by_id(ev.data.client_id)
 

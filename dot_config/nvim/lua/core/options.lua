@@ -2,6 +2,10 @@ local opt = vim.opt
 
 vim.opt.cmdheight = 2
 
+vim.cmd([[
+  autocmd FileType qf setlocal wrap
+]])
+
 -- clipboard
 opt.clipboard:append("unnamedplus")
 opt.scrolloff = 8
@@ -66,5 +70,5 @@ if not vim.g.vscode then
         vim.fn.mkdir(undodir, "p")
     end
     vim.opt.undodir = undodir
-    ndofile = true
+    ndondondondofile = true
 end
