@@ -12,12 +12,13 @@ vim.schedule(function()
     vim.keymap.set("n", ":", ";", { noremap = true })
 end)
 
+-- Toggle relative line numbers
 vim.keymap.set("n", "<leader>n", function()
-  if vim.wo.relativenumber then
-    vim.wo.number = false
-    vim.wo.relativenumber = false
-  else
-    vim.wo.number = true
-    vim.wo.relativenumber = true
-  end
+    if vim.wo.relativenumber then
+        vim.wo.number = false
+        vim.wo.relativenumber = false
+    else
+        vim.wo.number = true
+        vim.wo.relativenumber = true
+    end
 end, { desc = "Toggle relative line numbers" })
