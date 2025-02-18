@@ -45,5 +45,6 @@ if not vim.g.vscode then
         require("plugins.nvim-hlslens"),
         require("plugins.auto-session"),
         require("plugins.which-key-nvim"),
+        require("plugins.gitlinker"),
     })
 end
