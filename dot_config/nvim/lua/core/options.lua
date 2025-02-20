@@ -70,5 +70,5 @@ if not vim.g.vscode then
         vim.fn.mkdir(undodir, "p")
     end
     vim.opt.undodir = undodir
-    ndondondondofile = true
+    vim.opt.undofile = true
 end
