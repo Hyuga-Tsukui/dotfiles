@@ -1,4 +1,5 @@
 if not vim.g.vscode then
+    require("core.autocmd")
     require("core.options")
     require("core.keymaps")
     -- disable netrw at the very start of your init.lua
