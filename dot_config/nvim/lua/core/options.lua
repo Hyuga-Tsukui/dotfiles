@@ -13,6 +13,7 @@ opt.hlsearch = true
 if not vim.g.vscode then
     -- appearance
     opt.guicursor = ""
+    opt.laststatus = 0 -- status-line系のpluginへの切り替え時のちらつきを防ぐためにデフォルトは表示しないようにする.
     -- line numbers
     opt.nu = false
     opt.relativenumber = false
