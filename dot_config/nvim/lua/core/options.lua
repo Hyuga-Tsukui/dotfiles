@@ -1,18 +1,15 @@
 local opt = vim.opt
 
-vim.opt.cmdheight = 2
-
-vim.cmd([[
-  autocmd FileType qf setlocal wrap
-]])
+opt.cmdheight = 2
 
 -- clipboard
 opt.clipboard:append("unnamedplus")
 opt.scrolloff = 8
 
-vim.opt.incsearch = true
-vim.opt.hlsearch = true
+opt.incsearch = true
+opt.hlsearch = true
 
+-- vscodeでnvimを使う場合に意図しない動作を起こすので、vscodeの場合は以下の設定を行わない
 if not vim.g.vscode then
     -- appearance
     opt.guicursor = ""
@@ -69,6 +66,6 @@ if not vim.g.vscode then
     if vim.fn.isdirectory(undodir) == 0 then
         vim.fn.mkdir(undodir, "p")
     end
-    vim.opt.undodir = undodir
-    vim.opt.undofile = true
+    opt.undodir = undodir
+    opt.undofile = true
 end
