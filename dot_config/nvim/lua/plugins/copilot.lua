@@ -6,8 +6,8 @@ return {
         build = ":Copilot auth",
         config = function()
             require("copilot").setup({
-                -- suggestion = { enabled = false },
-                -- panel = { enabled = false },
+                suggestion = { enabled = false },
+                panel = { enabled = false },
                 filetypes = {
                     gitcommit = true,
                 },
@@ -17,17 +17,18 @@ return {
     {
         "CopilotC-Nvim/CopilotChat.nvim",
         dependencies = {
-            { "github/copilot.vim" },              -- or zbirenbaum/copilot.lua
-            { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
+            { "zbirenbaum/copilot.lua" },
+            { "nvim-lua/plenary.nvim", branch = "master" },
         },
-        build = "make tiktoken",                   -- Only on MacOS or Linux
+        build = "make tiktoken", -- tiktoken is a official command to get a token that is consumed by Copilot. REF: https://github.com/gptlang/lua-tiktoken
         opts = {
             -- See Configuration section for options
         },
-        -- See Commands section for default commands if you want to lazy load on them
-        --
         config = function()
             local select = require("CopilotChat.select")
+            local selectCb = function(source)
+                return select.visual(source) or select.buffer(source)
+            end
             require("CopilotChat").setup({
                 debug = false,
                 proxy = nil,
@@ -37,52 +38,36 @@ return {
                 prompts = {
                     Explain = {
                         prompt = "/COPILOT_EXPLAIN 選択したコードの説明を段落をつけて書いてください。",
-                        selection = select.selection or function()
-                            return {}
-                        end,
+                        selection = selectCb,
                     },
                     Fix = {
                         prompt = "/COPILOT_FIX このコードには問題があります。バグを修正したコードに書き換えてください。",
-                        selection = select.selection or function()
-                            return {}
-                        end,
+                        selection = selectCb,
                     },
                     Optimize = {
                         prompt = "/COPILOT_OPTIMIZE 選択したコードを最適化し、パフォーマンスと可読性を向上させてください。",
-                        selection = select.selection or function()
-                            return {}
-                        end,
+                        selection = selectCb,
                     },
                     Docs = {
                         prompt =
                         "/COPILOT_DOCS 選択したコードのドキュメントを書いてください。ドキュメントをコメントとして追加した元のコードを含むコードブロックで回答してください。使用するプログラミング言語に最も適したドキュメントスタイルを使用してください（例：JavaScriptのJSDoc、Pythonのdocstringsなど）",
-                        selection = select.selection or function()
-                            return {}
-                        end,
+                        selection = selectCb,
                     },
                     Tests = {
                         prompt = "/COPILOT_TESTS 選択したコードの詳細な単体テスト関数を書いてください。",
-                        selection = select.selection or function()
-                            return {}
-                        end,
+                        selection = selectCb,
                     },
                     FixDiagnostic = {
                         prompt = "/COPILOT_FIXDIAGNOSTIC ファイル内の次のような診断上の問題を解決してください：",
-                        selection = select.diagnostics or select.selection or function()
-                            return {}
-                        end,
+                        selection = selectCb,
                     },
                     Commit = {
                         prompt = "/COPILOT_COMMIT この変更をコミットしてください。",
-                        selection = select.gitdiff or select.selection or function()
-                            return {}
-                        end,
+                        selection = selectCb,
                     },
                     CommitStaged = {
                         prompt = "/COPILOT_COMMITSTAGED ステージングされた変更をコミットしてください。",
-                        selection = select.selection or function()
-                            return {}
-                        end,
+                        selection = selectCb,
                     },
                 },
                 window = {
