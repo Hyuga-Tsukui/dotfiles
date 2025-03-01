@@ -15,5 +15,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: chezmoi apply
-        run: sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply -S .
+        run: sh -c '$(curl -fsLS chezmoi.io/get)' -- init --apply -S .
 
