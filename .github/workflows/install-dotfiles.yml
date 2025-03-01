@@ -1,0 +1,19 @@
+name: Install dotfiles
+on:
+  - push
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+defaults:
+  run:
+    shell: bash
+jobs:
+  install:
+    name: install
+    runs-on: macos-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: chezmoi apply
+        run: sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply -S .
+
