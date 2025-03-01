@@ -1,7 +1,11 @@
 packages:
   darwin:
     taps:
-    brews:
+    casks:
+      - 'wezterm@nightly'
+      - 'font-hackgen'
+      - 'nikitabobko/tap/aerospace'
+  cmdline:
       - 'bat'
       - 'fd'
       - 'fzf'
@@ -16,8 +20,4 @@ packages:
       - 'zsh-autosuggestions'
       - 'zsh-completions'
       - 'zoxide'
-    casks:
-      - 'wezterm@nightly'
-      - 'font-hackgen'
-      - 'nikitabobko/tap/aerospace'
 
