@@ -19,13 +19,5 @@ brew {{ . | quote }}
 cask {{ . | quote }}
 {{ end -}}
 EOF
-
-# Install nvim
-if [ ! -x "$(command -v nvim)" ] ; then
-    brew install --HEAD neovim
-else
-    echo "nvim already installed"
-fi
-
 {{ end -}}
 
