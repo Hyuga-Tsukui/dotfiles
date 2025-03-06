@@ -110,5 +110,20 @@
     "key": "cmd+b",
     "when": "explorerViewletFocus",
     "command": "workbench.action.closeSidebar"
-  }
+  },
+	{
+		"key": "tab",
+		"command": "selectNextSuggestion",
+		"when": "suggestWidgetVisible"
+	},
+	{
+		"key": "shift+tab",
+		"command": "selectPrevSuggestion",
+		"when": "suggestWidgetVisible"
+	},
+	{
+		"key": "Enter",
+		"command": "acceptSelectedSuggestion",
+		"when": "suggestWidgetVisible && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+	}
 ]
