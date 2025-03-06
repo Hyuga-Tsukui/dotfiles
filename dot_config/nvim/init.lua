@@ -1,13 +1,13 @@
+require("config.lazy")
+require("core.options")
+require("core.keymaps")
+
 if not vim.g.vscode then
     require("core.autocmd")
-    require("core.options")
-    require("core.keymaps")
 
     -- disable netrw at the very start of your init.lua
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
-
-    require("config.lazy")
 
     vim.diagnostic.config({
         virtual_text = {

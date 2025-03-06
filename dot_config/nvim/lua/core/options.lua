@@ -1,65 +1,50 @@
-local opt = vim.opt
+local apply_opt = function(opt)
+    opt.clipboard:append("unnamedplus") -- share yanked text with system clipboard
 
-opt.cmdheight = 2
-
--- clipboard
-opt.clipboard:append("unnamedplus")
-opt.scrolloff = 8
-
-opt.incsearch = true
-opt.hlsearch = true
-
--- vscodeでnvimを使う場合に意図しない動作を起こすので、vscodeの場合は以下の設定を行わない
-if not vim.g.vscode then
-    -- appearance
-    opt.guicursor = ""
-    opt.laststatus = 0 -- status-line系のpluginへの切り替え時のちらつきを防ぐためにデフォルトは表示しないようにする.
-    -- line numbers
+    -- appearance settings
     opt.nu = false
     opt.relativenumber = false
-    opt.cmdheight = 0
-    opt.conceallevel = 2
+
+    -- search settings.
+    opt.incsearch = true
+    opt.hlsearch = true
+    opt.ignorecase = true
+    opt.smartcase = true
 
     opt.smartindent = true
-    -- tab & indentation
     opt.tabstop = 4
     opt.shiftwidth = 4
     opt.expandtab = true
     opt.autoindent = true
+    opt.backspace = "indent,eol,start"
+    opt.scrolloff = 8
 
-    -- line wrapping
+    -- completion settings
+    opt.iskeyword:append("-")
+end
+
+local apply_only_vim_opt = function(opt)
+    -- appearance settings
+    opt.guicursor = ""
+    opt.laststatus = 0 -- status-line系のpluginへの切り替え時のちらつきを防ぐためにデフォルトは表示しないようにする.
+    opt.cmdheight = 0
+    opt.conceallevel = 2
     opt.wrap = false
-
-    -- search settings
-    opt.ignorecase = true
-    opt.smartcase = true
-
-    -- cursorline
     opt.cursorline = true
-
-    -- appearance
     opt.termguicolors = true
     opt.background = "dark"
     opt.signcolumn = "yes"
     opt.title = true
-
     opt.winblend = 0 -- ウィンドウの不透明度
     opt.pumblend = 0 -- ポップアップメニューの不透明度
-
-    -- backspace
-    opt.backspace = "indent,eol,start"
-
-    -- split windows
     opt.splitright = true
     opt.splitbelow = true
 
-    -- log
+    -- log settings
     opt.history = 500
     opt.updatetime = 50
 
-    opt.iskeyword:append("-")
-
-    -- backup
+    -- backup settings
     opt.swapfile = false
     opt.backup = false
 
@@ -70,3 +55,9 @@ if not vim.g.vscode then
     opt.undodir = undodir
     opt.undofile = true
 end
+
+if not vim.g.vscode then
+    apply_only_vim_opt(vim.opt)
+end
+
+apply_opt(vim.opt)
