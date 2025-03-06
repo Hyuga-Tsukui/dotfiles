@@ -125,5 +125,15 @@
 		"key": "Enter",
 		"command": "acceptSelectedSuggestion",
 		"when": "suggestWidgetVisible && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+	},
+	{
+		"key": "tab",
+		"command": "workbench.action.nextEditor",
+		"when": "editorTextFocus && !suggestWidgetVisible && !inlineSuggestionVisible"
+	},
+	{
+		"key": "shift+tab",
+		"command": "workbench.action.previousEditor",
+		"when": "editorTextFocus && !suggestWidgetVisible && !inlineSuggestionVisible"
 	}
 ]
