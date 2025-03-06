@@ -1,4 +1,5 @@
 42crunch.vscode-openapi
+apophis14.vimbrant
 asvetliakov.vscode-neovim
 eamodio.gitlens
 geddski.macros
@@ -8,7 +9,6 @@ github.vscode-github-actions
 github.vscode-pull-request-github
 golang.go
 hashicorp.terraform
-magdalenalipka.tokyo-night-frameless
 ms-azuretools.vscode-docker
 ms-python.debugpy
 ms-python.python
