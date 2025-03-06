@@ -95,6 +95,16 @@
     "github.copilot.editor.enableAutoCompletions": true,
     "githubPullRequests.terminalLinksHandler": "github",
     "workbench.startupEditor": "none",
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    
+    // macros settings
+    "macros": {
+        "selectAndTogglesSidebar": [
+            "list.select",
+            "workbench.action.toggleSidebarVisibility"
+        ]
+    },
     "vim.incsearch": true,
     "vim.useSystemClipboard": true,
     "vim.useCtrlKeys": true,
