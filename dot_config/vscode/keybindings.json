@@ -111,6 +111,7 @@
     "when": "explorerViewletFocus",
     "command": "workbench.action.closeSidebar"
   },
+	
 	{
 		"key": "tab",
 		"command": "selectNextSuggestion",
@@ -125,6 +126,12 @@
 		"key": "Enter",
 		"command": "acceptSelectedSuggestion",
 		"when": "suggestWidgetVisible && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+	},
+	
+	{
+		"key": "ctrl+shift+tab",
+		"command": "workbench.action.previousEditor",
+		"when": "editorTextFocus && !suggestWidgetVisible && !inlineSuggestionVisible"
 	},
 	{
 		"key": "tab",
