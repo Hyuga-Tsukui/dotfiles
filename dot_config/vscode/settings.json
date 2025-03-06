@@ -1,0 +1,112 @@
+{   
+    "yaml.customTags": [
+        "!And",
+        "!And sequence",
+        "!If",
+        "!If sequence",
+        "!Not",
+        "!Not sequence",
+        "!Equals",
+        "!Equals sequence",
+        "!Or",
+        "!Or sequence",
+        "!FindInMap",
+        "!FindInMap sequence",
+        "!Base64",
+        "!Join",
+        "!Join sequence",
+        "!Cidr",
+        "!Ref",
+        "!Sub",
+        "!Sub sequence",
+        "!GetAtt",
+        "!GetAZs",
+        "!ImportValue",
+        "!ImportValue sequence",
+        "!Select",
+        "!Select sequence",
+        "!Split",
+        "!Split sequence"
+    ],
+    "dev.containers.defaultExtensions": [
+        "GitHub.copilot",
+        "GitHub.vscode-pull-request-github",
+        "eamodio.gitlens",
+        "github.vscode-github-actions"
+    ],
+
+    // appearance settings
+    "window.nativeTabs": true,
+    "window.density.editorTabHeight": "compact",
+    "workbench.editor.pinnedTabsOnSeparateRow": true,
+    "workbench.colorTheme": "Tokyo Night Storm Frameless",
+    "terminal.integrated.fontFamily": "'FiraCode Nerd Font', monospace",
+    "editor.fontSize": 14,
+    "editor.fontFamily": "'FiraCode Nerd Font', monospace",
+    "editor.lineNumbers": "off",
+    "editor.cursorStyle": "block",
+    "editor.cursorBlinking": "solid",
+    "editor.minimap.enabled": false,
+    "explorer.openEditors.visible": 1,
+    "workbench.activityBar.location": "hidden",
+    "window.commandCenter": false,
+    "workbench.layoutControl.enabled": false,
+
+    "git.autofetch": true,
+    "editor.inlineSuggest.enabled": true,
+    "githubPullRequests.pullBranch": "never",
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": true,
+        "scminput": false
+    },
+    "[yaml]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "git.confirmSync": false,
+    "go.toolsManagement.autoUpdate": true,
+    "editor.tabSize": 2,
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "files.exclude": {
+        "**/.git": false
+    },
+    "github.copilot.editor.enableAutoCompletions": true,
+    "githubPullRequests.terminalLinksHandler": "github",
+    "workbench.startupEditor": "none",
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": false,
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [";"],
+            "after": [":"]
+        },
+        {
+            "before": [":"],
+            "after": [";"]
+        },
+        {
+            "before": ["<Leader>", "e"],
+            "commands": [
+                "workbench.explorer.fileView.focus"
+            ]
+        },
+        {
+            "before": ["<Leader>", "e"],
+            "commands": [
+                "workbench.action.toggleSidebarVisibility"
+            ],
+            "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+        },
+    ],
+    "vim.leader": "<space>",
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false
+    },
+    "chat.editing.alwaysSaveWithGeneratedChanges": true,
+}

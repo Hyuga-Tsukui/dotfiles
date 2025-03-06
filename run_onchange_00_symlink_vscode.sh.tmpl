@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# VSCODEがインストールされているかどうかでdotofileの起動をchezmoiで制御する REF: https://www.chezmoi.io/user-guide/use-scripts-to-perform-actions/#clear-the-state-of-all-run_onchange_-and-run_once_-scripts:~:text=systems%20and%20macOS.-,Run%20a%20script%20when%20the%20contents%20of%20another%20file%20changes,-chezmoi%27s%20run_%20scripts
+# IS_VSCODE_USER_DIR_EXISTED=$(test -d "$HOME/Library/Application Support/Code/User" && echo "true" || echo "false")
+
+VSCODE_USER_DIR="$HOME/Library/Application Support/Code/User"
+CONFIG_DIR="$HOME/.config/vscode"
+
+if [ -d "$VSCODE_USER_DIR" ]; then
+  create_symlink() {
+    local target_file="$VSCODE_USER_DIR/$1"
+    local source_file="$CONFIG_DIR/$1"
+
+    if [ -e "$target_file" ] && [ ! -L "$target_file" ]; then
+      rm "$target_file" && ln -s "$source_file" "$target_file"
+      echo "✅ $1 の通常ファイルを削除してシンボリックリンクを作成しました。"
+    elif [ ! -e "$target_file" ]; then
+      ln -s "$source_file" "$target_file"
+      echo "✅ $1 のシンボリックリンクを作成しました。"
+    fi
+  }
+
+  create_symlink "settings.json"
+  create_symlink "keybindings.json"
+fi

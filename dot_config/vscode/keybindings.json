@@ -1,0 +1,114 @@
+// Place your key bindings in this file to override the defaults
+[
+  {
+		"key": "ctrl+h",
+		"command": "-editor.action.startFindReplaceAction",
+		"when": "editorFocus || editorIsOpen"
+	},
+  {
+		"key": "ctrl+h",
+		"command": "-testing.toggleTestingPeekHistory",
+		"when": "testing.isPeekVisible"
+	},
+	{
+		"key": "ctrl+k",
+		"command": "workbench.action.focusAboveGroup"
+	},
+	{
+		"key": "ctrl+k ctrl+up",
+		"command": "-workbench.action.focusAboveGroup"
+	},
+	{
+		"key": "ctrl+j",
+		"command": "workbench.action.focusBelowGroup"
+	},
+	{
+		"key": "ctrl+k ctrl+down",
+		"command": "-workbench.action.focusBelowGroup"
+	},
+	{
+		"key": "ctrl+l",
+		"command": "workbench.action.focusRightGroup"
+	},
+	{
+		"key": "ctrl+k ctrl+right",
+		"command": "-workbench.action.focusRightGroup"
+	},
+	{
+		"key": "ctrl+h",
+		"command": "workbench.action.focusLeftGroup"
+	},
+	{
+		"key": "ctrl+k ctrl+left",
+		"command": "-workbench.action.focusLeftGroup"
+	},
+  {
+		"key": "j",
+		"command": "list.focusDown",
+		"when": "explorerViewletFocus && listFocus &&explorerViewletVisible && !inputFocus"
+	},
+	{
+		"key": "k",
+		"command": "list.focusUp",
+		"when": "explorerViewletFocus && listFocus &&explorerViewletVisible && !inputFocus"
+	},
+	{
+		"key": "o",
+		"command": "list.toggleExpand",
+		"when": "explorerViewletFocus && listFocus &&explorerViewletVisible && !inputFocus"
+	},
+	{
+		"key": "r",
+		"command": "workbench.files.action.refreshFilesExplorer",
+		"when": "explorerViewletFocus && listFocus &&explorerViewletVisible && !inputFocus"
+	},
+	{
+    "key": "d",
+    "command": "deleteFile",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+  },
+	{
+		"key": "a",
+		"command": "explorer.newFile",
+		"when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+	},
+	{
+		"key": "c",
+		"command": "filesExplorer.copy",
+		"when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
+	},
+	{
+		"key": "p",
+		"command": "filesExplorer.paste",
+		"when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
+	},
+	{
+		"key": "r",
+		"command": "renameFile",
+		"when": "explorerViewletFocus && explorerViewletVisible && !inputFocus" 
+	},
+	{
+		"key": "ctrl+v",
+		"command": "explorer.openToSide",
+		"when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
+	},
+	{
+    "key": "ctrl+\\",
+    "command": "workbench.action.terminal.toggleTerminal"
+  },
+	{ 
+		"key": "space",
+		"command": "-list.toggleExpand",
+		"when": "listFocus && !inputFocus && !treestickyScrollFocused"
+  },
+	{
+    "key": "cmd+b",
+    "when": "!explorerViewletFocus",
+    "command": "workbench.view.explorer"
+  },
+  {
+    "key": "cmd+b",
+    "when": "explorerViewletFocus",
+    "command": "workbench.action.closeSidebar"
+  }
+]
