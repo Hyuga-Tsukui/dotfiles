@@ -36,6 +36,7 @@
     ],
 
     // appearance settings
+    "window.title": " ",
     "window.zoomLevel": 1,
     "window.nativeTabs": true,
     "window.density.editorTabHeight": "compact",
@@ -43,6 +44,7 @@
     "workbench.colorTheme": "vimbrant",
     "terminal.integrated.fontFamily": "'HackGen Console', monospace",
     "editor.fontSize": 14,
+    "editor.rulers": [80],
     "editor.fontFamily": "'FiraCode Nerd Font', monospace",
     "editor.lineNumbers": "off",
     "editor.cursorStyle": "block",
@@ -65,6 +67,7 @@
     
     // editor tab settings
     "workbench.editor.closeOnFileDelete": true,
+    "workbench.editor.tabSizing": "shrink",
     "breadcrumbs.enabled": false,
     
     // explorer settings
@@ -116,6 +119,6 @@
         "gosec",
         "tagalign",
         "nilnil",
-        "nilerr",
+        "nilerr"
     ],
 }
