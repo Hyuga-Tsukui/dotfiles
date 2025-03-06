@@ -36,7 +36,7 @@
     ],
 
     // appearance settings
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 1,
     "window.nativeTabs": true,
     "window.density.editorTabHeight": "compact",
     "workbench.editor.pinnedTabsOnSeparateRow": true,
