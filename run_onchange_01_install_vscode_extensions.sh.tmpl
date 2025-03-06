@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # IS_VSCODE_USER_DIR_EXISTED=$(test -d "$HOME/Library/Application Support/Code/User" && echo "true" || echo "false")
-# extensions.txt hash: $(cat $HOME/.config/vscode/extensions.txt | sha256sum)
+# extensions.txt hash: $(cat $HOME/.config/vscode/extensions.txt | shasum -a 256)
 
 if ! command -v code &> /dev/null; then
   echo "❌ code command not found. Aborting."
