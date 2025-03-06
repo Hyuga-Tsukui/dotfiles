@@ -25,7 +25,8 @@ end
 
 local apply_only_vim_opt = function(opt)
     -- appearance settings
-    opt.guicursor = ""
+    -- opt.guicursor = ""
+    opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr-o:hor20"
     opt.laststatus = 0 -- status-line系のpluginへの切り替え時のちらつきを防ぐためにデフォルトは表示しないようにする.
     opt.cmdheight = 0
     opt.conceallevel = 2
