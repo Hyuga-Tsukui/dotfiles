@@ -73,6 +73,11 @@
 		"when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
 	},
 	{
+		"key": "f",
+		"command": "explorer.newFolder",
+		"when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+	},
+	{
 		"key": "c",
 		"command": "filesExplorer.copy",
 		"when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
