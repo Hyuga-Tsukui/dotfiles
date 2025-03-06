@@ -99,7 +99,7 @@
 	{
 		"key": "Enter",
 		"command": "macros.selectAndTogglesSidebar",
-		"when": "explorerViewletFocus && listFocus &&explorerViewletVisible && !inputFocus"
+		"when": "explorerViewletFocus && listFocus &&explorerViewletVisible && !inputFocus && !explorerResourceIsFolder"
 	},
 	{
     "key": "cmd+b",
