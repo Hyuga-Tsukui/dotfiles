@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# IS_VSCODE_USER_DIR_EXISTED=$(test -d "$HOME/Library/Application Support/Code/User" && echo "true" || echo "false")
+# extenstions.txt hash: $(cat $HOME/.config/vscode/extenstions.txt | sha256sum)
+
+if ! command -v code &> /dev/null; then
+  echo "❌ code command not found. Aborting."
+  exit 0
+fi
+
+echo "🔄 Installing extensions..."
+
+cat "$HOME/.config/vscode/extensions.txt" | xargs -n1 -P4 code --install-extension
