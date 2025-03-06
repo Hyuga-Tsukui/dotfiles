@@ -54,7 +54,7 @@
     "window.commandCenter": false,
     "workbench.layoutControl.enabled": true,
     "editor.experimentalGpuAcceleration": "on",
-    "editor.smoothScrolling": true,
+    "editor.smoothScrolling": false,
     "editor.bracketPairColorization.enabled": true,
     "editor.guides.bracketPairs": "active",
     "editor.renderLineHighlight": "all",
@@ -108,4 +108,14 @@
             "workbench.action.toggleSidebarVisibility"
         ]
     },
+    
+    "cSpell.userWords": [
+        "biomejs",
+        "gofumpt",
+        "golangci",
+        "gosec",
+        "tagalign",
+        "nilnil",
+        "nilerr",
+    ],
 }
