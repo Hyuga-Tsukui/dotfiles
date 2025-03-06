@@ -40,17 +40,32 @@
     "window.density.editorTabHeight": "compact",
     "workbench.editor.pinnedTabsOnSeparateRow": true,
     "workbench.colorTheme": "Tokyo Night Storm Frameless",
-    "terminal.integrated.fontFamily": "'FiraCode Nerd Font', monospace",
+    "terminal.integrated.fontFamily": "'HackGen Console', monospace",
     "editor.fontSize": 14,
     "editor.fontFamily": "'FiraCode Nerd Font', monospace",
     "editor.lineNumbers": "off",
     "editor.cursorStyle": "block",
     "editor.cursorBlinking": "solid",
     "editor.minimap.enabled": false,
+    "editor.stickyScroll.enabled": false,
     "explorer.openEditors.visible": 1,
     "workbench.activityBar.location": "hidden",
     "window.commandCenter": false,
-    "workbench.layoutControl.enabled": false,
+    "workbench.layoutControl.enabled": true,
+    "editor.experimentalGpuAcceleration": "on",
+    "editor.smoothScrolling": true,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": "active",
+    "editor.renderLineHighlight": "all",
+    "editor.wordSegmenterLocales": ["ja", "en"],
+    "editor.glyphMargin": false,
+    "workbench.statusBar.visible": true,
+    
+    // editor tab settings
+    "workbench.editor.closeOnFileDelete": true,
+    
+    // explorer settings
+    "explorer.confirmDelete": false,
 
     "git.autofetch": true,
     "editor.inlineSuggest.enabled": true,
@@ -71,8 +86,12 @@
         "asvetliakov.vscode-neovim": 1
     },
     "files.exclude": {
-        "**/.git": false
+        "**/.git": true
     },
+    "search.exclude": {
+        "**/.git": true
+    },
+    "editor.accessibilitySupport": "off",
     "github.copilot.editor.enableAutoCompletions": true,
     "githubPullRequests.terminalLinksHandler": "github",
     "workbench.startupEditor": "none",
