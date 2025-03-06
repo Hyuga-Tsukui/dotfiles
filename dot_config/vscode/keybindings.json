@@ -102,6 +102,11 @@
 		"when": "listFocus && !inputFocus && !treestickyScrollFocused"
   },
 	{
+		"key": "Enter",
+		"command": "macros.selectAndTogglesSidebar",
+		"when": "explorerViewletFocus && listFocus &&explorerViewletVisible && !inputFocus"
+	},
+	{
     "key": "cmd+b",
     "when": "!explorerViewletFocus",
     "command": "workbench.view.explorer"
