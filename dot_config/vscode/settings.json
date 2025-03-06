@@ -36,6 +36,7 @@
     ],
 
     // appearance settings
+    "window.zoomLevel": 0,
     "window.nativeTabs": true,
     "window.density.editorTabHeight": "compact",
     "workbench.editor.pinnedTabsOnSeparateRow": true,
@@ -106,37 +107,4 @@
             "workbench.action.toggleSidebarVisibility"
         ]
     },
-    "vim.incsearch": true,
-    "vim.useSystemClipboard": true,
-    "vim.useCtrlKeys": true,
-    "vim.hlsearch": false,
-    "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": [";"],
-            "after": [":"]
-        },
-        {
-            "before": [":"],
-            "after": [";"]
-        },
-        {
-            "before": ["<Leader>", "e"],
-            "commands": [
-                "workbench.explorer.fileView.focus"
-            ]
-        },
-        {
-            "before": ["<Leader>", "e"],
-            "commands": [
-                "workbench.action.toggleSidebarVisibility"
-            ],
-            "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
-        },
-    ],
-    "vim.leader": "<space>",
-    "vim.handleKeys": {
-        "<C-a>": false,
-        "<C-f>": false
-    },
-    "chat.editing.alwaysSaveWithGeneratedChanges": true,
 }
