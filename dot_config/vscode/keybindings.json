@@ -42,16 +42,6 @@
 		"key": "ctrl+k ctrl+left",
 		"command": "-workbench.action.focusLeftGroup"
 	},
-  {
-		"key": "j",
-		"command": "list.focusDown",
-		"when": "explorerViewletFocus && listFocus &&explorerViewletVisible && !inputFocus"
-	},
-	{
-		"key": "k",
-		"command": "list.focusUp",
-		"when": "explorerViewletFocus && listFocus &&explorerViewletVisible && !inputFocus"
-	},
 	{
 		"key": "o",
 		"command": "list.toggleExpand",
