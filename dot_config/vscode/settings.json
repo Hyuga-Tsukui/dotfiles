@@ -65,6 +65,7 @@
     
     // editor tab settings
     "workbench.editor.closeOnFileDelete": true,
+    "breadcrumbs.enabled": false,
     
     // explorer settings
     "explorer.confirmDelete": false,
