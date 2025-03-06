@@ -21,3 +21,4 @@ ms-vscode-remote.remote-containers
 ms-vsliveshare.vsliveshare
 redhat.vscode-yaml
 renesaarsoo.sql-formatter-vsc
+streetsidesoftware.code-spell-checker
