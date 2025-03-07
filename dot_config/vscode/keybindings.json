@@ -102,12 +102,12 @@
 		"when": "explorerViewletFocus && listFocus &&explorerViewletVisible && !inputFocus && !explorerResourceIsFolder"
 	},
 	{
-    "key": "cmd+b",
+    "key": "ctrl+e",
     "when": "!explorerViewletFocus",
     "command": "workbench.view.explorer"
   },
   {
-    "key": "cmd+b",
+    "key": "ctrl+e",
     "when": "explorerViewletFocus",
     "command": "workbench.action.closeSidebar"
   },
