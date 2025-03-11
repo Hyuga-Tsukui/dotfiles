@@ -133,14 +133,14 @@
 		"command": "workbench.action.previousEditor",
 		"when": "editorTextFocus && !suggestWidgetVisible && !inlineSuggestionVisible"
 	},
-	{
-		"key": "tab",
-		"command": "workbench.action.nextEditor",
-		"when": "editorTextFocus && !suggestWidgetVisible && !inlineSuggestionVisible"
-	},
-	{
-		"key": "shift+tab",
-		"command": "workbench.action.previousEditor",
-		"when": "editorTextFocus && !suggestWidgetVisible && !inlineSuggestionVisible"
-	}
+	// {
+	// 	"key": "tab",
+	// 	"command": "workbench.action.nextEditor",
+	// 	"when": "editorTextFocus && !suggestWidgetVisible && !inlineSuggestionVisible"
+	// },
+	// {
+	// 	"key": "shift+tab",
+	// 	"command": "workbench.action.previousEditor",
+	// 	"when": "editorTextFocus && !suggestWidgetVisible && !inlineSuggestionVisible"
+	// }
 ]
