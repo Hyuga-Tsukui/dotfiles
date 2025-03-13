@@ -52,7 +52,6 @@
     "editor.minimap.enabled": false,
     "editor.stickyScroll.enabled": false,
     "explorer.openEditors.visible": 1,
-    "workbench.activityBar.location": "hidden",
     "window.commandCenter": false,
     "workbench.layoutControl.enabled": true,
     // "editor.experimentalGpuAcceleration": "on",
