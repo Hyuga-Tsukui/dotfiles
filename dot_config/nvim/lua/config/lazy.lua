@@ -31,6 +31,7 @@ local pure_nvim_plugins = {
     "plugins.tmux-navigator",
     "plugins.auto-session",
     "plugins.which-key-nvim",
+    "plugins.treejs",
 }
 
 -- Bootstrap lazy.nvim
