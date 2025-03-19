@@ -113,11 +113,21 @@
     
     "cSpell.userWords": [
         "biomejs",
+        "caarlos",
+        "datacontract",
         "gofumpt",
         "golangci",
         "gosec",
-        "tagalign",
+        "nilerr",
         "nilnil",
-        "nilerr"
+        "nolint",
+        "nonpii",
+        "storageobj",
+        "tagalign",
+        "tokyucorp",
+        "tokyuid"
     ],
+    "remote.extensionKind": {
+        "asvetliakov.vscode-neovim": ["workspace"]
+    }
 }
