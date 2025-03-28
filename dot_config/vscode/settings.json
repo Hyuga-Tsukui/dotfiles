@@ -129,5 +129,8 @@
     ],
     "remote.extensionKind": {
         "asvetliakov.vscode-neovim": ["workspace"]
-    }
+    },
+    "github.copilot.selectedCompletionModel": "gpt-4o-copilot",
+    "github.copilot.chat.localeOverride": "ja",
+    "github.copilot.chat.codesearch.enabled": true
 }
