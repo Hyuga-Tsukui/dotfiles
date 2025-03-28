@@ -1,5 +1,6 @@
 {{ if eq .chezmoi.os "darwin" -}}
 #!/bin/sh
+set -eu
 
 # Install brew
 if [ ! -x "$(command -v brew)" ] ; then
@@ -8,7 +9,7 @@ else
 	echo "brew already installed"
 fi
 
-brew bundle --no-lock --file=/dev/stdin <<EOF
+brew bundle --file=/dev/stdin <<EOF
 {{ range .packages.darwin.taps -}}
 tap {{ . | quote }}
 {{ end -}}
