@@ -10,16 +10,6 @@ end
 
 return {
     {
-        "zbirenbaum/copilot-cmp",
-        event = { "InsertEnter" },
-        config = function()
-            require("copilot_cmp").setup({})
-        end,
-    },
-    {
-        "onsails/lspkind.nvim",
-    },
-    {
         "hrsh7th/nvim-cmp",
         event = { "InsertEnter" },
         keys = { { ":", mode = "n" }, { "/", mode = "n" } },
@@ -30,10 +20,14 @@ return {
             "hrsh7th/cmp-path",
             "L3MON4D3/LuaSnip",
             "saadparwaiz1/cmp_luasnip",
+            {
+                "zbirenbaum/copilot-cmp",
+                config = true,
+            },
+            "onsails/lspkind.nvim",
         },
         config = function()
-            local cmp = require("cmp")
-            local lua_snip = require("luasnip")
+            -- Setup lspkind icons including Copilot
             local lspkind = require("lspkind")
             lspkind.init({
                 symbol_map = {
@@ -41,6 +35,9 @@ return {
                 },
             })
             vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
+
+            local lua_snip = require("luasnip")
+            local cmp = require("cmp")
             cmp.setup({
                 window = {
                     completion = cmp.config.window.bordered(),

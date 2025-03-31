@@ -17,7 +17,6 @@ return {
     {
         "CopilotC-Nvim/CopilotChat.nvim",
         dependencies = {
-            { "zbirenbaum/copilot.lua" },
             { "nvim-lua/plenary.nvim", branch = "master" },
         },
         build = "make tiktoken", -- tiktoken is a official command to get a token that is consumed by Copilot. REF: https://github.com/gptlang/lua-tiktoken
