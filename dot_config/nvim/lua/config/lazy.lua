@@ -32,6 +32,8 @@ local pure_nvim_plugins = {
     "plugins.auto-session",
     "plugins.which-key-nvim",
     "plugins.treejs",
+    "plugins.copilot.init",
+    "plugins.copilot.chat",
 }
 
 -- Bootstrap lazy.nvim
