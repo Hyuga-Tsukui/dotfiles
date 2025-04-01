@@ -11,7 +11,6 @@ local pure_nvim_plugins = {
     "plugins.gitlinker",
     "plugins.fidget",
     "plugins.barbar",
-    "plugins.copilot",
     "plugins.fzf",
     "plugins.gitsigns",
     "plugins.harpoon",
