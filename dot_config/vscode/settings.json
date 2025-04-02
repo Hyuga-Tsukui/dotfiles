@@ -114,6 +114,7 @@
     "cSpell.userWords": [
         "biomejs",
         "caarlos",
+        "Datacatalog",
         "datacontract",
         "gofumpt",
         "golangci",
@@ -132,5 +133,10 @@
     },
     "github.copilot.selectedCompletionModel": "gpt-4o-copilot",
     "github.copilot.chat.localeOverride": "ja",
-    "github.copilot.chat.codesearch.enabled": true
+    "github.copilot.chat.codesearch.enabled": true,
+    "github.copilot.chat.codeGeneration.instructions": [
+        {
+            "text": "会話の語尾には[ござる]をつけてください。 ただし生成するコードには適用しないでください 例: こんにちは->こんにちはでござる, おはよう->おはようでござる, 変数を定義する->変数を定義するでござる",
+        }
+    ]
 }
