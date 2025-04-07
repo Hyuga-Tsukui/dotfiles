@@ -42,18 +42,18 @@
     "vim.leader": "<space>",
     "vim.normalModeKeyBindingsNonRecursive": [
         // use builtin undo/redo because vim extension undo/redo is broken
-        {
-          "before": ["u"],
-          "commands": [
-            "undo"
-          ]
-        },
-        {
-          "before": ["<C-r>"],
-          "commands": [
-            "redo"
-          ]
-        },
+        // {
+        //   "before": ["u"],
+        //   "commands": [
+        //     "undo"
+        //   ]
+        // },
+        // {
+        //   "before": ["<C-r>"],
+        //   "commands": [
+        //     "redo"
+        //   ]
+        // },
         // swap : and ;
         {
           "before": [":"],
@@ -145,7 +145,6 @@
         "**/.git": true
     },
     "editor.accessibilitySupport": "off",
-    "github.copilot.editor.enableAutoCompletions": true,
     "githubPullRequests.terminalLinksHandler": "github",
     "workbench.startupEditor": "none",
     "workbench.editor.enablePreview": false,
@@ -156,7 +155,7 @@
         "selectAndTogglesSidebar": [
             "list.select",
             "workbench.action.toggleSidebarVisibility"
-        ]
+        ],
     },
     
     "cSpell.userWords": [
