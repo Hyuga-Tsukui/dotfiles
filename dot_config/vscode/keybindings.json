@@ -133,19 +133,23 @@
 		"command": "workbench.action.previousEditor",
 		"when": "editorTextFocus && !suggestWidgetVisible && !inlineSuggestionVisible"
 	},
+
 	// Copilot Chat Settings.
+	// clear copilot chat history.
 	{
 		"key": "ctrl+l",
 		"command": "workbench.action.chat.clearHistory",
 		"when": "inChat"
 	},
+	// abort copilot chat.
 	{
-		"key": "ctrl+c",
+		"key": "ctrl+q",
 		"command": "workbench.action.chat.cancel",
 		"when": "inChat"
 	},
+	// toggle copilot chat.
 	{ 
-		"key": "ctrl+cmd+i",
+		"key": "ctrl+c",
 		"command": "workbench.panel.chat",
     "when": "workbench.panel.chat.view.copilot.active"
 	},
