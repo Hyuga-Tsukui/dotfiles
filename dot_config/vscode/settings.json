@@ -206,5 +206,18 @@
           {
             "text": "Avoid using TODO or FIXME in code. Provide complete and clean implementations whenever possible."
           },
-    ]
+    ],
+    "mcp": {
+    "servers": {
+      "awslabs.aws-documentation-mcp-server": {
+        "command": "uvx",
+        "args": ["awslabs.aws-documentation-mcp-server@latest"],
+        "env": {
+          "FASTMCP_LOG_LEVEL": "ERROR",
+          "AQUA_GLOBAL_CONFIG": "/Users/hyuga/.config/aqua/aqua.yaml"
+        },
+      }
+    }
+  },
+  "chat.agent.enabled": true
 }
