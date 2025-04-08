@@ -1,6 +1,7 @@
 packages:
   darwin:
     taps:
+      - 'aquaproj/aqua'
     casks:
       - 'wezterm@nightly'
       - 'font-hackgen'
