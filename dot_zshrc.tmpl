@@ -24,6 +24,11 @@ zinit ice depth=1; zinit light olets/zsh-abbr
 # -----------------------------------------------------------------
 # eval "$(starship init zsh)"
 
+# Setup aqua
+# -----------------------------------------------------------------
+export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"
+export AQUA_GLOBAL_CONFIG=$PWD/aqua.yaml
+
 # Setup zsh
 # -----------------------------------------------------------------
 setopt nolistbeep # ビープ音を鳴らさない
@@ -57,6 +62,9 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Add PATH My Scripts
 export PATH="$HOME/bin:$PATH"
+
+# ADD PATH curl by Homebrew
+export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 
 # Aliases
 alias v="nvim"
