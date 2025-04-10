@@ -34,6 +34,9 @@
         "eamodio.gitlens",
         "github.vscode-github-actions"
     ],
+    "extensions.autoUpdate": true,
+    "editor.quickSuggestionsDelay": 400,
+
 
     // extension vim settings
     "vim.useSystemClipboard": true,
@@ -41,20 +44,6 @@
     "vim.hlsearch": true,
     "vim.leader": "<space>",
     "vim.normalModeKeyBindingsNonRecursive": [
-        // use builtin undo/redo because vim extension undo/redo is broken
-        // {
-        //   "before": ["u"],
-        //   "commands": [
-        //     "undo"
-        //   ]
-        // },
-        // {
-        //   "before": ["<C-r>"],
-        //   "commands": [
-        //     "redo"
-        //   ]
-        // },
-        // swap : and ;
         {
           "before": [":"],
           "after": [";"]
@@ -82,6 +71,11 @@
         ]
       }
     ],
+    "vim.highlightedyank.enable": true,
+    "vim.highlightedyank.duration": 150,
+    "vim.autoindent": true,
+    "vim.visualstar": true,
+
 
     // appearance settings
     "window.title": " ",
@@ -91,7 +85,7 @@
     "workbench.editor.pinnedTabsOnSeparateRow": true,
     "workbench.colorTheme": "Tokyo Night Storm",
     "terminal.integrated.fontFamily": "'HackGen Console', monospace",
-    "editor.fontSize": 14,
+    "editor.fontSize": 16,
     "editor.rulers": [80],
     "editor.fontFamily": "'FiraCode Nerd Font', monospace",
     "editor.lineNumbers": "off",
@@ -102,7 +96,6 @@
     "explorer.openEditors.visible": 1,
     "window.commandCenter": false,
     "workbench.layoutControl.enabled": true,
-    // "editor.experimentalGpuAcceleration": "on",
     "editor.smoothScrolling": false,
     "editor.bracketPairColorization.enabled": true,
     "editor.guides.bracketPairs": "active",
@@ -110,7 +103,7 @@
     "editor.wordSegmenterLocales": ["ja", "en"],
     "editor.glyphMargin": false,
     "workbench.statusBar.visible": true,
-    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.fontSize": 16,
     
     // editor tab settings
     "workbench.editor.closeOnFileDelete": true,
@@ -123,21 +116,12 @@
     "git.autofetch": true,
     "editor.inlineSuggest.enabled": true,
     "githubPullRequests.pullBranch": "never",
-    "github.copilot.enable": {
-        "*": true,
-        "plaintext": false,
-        "markdown": true,
-        "scminput": false
-    },
     "[yaml]": {
         "editor.defaultFormatter": "redhat.vscode-yaml"
     },
     "git.confirmSync": false,
     "go.toolsManagement.autoUpdate": true,
     "editor.tabSize": 2,
-    "extensions.experimental.affinity": {
-        "asvetliakov.vscode-neovim": 1
-    },
     "files.exclude": {
         "**/.git": true
     },
@@ -188,5 +172,11 @@
             "text": "Avoid using TODO or FIXME in code. Provide complete and clean implementations whenever possible."
           },
     ],
-  "chat.agent.enabled": true
+    "chat.agent.enabled": true,
+    "github.copilot.enable": {
+          "*": true,
+          "plaintext": false,
+          "markdown": true,
+          "scminput": false
+    },
 }
