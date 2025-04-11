@@ -146,37 +146,14 @@
     "github.copilot.selectedCompletionModel": "gpt-4o-copilot",
     "github.copilot.chat.localeOverride": "ja",
     "github.copilot.chat.codesearch.enabled": true,
-    "github.copilot.chat.codeGeneration.instructions": [
-        {
-            "text": "Add 'でござる' to the end of each sentence in the conversation (e.g., 'こんにちは' → 'こんにちはでござる'). Do not apply this to the generated code."
-          },
-          {
-            "text": "Follow the SOLID principles except for Open-Closed and Dependency Inversion, which should be ignored unless explicitly instructed."
-          },
-          {
-            "text": "Strictly follow the YAGNI principle. Do not implement speculative features; only implement what's currently required."
-          },
-          {
-            "text": "Follow the KISS principle. Keep the implementation as simple as possible. Avoid unnecessary abstractions or overengineering."
-          },
-          {
-            "text": "Write code comments in Japanese. They should explain intent or reasoning, not repeat what the code already expresses."
-          },
-          {
-            "text": "Avoid security issues (e.g., SQL injection, hardcoded secrets). Warn explicitly when secure handling is necessary."
-          },
-          {
-            "text": "For complex logic or non-obvious implementations, provide supplementary explanations in Japanese."
-          },
-          {
-            "text": "Avoid using TODO or FIXME in code. Provide complete and clean implementations whenever possible."
-          },
-    ],
     "chat.agent.enabled": true,
     "github.copilot.enable": {
           "*": true,
           "plaintext": false,
           "markdown": true,
           "scminput": false
+    },
+    "accessibility.signals.chatResponseReceived": {
+      "sound": "on"
     },
 }
