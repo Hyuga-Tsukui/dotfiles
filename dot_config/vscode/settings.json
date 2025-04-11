@@ -156,4 +156,7 @@
     "accessibility.signals.chatResponseReceived": {
       "sound": "on"
     },
+    "terminal.integrated.env.osx": {
+      "Q_NEW_SESSION": "1"
+    },
 }
