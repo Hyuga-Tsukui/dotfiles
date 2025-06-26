@@ -11,10 +11,10 @@ config.window_decorations = "RESIZE"
 config.use_ime = true
 
 config.window_padding = {
-    bottom = 0,
-    top = 0,
-    right = 0,
-    left = 0,
+	bottom = 0,
+	top = 0,
+	right = 0,
+	left = 0,
 }
 
 config.audible_bell = "Disabled"
@@ -28,18 +28,18 @@ config.hide_tab_bar_if_only_one_tab = true
 local act = wezterm.action
 
 config.keys = {
-    { key = "[", mods = "LEADER", action = act.ActivateCopyMode },
-    -- disabled tab activation.
-    {
-        key = "t",
-        mods = "CMD",
-        action = act.DisableDefaultAssignment,
-    },
-    {
-        key = "n",
-        mods = "CMD",
-        action = act.DisableDefaultAssignment,
-    },
+	{ key = "[", mods = "LEADER", action = act.ActivateCopyMode },
+	-- disabled tab activation.
+	{
+		key = "t",
+		mods = "CMD",
+		action = act.DisableDefaultAssignment,
+	},
+	{
+		key = "n",
+		mods = "CMD",
+		action = act.DisableDefaultAssignment,
+	},
 }
 
 -- 現在の`copy_mode`のデフォルト設定を取得
@@ -47,25 +47,25 @@ local current_copy_mode = wezterm.gui.default_key_tables().copy_mode
 
 -- 新しいキーアクションをマージ
 table.insert(current_copy_mode, {
-    key = "Enter",
-    mods = "NONE",
-    action = act.Multiple({ { CopyTo = "ClipboardAndPrimarySelection" }, { CopyMode = "Close" } }),
+	key = "Enter",
+	mods = "NONE",
+	action = act.Multiple({ { CopyTo = "ClipboardAndPrimarySelection" }, { CopyMode = "Close" } }),
 })
 
 -- マージした設定を反映
 config.key_tables = {
-    copy_mode = current_copy_mode,
+	copy_mode = current_copy_mode,
 }
 
 config.mouse_bindings = {
-    -- Ctrl-click will open the link under the mouse cursor
-    {
-        event = { Up = { streak = 1, button = "Left" } },
-        mods = "CTRL",
-        action = act.OpenLinkAtMouseCursor,
-    },
+	-- Ctrl-click will open the link under the mouse cursor
+	{
+		event = { Up = { streak = 1, button = "Left" } },
+		mods = "CTRL",
+		action = act.OpenLinkAtMouseCursor,
+	},
 }
 
-config.default_prog = { "zsh", "-l", "-c", "tmux a -t default || tmux new -s default" }
+-- config.default_prog = { "zsh", "-l", "-c", "tmux a -t default || tmux new -s default" }
 
 return config
