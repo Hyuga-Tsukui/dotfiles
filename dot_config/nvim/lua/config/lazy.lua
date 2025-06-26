@@ -33,6 +33,7 @@ local pure_nvim_plugins = {
     "plugins.treejs",
     "plugins.copilot.init",
     "plugins.copilot.chat",
+    "plugins.make-tree"
 }
 
 -- Bootstrap lazy.nvim

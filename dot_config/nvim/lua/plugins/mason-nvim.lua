@@ -22,7 +22,7 @@ local format_servers = {
 }
 return {
     {
-        "williamboman/mason.nvim",
+        "mason-org/mason.nvim",
         cmd = "Mason",
         dependencies = {
             "williamboman/mason-lspconfig.nvim",
@@ -33,9 +33,6 @@ return {
         },
         config = function()
             require("mason").setup({})
-            require("mason-lspconfig").setup({
-                -- ensure_installed = language_servers,
-            })
             require("mason-null-ls").setup({
                 -- ensure_installed = format_servers,
             })
