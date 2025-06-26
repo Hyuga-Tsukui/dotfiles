@@ -7,17 +7,6 @@ local function my_format()
         end,
     })
 end
-local function load_server_config(server_name)
-    local ok, server_config = pcall(require, "plugins.lsp.servers" .. "." .. server_name)
-    if ok then
-        return server_config
-    else
-        return function()
-            local lspconfig = require("lspconfig")
-            lspconfig[server_name].setup({})
-        end
-    end
-end
 
 -- 保存時のフォーマットを無効化するクライアントのリストを設定する
 local disable_auto_format_clients = {
@@ -33,13 +22,6 @@ return {
         lazy = true,
     },
     {
-        "williamboman/mason-lspconfig.nvim",
-        config = function()
-            require("mason-lspconfig").setup({})
-        end,
-        lazy = true,
-    },
-    {
         "neovim/nvim-lspconfig",
         event = { "BufReadPre", "BufNewFile" },
         cond = function()
@@ -49,11 +31,10 @@ return {
         end,
         config = function()
             vim.lsp.set_log_level("ERROR")
-            require("mason-lspconfig").setup_handlers({
-                function(server_name)
-                    local server_config = load_server_config(server_name)
-                    server_config()
-                end,
+
+            vim.lsp.enable({
+                "lua_ls",
+                "biome",
             })
 
             vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
