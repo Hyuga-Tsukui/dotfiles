@@ -31,7 +31,7 @@ return {
             -- sources の結合
             sources = {
                 null_ls.builtins.formatting.terraform_fmt, -- デフォルト
-            },                                 -- JavaScript プロジェクト用のフォーマッター
+            }, -- JavaScript プロジェクト用のフォーマッター
             on_attach = function(client, bufnr)
                 -- vim.keymap.set("n", "<space>f", function()
                 -- vim.lsp.buf.format({ async = true })
