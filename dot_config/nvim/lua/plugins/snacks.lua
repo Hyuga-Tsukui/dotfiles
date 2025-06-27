@@ -22,6 +22,13 @@ return {
     },
     keys = {
         {
+            "<leader>/",
+            function()
+                Snacks.picker.grep()
+            end,
+            desc = "Grep",
+        },
+        {
             "<leader>ff",
             function()
                 Snacks.picker.files()
@@ -52,6 +59,13 @@ return {
                 Snacks.picker.diagnostics()
             end,
             desc = "Diagnostics",
+        },
+        {
+            "<leader>z",
+            function()
+                Snacks.zen()
+            end,
+            desc = "Zen Mode",
         },
     },
 }
