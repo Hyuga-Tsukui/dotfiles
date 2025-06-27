@@ -4,21 +4,21 @@ return {
     lazy = false,
     ---@type snacks.Config
     opts = {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-        -- bigfile = { enabled = false },
-        -- dashboard = { enabled = false },
-        -- explorer = { enabled = false },
-        -- indent = { enabled = false },
-        -- input = { enabled = true },
-        picker = { enabled = true },
-        -- notifier = { enabled = true },
-        -- quickfile = { enabled = true },
-        -- scope = { enabled = true },
-        -- scroll = { enabled = true },
-        -- statuscolumn = { enabled = true },
-        -- words = { enabled = true },
+        picker = {
+            enabled = true,
+            sources = {
+                files = {
+                    exclude = {
+                        "/undo/",
+                    },
+                },
+                diagnostics = {
+                    exclude = {
+                        "/undo/",
+                    },
+                },
+            },
+        },
     },
     keys = {
         {
@@ -27,6 +27,31 @@ return {
                 Snacks.picker.files()
             end,
             desc = "Find Files",
+        },
+        {
+            "<leader>fb",
+            function()
+                Snacks.picker.buffers()
+            end,
+            desc = "Buffers",
+        },
+        {
+            "<C-r>",
+            function()
+                vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-c>", true, false, true), "n", false)
+                Snacks.picker.command_history()
+            end,
+            mode = "c",
+            noremap = true,
+            silent = true,
+            desc = "Command History",
+        },
+        {
+            "<leader>ds",
+            function()
+                Snacks.picker.diagnostics()
+            end,
+            desc = "Diagnostics",
         },
     },
 }
