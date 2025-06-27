@@ -1,3 +1,4 @@
+-- WARNING: This setting is not used
 -- REF: https://github.com/zbirenbaum/copilot-cmp?tab=readme-ov-file#tab-completion-configuration-highly-recommended
 local has_words_before = function()
     if vim.api.nvim_get_option_value("buftype", { buf = 0 }) == "prompt" then

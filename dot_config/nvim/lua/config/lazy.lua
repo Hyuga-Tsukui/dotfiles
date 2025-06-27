@@ -21,7 +21,6 @@ local pure_nvim_plugins = {
     "plugins.memolist",
     "plugins.no-neck-pain",
     "plugins.none-ls",
-    "plugins.nvim-cmp",
     "plugins.nvim-lspconfig",
     "plugins.nvim-tree",
     "plugins.nvim-treesitter",
@@ -37,6 +36,7 @@ local pure_nvim_plugins = {
     "plugins.plamo-translate",
     "plugins.lazydev",
     "plugins.snacks",
+    "plugins.blink-cmp",
 }
 
 -- this is a workaround for lazy.nvim not being able to load plugins

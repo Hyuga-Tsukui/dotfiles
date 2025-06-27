@@ -7,6 +7,7 @@ return {
             { path = "${3rd}/luv/library", words = { "vim%.uv", "vim.loop" } },
 
             { path = "snacks.nvim/lua/snacks" },
+            { path = "blink.nvim/lua/blink" },
         },
     },
 }
