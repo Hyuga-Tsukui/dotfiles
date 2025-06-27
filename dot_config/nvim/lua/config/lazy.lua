@@ -35,6 +35,7 @@ local pure_nvim_plugins = {
 	"plugins.copilot.chat",
 	"plugins.make-tree",
 	"plugins.plamo-translate",
+	"plugins.lazydev",
 }
 
 -- this is a workaround for lazy.nvim not being able to load plugins
