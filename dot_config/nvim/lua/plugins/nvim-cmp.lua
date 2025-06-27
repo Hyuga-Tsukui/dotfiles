@@ -22,7 +22,11 @@ return {
             "saadparwaiz1/cmp_luasnip",
             {
                 "zbirenbaum/copilot-cmp",
-                config = true,
+                config = function()
+                    require("copilot_cmp").setup({
+                        fix_pairs = true, -- automatically fix pairs like `(`, `{`, `[`, etc. REF:https://github.com/zbirenbaum/copilot-cmp?tab=readme-ov-file#fix_pairs
+                    })
+                end,
             },
             "onsails/lspkind.nvim",
         },
@@ -49,9 +53,9 @@ return {
                     end,
                 },
                 sources = cmp.config.sources({
-                    { name = "copilot",  group_index = 1 },
+                    { name = "copilot", group_index = 1 },
                     { name = "nvim_lsp", group_index = 2 },
-                    { name = "luasnip",  group_index = 2 },
+                    { name = "luasnip", group_index = 2 },
                     { name = "buffer" },
                     { name = "path" },
                 }),
