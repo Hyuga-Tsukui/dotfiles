@@ -31,7 +31,7 @@ return {
             },
         })
         -- vim.keymap.set("n", "<leader>ff", ":FzfLua files<CR>", { noremap = true })
-        vim.keymap.set("n", "<leader>fb", ":FzfLua buffers<CR>", { noremap = true })
-        vim.keymap.set("c", "<C-r>", "<C-c>:FzfLua command_history<CR>", { noremap = true, silent = true })
+        -- vim.keymap.set("n", "<leader>fb", ":FzfLua buffers<CR>", { noremap = true })
+        -- vim.keymap.set("c", "<C-r>", "<C-c>:FzfLua command_history<CR>", { noremap = true, silent = true })
     end,
 }
