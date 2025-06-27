@@ -3,7 +3,8 @@ return {
     ft = "lua", -- only load on lua files
     opts = {
         library = {
-            { path = "luvit-meta/library", words = { "vim.loop", "vim.uv" } },
+            "lazy.nvim",
+            { path = "${3rd}/luv/library", words = { "vim%.uv", "vim.loop" } },
         },
     },
 }
