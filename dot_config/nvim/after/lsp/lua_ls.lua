@@ -8,9 +8,6 @@ return {
             hints = {
                 enable = true,
             },
-            diagnostics = {
-                globals = { "vim" },
-            },
             workspace = {
                 checkThirdParty = false,
                 maxPreload = 10000,
