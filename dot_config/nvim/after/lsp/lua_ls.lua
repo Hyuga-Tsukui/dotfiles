@@ -12,9 +12,6 @@ return {
                 globals = { "vim" },
             },
             workspace = {
-                maxPreload = 10000,
-                preloadFileSize = 5000,
-                library = vim.api.nvim_get_runtime_file("", true),
                 checkThirdParty = false,
             },
             completion = {
