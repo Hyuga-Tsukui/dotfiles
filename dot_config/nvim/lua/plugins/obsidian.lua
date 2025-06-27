@@ -3,16 +3,6 @@ return {
     version = "*",
     lazy = true,
     ft = "markdown",
-    cmd = {
-        "ObsidianNew",
-        "ObsidianSearch",
-        "ObsidianLink",
-        "ObsidianBacklinks",
-        "ObsidianToday",
-        "ObsidianYesterday",
-        "ObsidianWeekly",
-        "ObsidianQuickSwitch",
-    },
     dependencies = {
         "nvim-lua/plenary.nvim",
         "ibhagwan/fzf-lua",
@@ -24,30 +14,18 @@ return {
         ui = {
             enabled = false, -- use original obsidian ui like
         },
-        statusline = {
-            enabled = true, -- enable obsidian statusline
-            format = " 󰌪 {{workspace}}",
+        attachments = {
+            img_folder = "003_ext",
         },
         open_notes_in = "vsplit", -- how to open notes, can be "vsplit", "split", "tab", "edit"
         daily_notes = {
-            -- デイリーノートを "Journal/Dailies" フォルダに保存する
             folder = "002_daily",
-
-            -- ファイル名を "2025-06-27" の形式にする
             date_format = "%Y-%m-%d",
-
-            -- "June 27, 2025" という形式のエイリアスを自動で付ける
-            -- alias_format = "%B %d, %Y",
-
-            -- -- 新規作成時に "daily_template.md" というテンプレートを使用する
-            -- template = "daily_template.md",
         },
 
-        -- テンプレートが置かれているフォルダを指定
-        -- templates = {
-        --     folder = "meta/templates",
-        --     -- ... 他のテンプレート設定 ...
-        -- },
+        templates = {
+            folder = "999_conf/templates",
+        },
         workspaces = {
             {
                 name = "personal",
