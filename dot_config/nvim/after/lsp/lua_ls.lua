@@ -13,6 +13,8 @@ return {
             },
             workspace = {
                 checkThirdParty = false,
+                maxPreload = 10000,
+                preloadFileSize = 5000,
             },
             completion = {
                 callSnippet = "Replace",
