@@ -1,72 +1,79 @@
-local cmd = {
-    "ObsidianNew",
-    "ObsidianSearch",
-}
-
-local rules = {
-    { pattern = "[%s /\\?*]", replace = "-" },
-}
-
--- Replace all characters in a string that match a pattern.
--- @param s string: The string to replace characters in.
--- @return string: The string with characters replaced.
-local replace = function(s)
-    for _, rule in ipairs(rules) do
-        s = s:gsub(rule.pattern, rule.replace)
-    end
-    return s
-end
-
-local opts = {
-    workspaces = {
-        {
-            name = "personal",
-            path = vim.fn.expand("~/obsidian"),
-        },
-    },
-    notes_subdir = "000_zettelkasten",
-    disable_frontmatter = true,
-    note_id_func = function(title)
-        -- Create note IDs in a Zettelkasten format with a timestamp and a suffix.
-        -- In this case a note with the title 'My new note' will be given an ID that looks
-        -- like '1657296016-my-new-note', and therefore the file name '1657296016-my-new-note.md'
-
-        print(title)
-        local suffix = ""
-        if title ~= nil then
-            -- If title is given, transform it into valid file name.
-            suffix = replace(title)
-        else
-            -- If title is nil, just add 4 random uppercase letters to the suffix.
-            for _ = 1, 4 do
-                suffix = suffix .. string.char(math.random(65, 90))
-            end
-        end
-        return suffix
-    end,
-
-    note_path_func = function(spec)
-        local file_name = ""
-        if spec.title ~= nil then
-            file_name = replace(spec.title)
-        else
-            file_name = spec.id
-        end
-        return (spec.dir / file_name):with_suffix(".md")
-    end,
-
-    picker = {
-        name = "fzf-lua",
-    },
-}
-
 return {
-    "epwalsh/obsidian.nvim",
-    cmd = cmd,
+    "obsidian-nvim/obsidian.nvim",
+    version = "*",
+    lazy = true,
+    ft = "markdown",
+    cmd = {
+        "ObsidianNew",
+        "ObsidianSearch",
+        "ObsidianLink",
+        "ObsidianBacklinks",
+        "ObsidianToday",
+        "ObsidianYesterday",
+        "ObsidianWeekly",
+        "ObsidianQuickSwitch",
+    },
     dependencies = {
         "nvim-lua/plenary.nvim",
         "ibhagwan/fzf-lua",
         "hrsh7th/nvim-cmp",
     },
-    opts = opts,
+    opts = {
+        -- global options
+        sort_by = "modified", -- list note sorting
+        ui = {
+            enabled = false, -- use original obsidian ui like
+        },
+        statusline = {
+            enabled = true, -- enable obsidian statusline
+            format = " 󰌪 {{workspace}}",
+        },
+        open_notes_in = "vsplit", -- how to open notes, can be "vsplit", "split", "tab", "edit"
+        daily_notes = {
+            -- デイリーノートを "Journal/Dailies" フォルダに保存する
+            folder = "002_daily",
+
+            -- ファイル名を "2025-06-27" の形式にする
+            date_format = "%Y-%m-%d",
+
+            -- "June 27, 2025" という形式のエイリアスを自動で付ける
+            -- alias_format = "%B %d, %Y",
+
+            -- -- 新規作成時に "daily_template.md" というテンプレートを使用する
+            -- template = "daily_template.md",
+        },
+
+        -- テンプレートが置かれているフォルダを指定
+        -- templates = {
+        --     folder = "meta/templates",
+        --     -- ... 他のテンプレート設定 ...
+        -- },
+        workspaces = {
+            {
+                name = "personal",
+                path = vim.fn.expand("~/obsidian"),
+
+                -- options for this workspace
+                overrides = {
+                    notes_subdir = "000_zettelkasten",
+                },
+            },
+            {
+                name = "work",
+                path = vim.fn.expand("~/obsidian-work"),
+                -- options for this workspace
+                overrides = {},
+            },
+        },
+    },
+    keys = {
+        { "<leader>on", "<cmd>ObsidianNew<cr>", desc = "Obsidian: New note" },
+        { "<leader>os", "<cmd>ObsidianSearch<cr>", desc = "Obsidian: Search notes" },
+        { "<leader>ol", "<cmd>ObsidianLink<cr>", desc = "Obsidian: Link notes" },
+        { "<leader>ob", "<cmd>ObsidianBacklinks<cr>", desc = "Obsidian: Backlinks" },
+        { "<leader>ot", "<cmd>ObsidianToday<cr>", desc = "Obsidian: Today note" },
+        { "<leader>oy", "<cmd>ObsidianYesterday<cr>", desc = "Obsidian: Yesterday note" },
+        { "<leader>ow", "<cmd>ObsidianWeekly<cr>", desc = "Obsidian: Weekly note" },
+        { "<leader>oq", "<cmd>ObsidianQuickSwitch<cr>", desc = "Obsidian: Quick switch" },
+    },
 }
