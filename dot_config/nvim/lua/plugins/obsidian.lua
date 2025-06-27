@@ -12,7 +12,7 @@ return {
         -- global options
         sort_by = "modified", -- list note sorting
         ui = {
-            enabled = false, -- use original obsidian ui like
+            external_link_icon = {},
         },
         attachments = {
             img_folder = "003_ext",
