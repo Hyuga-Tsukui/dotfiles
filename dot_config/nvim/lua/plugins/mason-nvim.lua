@@ -1,25 +1,3 @@
-local language_servers = {
-    "lua_ls",
-    "gopls",
-    "typos_lsp",
-    "ts_ls",
-    "terraformls",
-    "ocamllsp",
-    "nil_ls",
-    "pylsp",
-    "ruff",
-}
-local format_servers = {
-    "ocamlformat",
-    "stylua",
-    "gofmt",
-    "goimports",
-    "terraform_fmt",
-    "prettierd",
-    "sqlfmt",
-    "nixpkgs-fmt",
-    "black",
-}
 return {
     {
         "mason-org/mason.nvim",
@@ -32,10 +10,12 @@ return {
             },
         },
         config = function()
-            require("mason").setup({})
-            require("mason-null-ls").setup({
-                -- ensure_installed = format_servers,
+            local lsp_utils = require("utils.lsp")
+            require("mason").setup({
+                ensure_installed = lsp_utils.get_available_lsp_servers(),
+                automatic_installation = true,
             })
+            require("mason-null-ls").setup({})
         end,
     },
 }
