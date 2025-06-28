@@ -1,3 +1,12 @@
+-- TODO refactor file type detection
+-- neovim not resolving filetype for terraform files
+vim.filetype.add({
+    extension = {
+        tf = "terraform",
+        tfvars = "terraform",
+    },
+})
+
 require("core.options")
 require("core.keymaps")
 require("config.lazy")
