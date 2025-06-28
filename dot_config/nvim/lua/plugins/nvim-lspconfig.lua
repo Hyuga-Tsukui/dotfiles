@@ -21,13 +21,25 @@ return {
         config = function()
             vim.lsp.set_log_level("ERROR")
 
-            -- TODO: auto enable lsp servers
-            vim.lsp.enable({
-                "lua_ls",
-                "biome",
-                "pylsp",
-                "ruff",
-            })
+            -- Auto-detect and enable LSP servers from after/lsp/ directory
+            local function get_available_lsp_servers()
+                local lsp_servers = {}
+                local lsp_dir = vim.fn.stdpath("config") .. "/after/lsp"
+
+                if vim.fn.isdirectory(lsp_dir) == 1 then
+                    local files = vim.fn.readdir(lsp_dir)
+                    for _, file in ipairs(files) do
+                        if file:match("%.lua$") then
+                            local server_name = file:gsub("%.lua$", "")
+                            table.insert(lsp_servers, server_name)
+                        end
+                    end
+                end
+
+                return lsp_servers
+            end
+
+            vim.lsp.enable(get_available_lsp_servers())
 
             local g = vim.api.nvim_create_augroup("UserLspConfig", {})
             vim.api.nvim_create_autocmd("LspAttach", {
