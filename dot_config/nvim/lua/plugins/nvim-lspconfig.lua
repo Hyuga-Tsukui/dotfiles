@@ -2,6 +2,60 @@
 local disable_auto_format_clients = {
     "ts_ls", -- js,tsはフォーマッターにbiomeやprettierを使うことが一般的なので無効化する
 }
+
+---@param client vim.lsp.Client
+---@param bufnr integer
+---@param cmd string
+local function synchronize_code_action(client, bufnr, cmd)
+    local enc = client.offset_encoding or "utf-16"
+    local params = {
+        textDocument = vim.lsp.util.make_text_document_params(bufnr),
+        range = {
+            start = { line = 0, character = 0 },
+            ["end"] = { line = vim.api.nvim_buf_line_count(bufnr), character = 0 },
+        },
+        context = {
+            only = { cmd },
+            diagnostics = {},
+        },
+    }
+    params.context = { only = { cmd }, diagnostics = {} }
+    local res = client:request_sync("textDocument/codeAction", params, 3000, bufnr)
+    local results = res and res.result or {}
+    for _, action in ipairs(results) do
+        if not action.edit and client:supports_method("codeAction/resolve") then
+            local resolved = client:request_sync("codeAction/resolve", action, 1000)
+            if resolved and resolved.result and resolved.result.edit then
+                vim.lsp.util.apply_workspace_edit(resolved.result.edit, enc)
+            end
+        elseif action.edit then
+            vim.lsp.util.apply_workspace_edit(action.edit, enc)
+        end
+    end
+end
+
+---@param client vim.lsp.Client
+---@param bufnr integer
+local synchronize_organize_imports = function(client, bufnr)
+    synchronize_code_action(client, bufnr, "source.organizeImports")
+end
+
+---@param client vim.lsp.Client
+---@param bufnr integer
+local synchronize_format = function(client, bufnr)
+    vim.lsp.buf.format({
+        buffer = bufnr,
+        async = false,
+        name = client.name,
+        timeout_ms = 5000,
+    })
+end
+
+local save_handlers_by_client_name = {
+    ruff = { synchronize_organize_imports, synchronize_format },
+    ["num"] = { synchronize_format },
+}
+
 return {
     {
         "williamboman/mason.nvim",
@@ -20,11 +74,29 @@ return {
         end,
         config = function()
             vim.lsp.set_log_level("ERROR")
+            local g = vim.api.nvim_create_augroup("UserLspConfig", {})
+
+            -- TODO: after/lsp/ruff.luaに移行する
+            -- Lspへの読み込みがなぜか、自動解決の場合とここで書く場合で挙動が異なる
+            ---@type vim.lsp.Config
+            vim.lsp.config("ruff", {
+                init_options = {
+                    settings = {
+                        configuration = {
+                            lint = {
+                                ["extend-select"] = { "TID251", "I" },
+                            },
+                            format = {
+                                ["quote-style"] = "single",
+                            },
+                        },
+                    },
+                },
+            })
 
             local lsp_utils = require("utils.lsp")
             vim.lsp.enable(lsp_utils.get_available_lsp_servers())
 
-            local g = vim.api.nvim_create_augroup("UserLspConfig", {})
             vim.api.nvim_create_autocmd("LspAttach", {
                 group = g,
                 callback = function(ev)
@@ -82,20 +154,10 @@ return {
                     local client = vim.lsp.get_client_by_id(ev.data.client_id)
 
                     if client == nil then
-                        vim.notify(
-                            "LSP client not found for buffer " .. ev.buf,
-                            vim.log.levels.ERROR,
-                            { title = "LSP Error" }
-                        )
                         return
                     end
 
                     if vim.tbl_contains(disable_auto_format_clients, client.name) then
-                        vim.notify(
-                            "Auto-formatting disabled for client: " .. client.name,
-                            vim.log.levels.WARN,
-                            { title = "LSP Warning" }
-                        )
                         return
                     end
 
@@ -106,11 +168,20 @@ return {
                     vim.api.nvim_create_autocmd({ "BufWritePre" }, {
                         group = g,
                         buffer = ev.buf,
-                        callback = function()
-                            vim.lsp.buf.format({
-                                async = false,
-                                timeout_ms = 2000,
-                            })
+                        ---@param args { buf: integer }
+                        callback = function(args)
+                            local bufnr = args.buf
+                            local should_sleep = false
+
+                            local handlers = save_handlers_by_client_name[client.name]
+                            for _, handler in pairs(handlers or {}) do
+                                if should_sleep then
+                                    vim.api.nvim_command("sleep 10ms")
+                                else
+                                    should_sleep = true
+                                end
+                                handler(client, bufnr)
+                            end
                         end,
                     })
                 end,
