@@ -44,7 +44,7 @@ if [ ! -d "$HOME/.config/tmux/plugins/catppuccin" ]; then
     print_success "catppuccin theme cloned"
 
     print_section "Installing cyberdream theme"
-    CYBERDREAM=$(curl -fsSL https://raw.githubusercontent.com/scottmckendry/cyberdream.nvim/refs/heads/main/extras/tmux/cyberdream.tmuxtheme)
+    CYBERDREAM=$(curl -fsSL https://raw.githubusercontent.com/scottmckendry/cyberdream.nvim/refs/heads/main/extras/tmux/cyberdream.conf)
     echo "$CYBERDREAM" > "$HOME/.config/tmux/plugins/catppuccin/tmux/themes/catppuccin_cyberdream.tmuxtheme"
     print_success "cyberdream theme installed"
 else
