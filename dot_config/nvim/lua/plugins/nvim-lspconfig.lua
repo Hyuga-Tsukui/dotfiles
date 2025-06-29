@@ -3,6 +3,7 @@ local disable_auto_format_clients = {
     "ts_ls", -- js,tsはフォーマッターにbiomeやprettierを使うことが一般的なので無効化する
 }
 
+-- REF: neovim-lspconfig + Biome で保存時に import の整理をする https://zenn.dev/izumin/articles/b8046e64eaa2b5
 ---@param client vim.lsp.Client
 ---@param bufnr integer
 ---@param cmd string
