@@ -1,4 +1,5 @@
 return {
+    ---@type vim.lsp.Config
     settings = {
         pylsp = {
             plugins = {
@@ -9,6 +10,15 @@ return {
                 },
                 mccabe = {
                     enabled = false,
+                },
+                autopep8 = {
+                    enabled = false,
+                },
+                yapf = {
+                    enabled = false,
+                },
+                pyflakes = {
+                    enabled = true,
                 },
             },
         },

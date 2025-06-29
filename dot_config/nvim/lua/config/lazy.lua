@@ -18,7 +18,7 @@ local pure_nvim_plugins = {
     "plugins.mason-null-ls",
     "plugins.mason-nvim",
     "plugins.memolist",
-    "plugins.none-ls",
+    -- "plugins.none-ls",
     "plugins.nvim-lspconfig",
     "plugins.nvim-tree",
     "plugins.nvim-treesitter",
