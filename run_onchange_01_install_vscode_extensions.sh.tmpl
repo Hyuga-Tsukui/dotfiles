@@ -1,16 +1,53 @@
 #!/bin/bash
+set -eu
 
-# IS_VSCODE_USER_DIR_EXISTED=$(test -d "$HOME/Library/Application Support/Code/User" && echo "true" || echo "false")
-# extensions.txt hash: $(cat $HOME/.config/vscode/extensions.txt | shasum -a 256)
+# 色定義
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+CYAN='\033[0;36m'
+BOLD='\033[1m'
+RESET='\033[0m'
 
+# ログ関数（stderr に出力）
+print_section() {
+    printf "${BOLD}${CYAN}==> %s${RESET}\n" "$1" >&2
+}
+
+print_success() {
+    printf "${GREEN}✔ %s${RESET}\n" "$1" >&2
+}
+
+print_info() {
+    printf "${YELLOW}- %s${RESET}\n" "$1" >&2
+}
+
+print_error() {
+    printf "${RED}✖ %s${RESET}\n" "$1" >&2
+}
+
+# VSCode CLI (code) の存在チェック
 if ! command -v code &> /dev/null; then
-  echo "❌ code command not found. Aborting."
+  print_error "Command 'code' not found. VSCode may not be installed. Proceeding with cancellation."
   exit 0
 fi
 
-echo "🔄 Installing extensions..."
+print_section "Install VSCode extensions"
+
+EXT_FILE="$HOME/.config/vscode/extensions.txt"
+if [ ! -f "$EXT_FILE" ]; then
+  print_error "Extension list does not exist: $EXT_FILE"
+  exit 1
+fi
 
 while read -r extension || [[ -n "$extension" ]]; do
-  echo "🔹 インストール: $extension"
-  code --install-extension "$extension"
-done < "$HOME/.config/vscode/extensions.txt"
+  if [ -z "$extension" ]; then
+    continue
+  fi
+  print_info "Install: $extension"
+  if code --install-extension "$extension" &> /dev/null; then
+    print_success "Installed $extension"
+  else
+    print_error "Installation of $extension failed"
+  fi
+done < "$EXT_FILE"
