@@ -20,5 +20,9 @@ brew {{ . | quote }}
 cask {{ . | quote }}
 {{ end -}}
 EOF
+
+# Install volta REF:https://volta.sh/
+curl https://get.volta.sh | bash
+
 {{ end -}}
 
