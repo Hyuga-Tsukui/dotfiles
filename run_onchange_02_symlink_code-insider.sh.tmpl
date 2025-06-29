@@ -13,10 +13,10 @@ if [ -d "$VSCODE_USER_DIR" ]; then
 
     if [ -e "$target_file" ] && [ ! -L "$target_file" ]; then
       rm "$target_file" && ln -s "$source_file" "$target_file"
-      echo "✅ $1 の通常ファイルを削除してシンボリックリンクを作成しました。"
+      echo "✅ Created a symbolic link after removing the original file for $1."
     elif [ ! -e "$target_file" ]; then
       ln -s "$source_file" "$target_file"
-      echo "✅ $1 のシンボリックリンクを作成しました。"
+      echo "✅ Created symbolic link to $1."
     fi
   }
 

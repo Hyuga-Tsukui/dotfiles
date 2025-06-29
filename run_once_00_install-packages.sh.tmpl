@@ -2,13 +2,43 @@
 #!/bin/sh
 set -eu
 
-# Install brew
-if [ ! -x "$(command -v brew)" ] ; then
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" > /dev/null
+# 色定義
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+CYAN='\033[0;36m'
+BOLD='\033[1m'
+RESET='\033[0m'
+
+# ログ関数（stderrに出力）
+print_section() {
+    printf "${BOLD}${CYAN}==> %s${RESET}\n" "$1" >&2
+}
+
+print_info() {
+    printf "${YELLOW}- %s${RESET}\n" "$1" >&2
+}
+
+print_success() {
+    printf "${GREEN}✔ %s${RESET}\n" "$1" >&2
+}
+
+print_error() {
+    printf "${RED}✖ %s${RESET}\n" "$1" >&2
+}
+
+# Homebrew チェックとインストール
+print_section "Checking for Homebrew"
+if [ ! -x "$(command -v brew)" ]; then
+    print_info "Installing Homebrew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" > /dev/null
+    print_success "Homebrew installed"
 else
-	echo "brew already installed"
+    print_success "Homebrew already installed"
 fi
 
+# brew bundle 実行
+print_section "Running brew bundle"
 brew bundle --file=/dev/stdin <<EOF
 {{ range .packages.darwin.taps -}}
 tap {{ . | quote }}
@@ -20,9 +50,10 @@ brew {{ . | quote }}
 cask {{ . | quote }}
 {{ end -}}
 EOF
+print_success "brew bundle completed"
 
-# Install volta REF:https://volta.sh/
+# Volta インストール
+print_section "Installing Volta"
 curl https://get.volta.sh | bash
-
+print_success "Volta installed"
 {{ end -}}
-
