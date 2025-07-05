@@ -34,6 +34,7 @@ local pure_nvim_plugins = {
     "plugins.lazydev",
     "plugins.snacks",
     "plugins.blink-cmp",
+    "plugins.luasnip",
 
     -- experimental
     "plugins.LLM.claude-code",
