@@ -8,6 +8,7 @@ return {
         ---@module 'blink.cmp'
         ---@type blink.cmp.Config
         opts = {
+            snippets = { preset = "luasnip" },
             completion = {
                 documentation = { auto_show = true, auto_show_delay_ms = 100 },
                 accept = { auto_brackets = { enabled = true } },
@@ -31,11 +32,12 @@ return {
                 },
             },
             keymap = {
-                ["<ESC>"] = { "hide", "fallback" },
-                ["<CR>"] = { "accept", "fallback" },
-                ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
-                ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
-                ["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
+                preset = "super-tab",
+                -- ["<ESC>"] = { "hide", "fallback" },
+                -- ["<CR>"] = { "accept", "fallback" },
+                -- ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
+                -- ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
+                -- ["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
             },
         },
         opts_extend = { "sources.default" },
