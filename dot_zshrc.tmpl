@@ -45,6 +45,11 @@ setopt HIST_REDUCE_BLANKS
 setopt SHARE_HISTORY
 setopt APPEND_HISTORY
 
+# 自動補完を初期化する
+fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
+autoload -Uz compinit
+compinit
+
 eval "$(fzf --zsh)"
 
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border --inline-info'
