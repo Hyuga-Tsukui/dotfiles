@@ -5,50 +5,66 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# zinit
+# ─────────────────────────────────────────────
+# 🧪 [FUNCTIONS]
+# ─────────────────────────────────────────────
+# 安全に eval するヘルパー
+eval-if-exists() {
+  local cmd=$1
+  shift
+  if command -v "$cmd" >/dev/null 2>&1; then
+    eval "$("$cmd" "$@")"
+  fi
+}
+
+# ─────────────────────────────────────────────
+# 💻 [ALIASES]
+# ─────────────────────────────────────────────
+alias v="nvim"
+
+# ─────────────────────────────────────────────
+# 🧩 [ZINIT SETUP]
+# ─────────────────────────────────────────────
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
 
+alias zinit-update="zinit self-update && zinit update --all"
+
 # REF: https://github.com/zdharma-continuum/zinit/discussions/312 zoxside(zi) And zinit(zi) in conflict. 
 unalias zi
 
-# install zsh plugins
+# ─────────────────────────────────────────────
+# 🌟 [ZSH PLUGINS]
+# ─────────────────────────────────────────────
 zinit ice depth=1; zinit light romkatv/powerlevel10k
-
 zinit ice depth=1; zinit light olets/zsh-abbr
-# abbr -S --force --quiet vim="nvim"
 
-# Setup starship
-# -----------------------------------------------------------------
-# eval "$(starship init zsh)"
+# ─────────────────────────────────────────────
+# 💻 [ZSH]
+# ─────────────────────────────────────────────
+setopt nolistbeep # ビープ音を鳴らさない
+setopt auto_menu # 補完キー（Tab,  Ctrl+I) を連打するだけで順に補完候補を自動で補完する
+setopt auto_param_slash # パラメータ展開時に末尾のスラッシュを自動で補完する
+zstyle ':completion:*' list-colors di=34 fi=0 # 補完候補の色を設定
+setopt HIST_NO_STORE # `history`コマンドは履歴に登録しない
+setopt HIST_SAVE_NO_DUPS # 履歴ファイル（たとえば ~/.zsh_history）に同じ内容のコマンドを重複して保存しない 
+setopt HIST_IGNORE_ALL_DUPS # コマンド履歴に追加する前に、すでに存在する同じコマンドがあれば削除してから追加する
+setopt HIST_IGNORE_SPACE # 先頭にスペースを付けて実行したコマンドは履歴に残さない
+setopt HIST_REDUCE_BLANKS # 複数のスペースを1つに圧縮して履歴に保存する
+setopt SHARE_HISTORY # 複数の Zsh セッション（たとえば複数ターミナル）間で履歴をリアルタイムに共有する
+setopt APPEND_HISTORY # セッション終了時、履歴ファイルを上書きせず末尾に追加する
+
+# コマンドの補完リストの読み込み
+fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
+autoload -Uz compinit
+compinit
 
 # Setup aqua
 # -----------------------------------------------------------------
 export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"
 export AQUA_GLOBAL_CONFIG="$HOME/.config/aqua/aqua.yaml"
-
-# Setup zsh
-# -----------------------------------------------------------------
-setopt nolistbeep # ビープ音を鳴らさない
-setopt auto_menu # 補完キー（Tab,  Ctrl+I) を連打するだけで順に補完候補を自動で補完する
-setopt auto_param_slash # パラメータ展開時に末尾のスラッシュを自動で補完する
-zstyle ':completion:*' list-colors di=34 fi=0 # 補完候補の色を設定
-
-# History Configuration
-setopt HIST_NO_STORE
-setopt HIST_SAVE_NO_DUPS
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_IGNORE_SPACE
-setopt HIST_REDUCE_BLANKS
-setopt SHARE_HISTORY
-setopt APPEND_HISTORY
-
-# 自動補完を初期化する
-fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
-autoload -Uz compinit
-compinit
 
 eval "$(fzf --zsh)"
 
@@ -71,9 +87,6 @@ export PATH="$HOME/bin:$PATH"
 # ADD PATH curl by Homebrew
 export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 
-# Aliases
-alias v="nvim"
-
 # https://volta.sh/
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
@@ -90,7 +103,6 @@ source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 export PATH="$HOME/go/bin:$PATH"
 
-
 WORK_ZSH="${HOME}/.zsh/work.zsh"
 if [[ -f "${WORK_ZSH}" ]]; then
   source "${WORK_ZSH}"
@@ -104,14 +116,9 @@ fi
 bindkey -r "^G"
 bindkey -r "^J"
 
-# zoxide
-eval "$(zoxide init zsh)"
-
-# thefuck
-eval $(thefuck --alias fk)
-
-# uv shell-completion
-eval "$(uv generate-shell-completion zsh)"
+eval-if-exists zoxide init zsh
+eval-if-exists thefuck --alias fk
+eval-if-exists uv generate-shell-completion zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
