@@ -10,6 +10,9 @@ return {
     },
     opts = {
         -- global options
+        picker = {
+            name = "snacks.pick",
+        },
         sort_by = "modified", -- list note sorting
         ui = {
             external_link_icon = {},
