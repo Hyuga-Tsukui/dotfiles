@@ -29,7 +29,6 @@ local pure_nvim_plugins = {
     "plugins.treejs",
     -- "plugins.copilot.init",
     -- "plugins.copilot.chat",
-    "plugins.make-tree",
     "plugins.plamo-translate",
     "plugins.lazydev",
     "plugins.snacks",
