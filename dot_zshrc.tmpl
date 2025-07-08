@@ -38,7 +38,9 @@ source "${ZINIT_HOME}/zinit.zsh"
 alias zinit-update="zinit self-update && zinit update --all"
 
 # REF: https://github.com/zdharma-continuum/zinit/discussions/312 zoxside(zi) And zinit(zi) in conflict. 
-unalias zi
+if alias zi &>/dev/null; then
+    unalias zi
+fi
 
 # ─────────────────────────────────────────────
 # 🌟 [ZSH PLUGINS]
