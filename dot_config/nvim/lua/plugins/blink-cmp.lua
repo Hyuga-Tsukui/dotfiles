@@ -3,6 +3,7 @@ return {
         "saghen/blink.cmp",
         version = "1.*",
 
+        event = { "InsertEnter" },
         dependencies = { "fang2hou/blink-copilot" },
 
         ---@module 'blink.cmp'
