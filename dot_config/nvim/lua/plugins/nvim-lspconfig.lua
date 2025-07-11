@@ -80,20 +80,7 @@ return {
             -- TODO: after/lsp/ruff.luaに移行する
             -- Lspへの読み込みがなぜか、自動解決の場合とここで書く場合で挙動が異なる
             ---@type vim.lsp.Config
-            vim.lsp.config("ruff", {
-                -- init_options = {
-                --     settings = {
-                --         configuration = {
-                --             lint = {
-                --                 ["extend-select"] = { "TID251", "I" },
-                --             },
-                --             format = {
-                --                 ["quote-style"] = "single",
-                --             },
-                --         },
-                --     },
-                -- },
-            })
+            vim.lsp.config("ruff", {})
 
             local lsp_utils = require("utils.lsp")
             vim.lsp.enable(lsp_utils.get_available_lsp_servers())

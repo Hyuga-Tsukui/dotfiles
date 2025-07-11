@@ -22,6 +22,40 @@ return {
     },
     keys = {
         {
+            "<leader>gl",
+            function()
+                Snacks.picker.git_log()
+            end,
+            desc = "Git Log",
+        },
+        {
+            "<leader>gL",
+            function()
+                Snacks.picker.git_log_line()
+            end,
+            desc = "Git Log Line",
+        },
+        {
+            "<leader>gb",
+            function()
+                Snacks.picker.git_branches()
+            end,
+            desc = "Git Branches",
+        },
+        {
+            "<leader>gs",
+            function()
+                Snacks.picker.git_status()
+            end,
+            desc = "Git Status",
+        },
+        {
+            "<leader>gd",
+            function()
+                Snacks.picker.git_diff()
+            end,
+        },
+        {
             "<leader>/",
             function()
                 Snacks.picker.grep()
