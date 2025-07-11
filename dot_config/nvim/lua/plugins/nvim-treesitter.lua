@@ -1,6 +1,9 @@
 return {
     "nvim-treesitter/nvim-treesitter",
     event = { "BufRead", "BufNewFile" },
+    exclude = {
+        'NvimTree',
+    },
     config = function()
         require("nvim-treesitter.configs").setup({
             sync_install = false,
