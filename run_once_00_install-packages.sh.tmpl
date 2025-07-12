@@ -40,9 +40,6 @@ fi
 # brew bundle 実行
 print_section "Running brew bundle"
 brew bundle --file=/dev/stdin <<EOF
-{{ range .packages.darwin.taps -}}
-tap {{ . | quote }}
-{{ end -}}
 {{ range .packages.cmdline -}}
 brew {{ . | quote }}
 {{ end -}}
