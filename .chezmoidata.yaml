@@ -1,24 +1,22 @@
 packages:
   darwin:
-    taps:
-      - 'aquaproj/aqua'
     casks:
-      - 'wezterm@nightly'
-      - 'font-hackgen'
-      - 'nikitabobko/tap/aerospace'
+      - "wezterm@nightly"
+      - "font-hackgen"
+      - "nikitabobko/tap/aerospace"
   cmdline:
-      - 'aquaproj/aqua/aqua'
-      - 'bat'
-      - 'fd'
-      - 'fzf'
-      - 'git'
-      - 'jq'
-      - 'kubectl'
-      - 'ripgrep'
-      - 'thefuck'
-      - 'tmux'
-      - 'typos-cli'
-      - 'zsh-autosuggestions'
-      - 'zsh-completions'
-      - 'zoxide'
-
+    - "aqua"
+    - "bat"
+    - "fd"
+    - "fzf"
+    - "git"
+    - "jq"
+    - "ripgrep"
+    - "thefuck"
+    - "tmux"
+    - "typos-cli"
+    - "zsh-autosuggestions"
+    - "zsh-completions"
+    - "zoxide"
+    - "mise"
+    - "lazygit"
