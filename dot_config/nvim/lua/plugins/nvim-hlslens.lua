@@ -1,5 +1,9 @@
 return {
     "kevinhwang91/nvim-hlslens",
+    keys = {
+        { "*", mode = "n", desc = "Search for word under cursor" },
+        { "#", mode = "n", desc = "Replace current word with cursor position" },
+    },
     config = function()
         local hlslens = require("hlslens")
         hlslens.setup({})
