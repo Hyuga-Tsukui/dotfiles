@@ -10,6 +10,7 @@ opt.incsearch = true
 opt.hlsearch = true
 opt.ignorecase = true
 opt.smartcase = true
+opt.wrapscan = true
 
 opt.smartindent = true
 opt.tabstop = 4
@@ -23,7 +24,6 @@ opt.scrolloff = 8
 opt.iskeyword:append('-')
 
 -- appearance settings
--- opt.guicursor = ""
 opt.guicursor = 'n-v-c:block,i-ci-ve:ver25,r-cr-o:hor20'
 opt.laststatus = 0 -- status-line系のpluginへの切り替え時のちらつきを防ぐためにデフォルトは表示しないようにする.
 opt.cmdheight = 0
@@ -38,10 +38,11 @@ opt.winblend = 0 -- ウィンドウの不透明度
 opt.pumblend = 0 -- ポップアップメニューの不透明度
 opt.splitright = true
 opt.splitbelow = true
-
--- log settings
 opt.history = 500
 opt.updatetime = 50
+opt.timeoutlen = 500
+opt.lazyredraw = true -- 画面の更新を遅延させることでパフォーマンスを向上させる
+opt.autoread = true -- ファイルの変更を自動で読み込む
 
 -- backup settings
 opt.swapfile = false
