@@ -1,33 +1,33 @@
 return {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    event = { "CursorMoved", "BufReadPre", "BufNewFile" },
-    exclude = { "NvimTree" },
+    'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate',
+    event = { 'CursorMoved', 'BufReadPre', 'BufNewFile' },
+    exclude = { 'NvimTree' },
     dependencies = {
-        "nvim-treesitter/nvim-treesitter-textobjects",
+        'nvim-treesitter/nvim-treesitter-textobjects',
     },
     config = function()
-        local configs = require("nvim-treesitter.configs")
+        local configs = require('nvim-treesitter.configs')
 
         configs.setup({
             ensure_installed = {
-                "vimdoc",
-                "javascript",
-                "typescript",
-                "lua",
-                "go",
+                'vimdoc',
+                'javascript',
+                'typescript',
+                'lua',
+                'go',
             },
 
             sync_install = false,
             ignore_install = {
-                "markdown",
+                'markdown',
             },
             auto_install = true,
 
             modules = {},
             highlight = {
                 enable = true,
-                disable = { "markdown" }, -- disable markdown highlighting
+                disable = { 'markdown' }, -- disable markdown highlighting
                 additional_vim_regex_highlighting = false,
             },
         })

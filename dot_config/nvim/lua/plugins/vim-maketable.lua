@@ -1,9 +1,9 @@
 local cmd = {
-	"MakeTable",
+    'MakeTable',
 }
 
 return {
-	"mattn/vim-maketable",
-	lazy = true,
-	cmd = cmd,
+    'mattn/vim-maketable',
+    lazy = true,
+    cmd = cmd,
 }
