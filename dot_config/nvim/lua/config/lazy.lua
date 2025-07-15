@@ -33,6 +33,9 @@ local pure_nvim_plugins = {
     'plugins.snacks',
     'plugins.blink-cmp',
     'plugins.luasnip',
+
+    -- experimental plugins
+    'plugins.toggleterm',
 }
 
 -- this is a workaround for lazy.nvim not being able to load plugins

@@ -7,10 +7,13 @@ packages:
   cmdline:
     - "aqua"
     - "bat"
+    - "colima"
+    - "docker"
     - "fd"
     - "fzf"
     - "git"
     - "jq"
+    - "oxker"
     - "ripgrep"
     - "thefuck"
     - "tmux"
