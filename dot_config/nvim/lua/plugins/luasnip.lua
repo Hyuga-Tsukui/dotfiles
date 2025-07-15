@@ -3,7 +3,8 @@ return {
     "L3MON4D3/LuaSnip",
     version = "v2.*",
     build = "make install_jsregexp",
-    lazy = false,
+    lazy = true,
+    event = { "VimEnter" },
     config = function()
         local ls = require("luasnip")
 
