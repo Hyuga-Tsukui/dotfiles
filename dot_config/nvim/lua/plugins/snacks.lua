@@ -1,5 +1,5 @@
 return {
-    "folke/snacks.nvim",
+    'folke/snacks.nvim',
     priority = 1000,
     lazy = false,
     ---@type snacks.Config
@@ -9,12 +9,12 @@ return {
             sources = {
                 files = {
                     exclude = {
-                        "/undo/",
+                        '/undo/',
                     },
                 },
                 diagnostics = {
                     exclude = {
-                        "/undo/",
+                        '/undo/',
                     },
                 },
             },
@@ -22,84 +22,84 @@ return {
     },
     keys = {
         {
-            "<leader>gl",
+            '<leader>gl',
             function()
                 Snacks.picker.git_log()
             end,
-            desc = "Git Log",
+            desc = 'Git Log',
         },
         {
-            "<leader>gL",
+            '<leader>gL',
             function()
                 Snacks.picker.git_log_line()
             end,
-            desc = "Git Log Line",
+            desc = 'Git Log Line',
         },
         {
-            "<leader>gb",
+            '<leader>gb',
             function()
                 Snacks.picker.git_branches()
             end,
-            desc = "Git Branches",
+            desc = 'Git Branches',
         },
         {
-            "<leader>gs",
+            '<leader>gs',
             function()
                 Snacks.picker.git_status()
             end,
-            desc = "Git Status",
+            desc = 'Git Status',
         },
         {
-            "<leader>gd",
+            '<leader>gd',
             function()
                 Snacks.picker.git_diff()
             end,
         },
         {
-            "<leader>/",
+            '<leader>/',
             function()
                 Snacks.picker.grep()
             end,
-            desc = "Grep",
+            desc = 'Grep',
         },
         {
-            "<leader>ff",
+            '<leader>ff',
             function()
                 Snacks.picker.files()
             end,
-            desc = "Find Files",
+            desc = 'Find Files',
         },
         {
-            "<leader>fb",
+            '<leader>fb',
             function()
                 Snacks.picker.buffers()
             end,
-            desc = "Buffers",
+            desc = 'Buffers',
         },
         {
-            "<C-r>",
+            '<C-r>',
             function()
-                vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-c>", true, false, true), "n", false)
+                vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-c>', true, false, true), 'n', false)
                 Snacks.picker.command_history()
             end,
-            mode = "c",
+            mode = 'c',
             noremap = true,
             silent = true,
-            desc = "Command History",
+            desc = 'Command History',
         },
         {
-            "<leader>ds",
+            '<leader>ds',
             function()
                 Snacks.picker.diagnostics()
             end,
-            desc = "Diagnostics",
+            desc = 'Diagnostics',
         },
         {
-            "<leader>z",
+            '<leader>z',
             function()
                 Snacks.zen()
             end,
-            desc = "Zen Mode",
+            desc = 'Zen Mode',
         },
     },
 }

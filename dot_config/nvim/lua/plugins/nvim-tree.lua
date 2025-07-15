@@ -1,10 +1,10 @@
 return {
-    "nvim-tree/nvim-tree.lua",
-    dependencies = "nvim-tree/nvim-web-devicons",
+    'nvim-tree/nvim-tree.lua',
+    dependencies = 'nvim-tree/nvim-web-devicons',
     config = function()
-        require("nvim-tree").setup({
+        require('nvim-tree').setup({
             sort = {
-                sorter = "case_sensitive",
+                sorter = 'case_sensitive',
             },
             filters = {
                 dotfiles = false,
@@ -20,6 +20,6 @@ return {
                 },
             },
         })
-        vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
+        vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>')
     end,
 }

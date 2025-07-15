@@ -1,3 +1,3 @@
 return {
-    { dir = "~/ws/make-tree/" },
+    { dir = '~/ws/make-tree/' },
 }
