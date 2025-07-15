@@ -36,6 +36,7 @@ local pure_nvim_plugins = {
 
     -- experimental plugins
     'plugins.toggleterm',
+    'plugins.overseer',
 }
 
 -- this is a workaround for lazy.nvim not being able to load plugins
