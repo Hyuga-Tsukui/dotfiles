@@ -1,3 +1,4 @@
+vim.loader.enable()
 -- TODO refactor file type detection
 -- neovim not resolving filetype for terraform files
 vim.filetype.add({

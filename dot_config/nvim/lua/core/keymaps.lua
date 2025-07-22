@@ -7,6 +7,13 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
 vim.keymap.set('n', '<leader>dq', ':lua vim.diagnostic.setloclist()<CR>')
 
+vim.keymap.set(
+    'n',
+    '?',
+    '<cmd>silent vimgrep//gj%|copen<cr>',
+    { desc = 'Populate latest search result to quickfix list' }
+)
+
 vim.schedule(function()
     vim.keymap.set('n', ';', ':', { noremap = true })
     vim.keymap.set('n', ':', ';', { noremap = true })
