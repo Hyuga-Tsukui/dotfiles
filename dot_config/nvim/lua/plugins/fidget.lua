@@ -6,7 +6,6 @@ return {
             window = {
                 relative = 'editor',
                 align = 'top',
-                x_padding = 10000,
                 winblend = 20,
                 border = {
                     { '╭', 'FloatBorderFidget' },

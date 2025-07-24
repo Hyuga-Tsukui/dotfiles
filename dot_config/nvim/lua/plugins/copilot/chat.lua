@@ -17,7 +17,7 @@ return {
             debug = false,
             proxy = nil,
             allow_insecure = false,
-            model = 'claude-3.7-sonnet',
+            model = 'gpt-4o',
             temperature = 0.1,
             prompts = {
                 Explain = {
