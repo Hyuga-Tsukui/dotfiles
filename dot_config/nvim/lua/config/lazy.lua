@@ -14,7 +14,7 @@ local pure_nvim_plugins = {
     'plugins.gitsigns',
     'plugins.harpoon',
     'plugins.hlchunk',
-    'plugins.lexima',
+    -- 'plugins.lexima',
     'plugins.mason-null-ls',
     'plugins.mason-nvim',
     'plugins.memolist',
@@ -37,6 +37,7 @@ local pure_nvim_plugins = {
     -- experimental plugins
     'plugins.toggleterm',
     'plugins.overseer',
+    'plugins.aerial',
 }
 
 -- this is a workaround for lazy.nvim not being able to load plugins

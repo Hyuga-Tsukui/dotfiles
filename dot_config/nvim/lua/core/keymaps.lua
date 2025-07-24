@@ -14,18 +14,9 @@ vim.keymap.set(
     { desc = 'Populate latest search result to quickfix list' }
 )
 
+vim.keymap.set('n', '<leader>vs', '<cmd>vsplit<cr><c-w>w', { desc = 'Split window vertically and switch to it' })
+
 vim.schedule(function()
     vim.keymap.set('n', ';', ':', { noremap = true })
     vim.keymap.set('n', ':', ';', { noremap = true })
 end)
-
--- Toggle relative line numbers
--- vim.keymap.set("n", "<leader>n", function()
---     if vim.wo.relativenumber then
---         vim.wo.number = false
---         vim.wo.relativenumber = false
---     else
---         vim.wo.number = true
---         vim.wo.relativenumber = true
---     end
--- end, { desc = "Toggle relative line numbers" })
