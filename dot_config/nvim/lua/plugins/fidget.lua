@@ -2,7 +2,7 @@ return {
     'j-hui/fidget.nvim',
     opts = {
         notification = {
-            override_vim_notify = false,
+            override_vim_notify = true,
             window = {
                 relative = 'editor',
                 align = 'top',

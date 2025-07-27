@@ -15,4 +15,25 @@ return {
         'nvim-treesitter/nvim-treesitter',
         'nvim-tree/nvim-web-devicons',
     },
+    keys = {
+        {
+            '<leader>uA',
+            function()
+                require('aerial').toggle()
+            end,
+            desc = 'Toggle Outline (Aerial)',
+        },
+        {
+            '<leader>ss',
+            function()
+                require('aerial').snacks_picker({
+                    layout = {
+                        preset = 'dropdown',
+                        preview = false,
+                    },
+                })
+            end,
+            desc = 'Symbols Picker (Aerial)',
+        },
+    },
 }

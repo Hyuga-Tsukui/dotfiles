@@ -26,23 +26,23 @@ return {
             date_format = '%Y-%m-%d',
         },
         workspaces = {
+            -- {
+            --     name = "personal",
+            --     path = vim.fn.expand("~/obsidian"),
+            --
+            --     -- options for this workspace
+            --     overrides = {
+            --         notes_subdir = "000_zettelkasten",
+            --     },
+            --     templates = {
+            --         folder = "999_conf/templates",
+            --     },
+            -- },
             {
                 name = 'work',
                 path = vim.fn.expand('~/ws/obsidian-work'),
                 -- options for this workspace
                 overrides = {},
-            },
-            {
-                name = 'personal',
-                path = vim.fn.expand('~/obsidian'),
-
-                -- options for this workspace
-                overrides = {
-                    notes_subdir = '000_zettelkasten',
-                },
-                templates = {
-                    folder = '999_conf/templates',
-                },
             },
         },
     },
@@ -55,8 +55,5 @@ return {
         { '<leader>oy', '<cmd>ObsidianYesterday<cr>', desc = 'Obsidian: Yesterday note' },
         { '<leader>ow', '<cmd>ObsidianWeekly<cr>', desc = 'Obsidian: Weekly note' },
         { '<leader>oq', '<cmd>ObsidianQuickSwitch<cr>', desc = 'Obsidian: Quick switch' },
-    },
-    cmd = {
-        'ObsidianWorkspace',
     },
 }

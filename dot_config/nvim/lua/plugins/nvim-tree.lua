@@ -20,6 +20,6 @@ return {
                 },
             },
         })
-        vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>')
+        vim.keymap.set('n', '<leader>ue', ':NvimTreeToggle<CR>', { desc = 'Toggle File Explorer' })
     end,
 }
