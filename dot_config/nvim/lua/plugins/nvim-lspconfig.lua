@@ -137,6 +137,7 @@ return {
                         vim.lsp.buf.signature_help,
                         vim.tbl_extend('force', opts, { desc = 'lsp signature_help' })
                     )
+                    vim.keymap.set('n', 'K', vim.lsp.buf.hover, vim.tbl_extend('force', opts, { desc = 'lsp hover' }))
 
                     vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
                     local client = vim.lsp.get_client_by_id(ev.data.client_id)

@@ -63,29 +63,30 @@ return {
             desc = 'Grep',
         },
         {
-            '<leader>ff',
+            '<leader>sf',
             function()
                 Snacks.picker.files()
             end,
-            desc = 'Find Files',
+            desc = 'Files Picker',
         },
         {
-            '<leader>fb',
+            '<leader>sb',
             function()
                 Snacks.picker.buffers()
             end,
-            desc = 'Buffers',
+            desc = 'Buffers Picker',
         },
         {
-            '<C-r>',
+            '<leader>sc',
             function()
-                vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-c>', true, false, true), 'n', false)
-                Snacks.picker.command_history()
+                Snacks.picker.command_history({
+                    on_select = function(item)
+                        print('Executing command: ' .. item.value)
+                        vim.api.nvim_feedkeys(';' .. item.value .. '\n', 'n', false)
+                    end,
+                })
             end,
-            mode = 'c',
-            noremap = true,
-            silent = true,
-            desc = 'Command History',
+            desc = 'Commands Picker',
         },
         {
             '<leader>ds',
