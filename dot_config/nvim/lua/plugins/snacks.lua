@@ -63,14 +63,14 @@ return {
             desc = 'Grep',
         },
         {
-            '<leader>sf',
+            '<leader>fs',
             function()
                 Snacks.picker.files()
             end,
-            desc = 'Files Picker',
+            desc = 'Search File',
         },
         {
-            '<leader>sb',
+            '<leader>bs',
             function()
                 Snacks.picker.buffers()
             end,

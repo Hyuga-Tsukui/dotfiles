@@ -12,6 +12,7 @@ return {
             -- enable when git commit editor is opened
             filetypes = {
                 gitcommit = true,
+                yaml = true,
             },
         })
     end,

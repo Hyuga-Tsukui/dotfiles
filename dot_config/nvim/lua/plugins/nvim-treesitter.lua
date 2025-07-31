@@ -29,7 +29,7 @@ return {
             highlight = {
                 enable = true,
                 disable = { 'markdown' }, -- disable markdown highlighting
-                additional_vim_regex_highlighting = false,
+                additional_vim_regex_highlighting = { 'python' },
             },
             textobjects = {
                 select = {
