@@ -6,7 +6,7 @@ return {
                 -- pep8 is a Python style guide checker
                 pycodestyle = {
                     enabled = true,
-                    ignore = { "E501" }, -- Ignore line length errors
+                    ignore = { 'E501', 'W503' }, -- Ignore line length errors
                 },
                 mccabe = {
                     enabled = false,
