@@ -38,6 +38,8 @@ local pure_nvim_plugins = {
     'plugins.toggleterm',
     'plugins.overseer',
     'plugins.aerial',
+    -- 'plugins.numbertoggle',
+    'plugins.comfy-line-numbers',
 }
 
 -- this is a workaround for lazy.nvim not being able to load plugins

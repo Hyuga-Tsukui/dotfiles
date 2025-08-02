@@ -52,6 +52,10 @@ return {
                     prompt = '/COPILOT_COMMITSTAGED ステージングされた変更をコミットしてください。',
                     selection = selectCb,
                 },
+                Rename = {
+                    prompt = '/COPILOT_RENAME CONTEXTに基づき，選択したコードの変数名を適切な名前に変更してください。',
+                    selection = selectCb,
+                },
             },
             window = {
                 layout = 'vertical',
@@ -72,4 +76,17 @@ return {
             },
         })
     end,
+    keys = {
+        { '<leader>zn', ':CopilotChatRename<CR>', mode = 'v', desc = 'Rename Variable' },
+        { '<leader>zc', ':CopilotChat<CR>', mode = 'n', desc = 'Open Copilot Chat' },
+        { '<leader>zc', ':CopilotChat<CR>', mode = 'v', desc = 'Open Copilot Chat' },
+        { '<leader>ze', ':CopilotChatExplain<CR>', mode = 'v', desc = 'Explain Code' },
+        { '<leader>zr', ':CopilotChatReview<CR>', mode = 'v', desc = 'Review Code' },
+        { '<leader>zf', ':CopilotChatFix<CR>', mode = 'v', desc = 'Fix Code Issue' },
+        { '<leader>zo', ':CopilotChatOptimize<CR>', mode = 'v', desc = 'Optimize Code' },
+        { '<leader>zd', ':CopilotChatDocs<CR>', mode = 'v', desc = 'Generate Docs' },
+        { '<leader>zt', ':CopilotChatTests<CR>', mode = 'v', desc = 'Generate Tests' },
+        { '<leader>zm', ':CopilotChatCommit<CR>', mode = 'n', desc = 'Generate Commit' },
+        { '<leader>zs', ':CopilotChatCommit<CR>', mode = 'v', desc = 'Generate Commit for Selection' },
+    },
 }
