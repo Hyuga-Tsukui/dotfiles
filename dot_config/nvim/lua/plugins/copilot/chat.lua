@@ -59,16 +59,20 @@ return {
             },
             window = {
                 layout = 'vertical',
-                width = 0.3,
-                height = 0.3,
-                relative = 'editor',
-                border = 'single',
-                row = 0,
-                col = 0,
-                title = 'Copilot Chat',
-                footer = 'Press q to close',
-                zindex = 1,
+                width = 120, -- Fixed width in columns
+                height = 40, -- Fixed height in rows
+                border = 'rounded', -- 'single', 'double', 'rounded', 'solid'
+                title = '🤖 AI Assistant',
+                zindex = 100, -- Ensure window stays on top
             },
+
+            headers = {
+                user = '👤 You: ',
+                assistant = '🤖 Copilot: ',
+                tool = '🔧 Tool: ',
+            },
+            separator = '━━',
+            show_folds = false, -- Disable folding for cleaner look           -- },
             keymaps = {
                 close = 'q',
                 reset = '<C-l>',
