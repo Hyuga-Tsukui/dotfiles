@@ -1,5 +1,6 @@
 return {
     'CopilotC-Nvim/CopilotChat.nvim',
+    tag = 'v4.2.0',
     dependencies = {
         { 'nvim-lua/plenary.nvim', branch = 'master' },
     },

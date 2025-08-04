@@ -12,7 +12,14 @@ return {
     },
 
     config = function()
-        require('overseer').setup({})
+        require('overseer').setup({
+            templates = {
+                -- Add your custom templates here
+                -- Example: require('overseer.template.python.pytest'),
+                'builtin',
+                'overseer.template.python.pytest_current_func',
+            },
+        })
     end,
     keys = {
         { '<leader>tl', '<cmd>OverseerRun<cr>', desc = 'Overseer Run' },
