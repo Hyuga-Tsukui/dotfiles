@@ -22,7 +22,7 @@ local pure_nvim_plugins = {
     'plugins.nvim-tree',
     'plugins.nvim-treesitter',
     'plugins.obsidian',
-    'plugins.slimline',
+    -- 'plugins.slimline',
     'plugins.tmux-navigator',
     'plugins.which-key-nvim',
     'plugins.treejs',
@@ -40,6 +40,7 @@ local pure_nvim_plugins = {
     'plugins.aerial',
     -- 'plugins.numbertoggle',
     'plugins.comfy-line-numbers',
+    'plugins.lualine',
 }
 
 -- this is a workaround for lazy.nvim not being able to load plugins
