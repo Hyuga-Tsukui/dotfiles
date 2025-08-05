@@ -19,6 +19,10 @@ return {
                 },
             },
         },
+        dashboard = {
+            rows = 10,
+            presets = {},
+        },
     },
     keys = {
         {
