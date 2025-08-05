@@ -17,7 +17,7 @@ return {
                 -- Add your custom templates here
                 -- Example: require('overseer.template.python.pytest'),
                 'builtin',
-                'overseer.template.python.pytest_current_func',
+                'python.pytest_current_func',
             },
         })
     end,
