@@ -41,6 +41,7 @@ local pure_nvim_plugins = {
     -- 'plugins.numbertoggle',
     'plugins.comfy-line-numbers',
     'plugins.lualine',
+    'plugins.lsp_signature',
 }
 
 -- this is a workaround for lazy.nvim not being able to load plugins
