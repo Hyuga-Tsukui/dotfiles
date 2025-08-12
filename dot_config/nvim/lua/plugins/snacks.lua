@@ -99,12 +99,5 @@ return {
             end,
             desc = 'Diagnostics',
         },
-        {
-            '<leader>z',
-            function()
-                Snacks.zen()
-            end,
-            desc = 'Zen Mode',
-        },
     },
 }

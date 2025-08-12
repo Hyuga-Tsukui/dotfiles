@@ -9,6 +9,7 @@ return {
         'hrsh7th/nvim-cmp',
     },
     opts = {
+        legacy_commands = false,
         -- global options
         picker = {
             name = 'snacks.pick',
@@ -50,7 +51,6 @@ return {
         { '<leader>on', '<cmd>ObsidianNew<cr>', desc = 'Obsidian: New note' },
         { '<leader>os', '<cmd>ObsidianSearch<cr>', desc = 'Obsidian: Search notes' },
         { '<leader>ol', '<cmd>ObsidianLink<cr>', desc = 'Obsidian: Link notes' },
-        { '<leader>ob', '<cmd>ObsidianBacklinks<cr>', desc = 'Obsidian: Backlinks' },
         { '<leader>ot', '<cmd>ObsidianToday<cr>', desc = 'Obsidian: Today note' },
         { '<leader>oy', '<cmd>ObsidianYesterday<cr>', desc = 'Obsidian: Yesterday note' },
         { '<leader>ow', '<cmd>ObsidianWeekly<cr>', desc = 'Obsidian: Weekly note' },
