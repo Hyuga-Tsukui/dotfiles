@@ -13,9 +13,6 @@ local function get_enclosing_function_name()
                 local child_type = child:type()
                 if child_type == 'identifier' or child_type == 'name' then
                     func_name = vim.treesitter.get_node_text(child, bufnr)
-                    if func_name then
-                        return func_name
-                    end
                 end
             end
         end
@@ -49,23 +46,18 @@ return {
         local file = vim.fn.expand('%')
         local class = get_enclosing_class_name()
         local func = get_enclosing_function_name()
-        local target = nil
         if class and func then
             func = class .. '::' .. func
-        elseif class then
-            target = class
-        elseif func then
-            target = func
         end
-        if not target then
+        if not func then
             vim.notify('No function found under cursor', vim.log.levels.ERROR)
             return { cmd = { 'echo' }, args = { 'No function found' }, name = 'invalid task' }
         end
 
         return {
             cmd = { 'pytest' },
-            args = { '-s', '-n', 0, file .. '::' .. target },
-            name = 'pytest ' .. target,
+            args = { '-s', '-n', 0, file .. '::' .. func },
+            name = 'pytest ' .. func,
             components = {
                 { 'on_output_quickfix', open_on_exit = 'failure' },
                 'default',

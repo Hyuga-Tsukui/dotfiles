@@ -3,8 +3,8 @@ return {
     branch = 'harpoon2',
     dependencies = { 'nvim-lua/plenary.nvim' },
     keys = {
-        '<leader>m',
-        '<C-e>',
+        '<leader>ha',
+        '<leader>he',
     },
     config = function()
         local harpoon = require('harpoon')
@@ -18,10 +18,10 @@ return {
         })
 
         -- Add a new harpoon mark
-        vim.keymap.set('n', '<leader>m', function()
+        vim.keymap.set('n', '<leader>ha', function()
             harpoon:list():add()
         end)
-        vim.keymap.set('n', '<C-e>', function()
+        vim.keymap.set('n', '<leader>he', function()
             harpoon.ui:toggle_quick_menu(harpoon:list())
         end)
     end,

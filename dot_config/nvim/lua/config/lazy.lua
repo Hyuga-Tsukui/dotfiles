@@ -43,6 +43,8 @@ local pure_nvim_plugins = {
     'plugins.lualine',
     'plugins.lsp_signature',
     'plugins.markview',
+    'plugins.no-neck-pain',
+    'plugins.autopairs',
 }
 
 -- this is a workaround for lazy.nvim not being able to load plugins
