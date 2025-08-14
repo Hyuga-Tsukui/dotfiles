@@ -4,7 +4,8 @@ return {
         'lewis6991/gitsigns.nvim',
         'nvim-tree/nvim-web-devicons',
     },
-    event = { 'BufRead', 'BufNewFile' },
+    -- event = { 'BufRead', 'BufNewFile' },
+    event = 'VeryLazy',
     cond = function()
         local exclude_filetypes = { 'NvimTree' }
         return not vim.tbl_contains(exclude_filetypes, vim.bo.filetype)
@@ -28,7 +29,7 @@ return {
             icons = {
                 filetype = {
                     custom_colors = false,
-                    enabled = false,
+                    enabled = true,
                 },
                 separator_at_end = false,
 
