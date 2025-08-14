@@ -9,7 +9,7 @@ local pure_nvim_plugins = {
     'plugins.vim-maketable',
     'plugins.nvim-hlslens',
     'plugins.gitlinker',
-    'plugins.fidget',
+    -- 'plugins.fidget',
     'plugins.barbar',
     'plugins.gitsigns',
     'plugins.harpoon',

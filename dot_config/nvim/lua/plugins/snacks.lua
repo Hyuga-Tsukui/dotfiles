@@ -23,6 +23,7 @@ return {
             rows = 10,
             presets = {},
         },
+        notifier = {},
     },
     keys = {
         {
@@ -98,6 +99,13 @@ return {
                 Snacks.picker.diagnostics()
             end,
             desc = 'Diagnostics',
+        },
+        {
+            '<leader>nn',
+            function()
+                Snacks.picker.notifications()
+            end,
+            desc = 'Notifications',
         },
     },
 }
