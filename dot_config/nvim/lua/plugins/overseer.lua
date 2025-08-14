@@ -19,6 +19,9 @@ return {
                 'builtin',
                 'python.pytest_current_func',
             },
+            task_list = {
+                direction = 'left',
+            },
         })
     end,
     keys = {
