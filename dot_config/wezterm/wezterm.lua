@@ -6,7 +6,9 @@ config.font_size = 18
 -- config.window_background_opacity = 0.8
 config.macos_window_background_blur = 100
 config.line_height = 1.1
-config.colors = require("cyberdream")
+-- config.color_scheme = "Builtin Dark"
+-- config.colors = require("cyberdream")
+config.color_scheme = "rose-pine-moon"
 config.window_decorations = "RESIZE"
 config.use_ime = true
 

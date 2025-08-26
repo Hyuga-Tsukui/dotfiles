@@ -56,14 +56,5 @@ return {
                 vim.cmd('set conceallevel=0')
             end,
         })
-        -- vim.api.nvim_create_autocmd({
-        --     'BufLeave',
-        --     'BufWinLeave',
-        -- }, {
-        --     pattern = { '*.md' },
-        --     callback = function()
-        --         vim.cmd('set conceallevel=3')
-        --     end,
-        -- })
     end,
 }

@@ -25,7 +25,7 @@ opt.iskeyword:append('-')
 
 -- appearance settings
 opt.guicursor = 'n-v-c:block,i-ci-ve:ver25,r-cr-o:hor20'
-opt.laststatus = 0 -- status-line系のpluginへの切り替え時のちらつきを防ぐためにデフォルトは表示しないようにする.
+-- opt.laststatus = 0 -- status-line系のpluginへの切り替え時のちらつきを防ぐためにデフォルトは表示しないようにする.
 opt.cmdheight = 0
 opt.conceallevel = 2
 opt.wrap = false

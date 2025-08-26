@@ -29,7 +29,7 @@ return {
             icons = {
                 filetype = {
                     custom_colors = false,
-                    enabled = true,
+                    enabled = false,
                 },
                 separator_at_end = false,
 
