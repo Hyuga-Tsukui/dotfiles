@@ -45,6 +45,7 @@ local pure_nvim_plugins = {
     'plugins.markview',
     'plugins.no-neck-pain',
     'plugins.autopairs',
+    'plugins.vim-list2tree',
 }
 
 -- this is a workaround for lazy.nvim not being able to load plugins
