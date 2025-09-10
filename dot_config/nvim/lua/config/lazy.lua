@@ -41,6 +41,7 @@ local pure_nvim_plugins = {
     'plugins.no-neck-pain',
     'plugins.autopairs',
     'plugins.vim-list2tree',
+    'plugins.alpha',
 
     -- 'work'
     'plugins.work.gitlinker',
