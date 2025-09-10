@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 
 local config = wezterm.config_builder()
-config.font = wezterm.font("HackGen Console")
+config.font = wezterm.font("UDEV Gothic 35NF")
 config.font_size = 18
 -- config.window_background_opacity = 0.8
 config.macos_window_background_blur = 100
