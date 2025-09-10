@@ -46,6 +46,9 @@ local pure_nvim_plugins = {
     'plugins.no-neck-pain',
     'plugins.autopairs',
     'plugins.vim-list2tree',
+
+    -- 'work'
+    'plugins.work.gitlinker',
 }
 
 -- this is a workaround for lazy.nvim not being able to load plugins
