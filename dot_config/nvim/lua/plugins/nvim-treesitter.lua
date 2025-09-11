@@ -42,6 +42,33 @@ return {
                         ['ic'] = '@class.inner', -- Select inside class
                         ['ap'] = '@parameter.outer', -- Select around parameter
                         ['ip'] = '@parameter.inner', -- Select inside parameter"
+                        ['as'] = '@local.scope', -- Select around scope
+                        ['is'] = '@local.scope', -- Select inside scope
+                        ['ai'] = '@conditional.outer', -- Select around conditional
+                        ['ii'] = '@conditional.inner', -- Select inside conditional
+                        ['al'] = '@loop.outer', -- Select around loop
+                        ['il'] = '@loop.inner', -- Select inside loop
+                    },
+                },
+                move = {
+                    enable = true,
+                    set_jumps = true,
+                    goto_next_start = {
+                        [']m'] = '@function.outer',
+                        [']]'] = '@class.outer',
+                    },
+                    goto_previous_start = {
+                        ['[m'] = '@function.outer',
+                        ['[['] = '@class.outer',
+                    },
+                    swap = {
+                        enable = true,
+                        swap_next = {
+                            ['<leader>a'] = '@parameter.inner',
+                        },
+                        swap_previous = {
+                            ['<leader>A'] = '@parameter.inner',
+                        },
                     },
                 },
             },

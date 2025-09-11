@@ -19,6 +19,7 @@ opt.expandtab = true
 opt.autoindent = true
 opt.backspace = 'indent,eol,start'
 opt.scrolloff = 8
+opt.sidescrolloff = 8
 
 -- completion settings
 opt.iskeyword:append('-')
@@ -54,3 +55,5 @@ if vim.fn.isdirectory(undodir) == 0 then
 end
 opt.undodir = undodir
 opt.undofile = true
+
+opt.jumpoptions = 'stack'

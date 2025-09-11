@@ -42,6 +42,7 @@ local pure_nvim_plugins = {
     'plugins.autopairs',
     'plugins.vim-list2tree',
     'plugins.alpha',
+    'plugins.flash',
 
     -- 'work'
     'plugins.work.gitlinker',

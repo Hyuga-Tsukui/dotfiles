@@ -7,14 +7,25 @@ export PATH="/opt/homebrew/opt/git/bin:$PATH" # use brew git
 # ─────────────────────────────────────────────
 # 🧪 [FUNCTIONS]
 # ─────────────────────────────────────────────
-# 安全に eval するヘルパー
-eval-if-exists() {
-  local cmd=$1
-  shift
-  if command -v "$cmd" >/dev/null 2>&1; then
-    eval "$("$cmd" "$@")"
-  fi
-}
+
+_compinit() {
+   local re_initialize=0
+   for match in ${ZDOTDIR}/.zcompdump*(.Nmh+24); do
+     re_initialize=1
+     break
+   done
+   
+   autoload -Uz compinit
+   if [ "$re_initialize" -eq "1" ]; then
+     compinit
+     # update the timestamp on compdump file
+     compdump
+   else
+     # omit the check for new functions since we updated today
+     compinit -C
+   fi
+ }
+ _compinit
 
 # ─────────────────────────────────────────────
 # 💻 [ALIASES]
@@ -116,10 +127,13 @@ fi
 bindkey -r "^G"
 bindkey -r "^J"
 
-eval-if-exists zoxide init zsh
-eval-if-exists thefuck --alias fk
-eval-if-exists uv generate-shell-completion zsh
-eval-if-exists mise activate zsh
-eval-if-exists direnv hook zsh
-
+eval "$(zoxide init zsh --hook prompt )"
+eval "$(thefuck --alias fk)"
+eval "$(uv generate-shell-completion zsh)"
+eval "$(mise activate zsh)"
+eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"
+
+# if (which zprof > /dev/null 2>&1) ;then
+#   zprof
+# fi
