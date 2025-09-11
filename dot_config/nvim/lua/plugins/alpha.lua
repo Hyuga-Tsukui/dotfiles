@@ -1,4 +1,12 @@
-local art = require('assets.rei-art')
+local arts = {
+    'assets.rei-art',
+    'assets.z-gundom',
+}
+math.randomseed(os.time())
+local choice = arts[math.random(#arts)]
+
+local art = require(choice)
+
 return {
     'goolord/alpha-nvim',
     -- dependencies = { 'echasnovski/mini.icons' },
