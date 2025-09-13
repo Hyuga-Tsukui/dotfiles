@@ -1,7 +1,17 @@
 return {
     'folke/which-key.nvim',
     event = 'VeryLazy',
-    opts = {},
+    opts = {
+        plugins = {
+            presets = {
+                operators = false,
+                motions = false,
+                text_objects = true,
+                z = false,
+                g = false,
+            },
+        },
+    },
     keys = {
         {
             '<leader>?',
