@@ -19,7 +19,7 @@ vim.keymap.set(
 )
 
 -- swap ; and :
-vim.schedule(function()
-    vim.keymap.set('n', ';', ':', { noremap = true })
-    vim.keymap.set('n', ':', ';', { noremap = true })
-end)
+-- vim.schedule(function()
+--     vim.keymap.set('n', ';', ':', { noremap = true })
+--     vim.keymap.set('n', ':', ';', { noremap = true })
+-- end)

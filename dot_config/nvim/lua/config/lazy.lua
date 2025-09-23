@@ -1,39 +1,43 @@
-local vscode_plugins = {
+local plugins = {
+    -- text editing
     'plugins.nvim-surround',
     'plugins.Comment',
     'plugins.dial',
-}
 
-local pure_nvim_plugins = {
+    -- UI and appearance
     'plugins.color-scheme',
-    'plugins.vim-maketable',
-    'plugins.nvim-hlslens',
-    'plugins.gitlinker',
     'plugins.barbar',
+    'plugins.lualine',
+    'plugins.hlchunk',
+    'plugins.nvim-hlslens',
+
+    -- Tools and utilities
+    'plugins.vim-maketable',
+    'plugins.gitlinker',
     'plugins.gitsigns',
     'plugins.harpoon',
-    'plugins.hlchunk',
-    'plugins.mason-null-ls',
-    'plugins.mason-nvim',
     'plugins.memolist',
-    'plugins.nvim-lspconfig',
     'plugins.nvim-tree',
-    'plugins.nvim-treesitter',
     'plugins.obsidian',
-    'plugins.tmux-navigator',
     'plugins.which-key-nvim',
+    'plugins.tmux-navigator',
     'plugins.treejs',
     'plugins.copilot.init',
     'plugins.copilot.chat',
+    'plugins.toggleterm',
+    'plugins.aerial',
+    'plugins.overseer',
     'plugins.plamo-translate',
+
+    -- LSP and completion
+    'plugins.mason-null-ls',
+    'plugins.mason-nvim',
+    'plugins.nvim-lspconfig',
+    'plugins.nvim-treesitter',
     'plugins.lazydev',
     'plugins.snacks',
     'plugins.blink-cmp',
     'plugins.luasnip',
-    'plugins.toggleterm',
-    'plugins.overseer',
-    'plugins.aerial',
-    'plugins.lualine',
 
     -- experimental plugins
     'plugins.comfy-line-numbers',
@@ -43,9 +47,6 @@ local pure_nvim_plugins = {
     'plugins.vim-list2tree',
     'plugins.alpha',
     'plugins.flash',
-
-    -- 'work'
-    'plugins.work.gitlinker',
 }
 
 -- this is a workaround for lazy.nvim not being able to load plugins
@@ -66,12 +67,10 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-local enable_plugins = {}
+local profile = vim.env.NVIM_PROFILE or 'personal'
 
-vim.list_extend(enable_plugins, vscode_plugins)
-
-if not vim.g.vscode then
-    vim.list_extend(enable_plugins, pure_nvim_plugins)
+if profile == 'work' then
+    table.insert(plugins, 'plugins.work.gitlinker')
 end
 
-require('lazy').setup(vim.tbl_map(require, enable_plugins))
+require('lazy').setup(vim.tbl_map(require, plugins))
