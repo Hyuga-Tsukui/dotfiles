@@ -17,9 +17,3 @@ vim.keymap.set(
     '<cmd>silent vimgrep//gj%|copen<cr>',
     { desc = 'Populate latest search result to quickfix list' }
 )
-
--- swap ; and :
--- vim.schedule(function()
---     vim.keymap.set('n', ';', ':', { noremap = true })
---     vim.keymap.set('n', ':', ';', { noremap = true })
--- end)
