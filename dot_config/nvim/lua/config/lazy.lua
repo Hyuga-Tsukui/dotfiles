@@ -47,6 +47,7 @@ local plugins = {
     'plugins.vim-list2tree',
     'plugins.alpha',
     'plugins.flash',
+    'plugins.oil',
 }
 
 -- this is a workaround for lazy.nvim not being able to load plugins
