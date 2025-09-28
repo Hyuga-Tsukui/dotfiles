@@ -42,7 +42,6 @@ vim.diagnostic.config({
         end,
     },
     underline = true,
-    -- signs = true,
     float = {
         border = 'rounded',
         source = 'if_many',

@@ -37,7 +37,7 @@ local plugins = {
     'plugins.luasnip',
 
     -- experimental plugins
-    'plugins.comfy-line-numbers',
+    -- 'plugins.comfy-line-numbers',
     'plugins.lsp_signature',
     'plugins.no-neck-pain',
     -- 'plugins.autopairs',
