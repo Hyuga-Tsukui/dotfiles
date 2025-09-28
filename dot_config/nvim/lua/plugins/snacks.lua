@@ -44,11 +44,11 @@ return {
             desc = 'Git Log Line',
         },
         {
-            '<leader>gb',
+            '<leader>gbr',
             function()
-                Snacks.picker.git_branches()
+                Snacks.picker.git_branches({ layout = 'select' })
             end,
-            desc = 'Git Branches',
+            desc = 'Switch Git Branches',
         },
         {
             '<leader>gs',
