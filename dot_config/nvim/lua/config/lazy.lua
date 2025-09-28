@@ -1,7 +1,5 @@
 local plugins = {
     -- text editing
-    'plugins.nvim-surround',
-    'plugins.Comment',
     'plugins.dial',
 
     -- UI and appearance
@@ -21,7 +19,6 @@ local plugins = {
     'plugins.obsidian',
     'plugins.which-key-nvim',
     'plugins.tmux-navigator',
-    'plugins.treejs',
     'plugins.copilot.init',
     'plugins.copilot.chat',
     'plugins.toggleterm',
@@ -43,11 +40,12 @@ local plugins = {
     'plugins.comfy-line-numbers',
     'plugins.lsp_signature',
     'plugins.no-neck-pain',
-    'plugins.autopairs',
+    -- 'plugins.autopairs',
     'plugins.vim-list2tree',
     'plugins.alpha',
     'plugins.flash',
     'plugins.oil',
+    'plugins.mini',
 }
 
 -- this is a workaround for lazy.nvim not being able to load plugins
