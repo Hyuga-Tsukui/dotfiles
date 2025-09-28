@@ -8,14 +8,11 @@ return {
                 add = 'ys', -- Add surrounding in Normal and Visual modes
                 delete = 'ds', -- Delete surrounding
                 replace = 'cs', -- Change surrounding
-                find = 'gsf', -- Find surrounding (to the right)
-                find_left = 'gsF', -- Find surrounding (to the left)
-                highlight = 'gsh', -- Highlight surrounding
-                update_n_lines = 'gsn', -- Update `n_lines`
-                suffix_last = 'l', -- Suffix to search with "prev" method
-                suffix_next = 'n', -- Suffix to search with "next" method
             },
         },
+        config = function(_, opts)
+            require('mini.surround').setup(opts)
+        end,
     },
     {
         'nvim-mini/mini.pairs',
@@ -32,5 +29,13 @@ return {
         config = function()
             require('mini.splitjoin').setup({})
         end,
+    },
+    {
+        'nvim-mini/mini.bracketed',
+        version = '*',
+        config = function()
+            require('mini.bracketed').setup({})
+        end,
+        event = 'VeryLazy',
     },
 }

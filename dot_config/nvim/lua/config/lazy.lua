@@ -43,7 +43,7 @@ local plugins = {
     -- 'plugins.autopairs',
     'plugins.vim-list2tree',
     'plugins.alpha',
-    'plugins.flash',
+    -- 'plugins.flash',
     'plugins.oil',
     'plugins.mini',
 }

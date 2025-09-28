@@ -70,4 +70,52 @@ config.mouse_bindings = {
 
 -- config.default_prog = { "zsh", "-l", "-c", "tmux a -t default || tmux new -s default" }
 
+local vague_scheme = {
+	foreground = "#cdcdcd",
+	background = "#141415",
+	cursor_bg = "#cdcdcd",
+	cursor_border = "#cdcdcd",
+	cursor_fg = "#141415",
+	selection_bg = "#405065", -- search 色を流用
+	selection_fg = "#cdcdcd",
+
+	ansi = {
+		"#1c1c24", -- black   → inactiveBg
+		"#d8647e", -- red     → error
+		"#7fa563", -- green   → plus
+		"#f3be7c", -- yellow  → warning
+		"#7e98e8", -- blue    → hint
+		"#bb9dbd", -- magenta → parameter
+		"#b4d4cf", -- cyan    → builtin
+		"#cdcdcd", -- white   → fg
+	},
+	brights = {
+		"#252530", -- bright black → line
+		"#e0a363", -- bright red   → number
+		"#9bb4bc", -- bright green → type
+		"#e8b589", -- bright yellow→ string
+		"#90a0b5", -- bright blue  → operator
+		"#c48282", -- bright magenta → func
+		"#aeaed1", -- bright cyan  → constant
+		"#c3c3d5", -- bright white → property
+	},
+
+	tab_bar = {
+		background = "#1c1c24",
+		active_tab = {
+			bg_color = "#141415",
+			fg_color = "#cdcdcd",
+		},
+		inactive_tab = {
+			bg_color = "#1c1c24",
+			fg_color = "#606079", -- comment
+		},
+	},
+}
+
+config.color_schemes = {
+	["vague-custom"] = vague_scheme,
+}
+config.color_scheme = "vague-custom"
+
 return config
