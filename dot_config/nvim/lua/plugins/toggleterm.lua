@@ -16,16 +16,6 @@ return {
 
         local Terminal = require('toggleterm.terminal').Terminal
 
-        local lazygit = Terminal:new({
-            cmd = 'lazygit',
-            direction = 'float',
-            hidden = true,
-        })
-
-        function _G.lazygit_toggle()
-            lazygit:toggle()
-        end
-
         local oxker = Terminal:new({
             cmd = 'oxker --host ~/.colima/default/docker.sock',
             direction = 'float',
@@ -36,7 +26,6 @@ return {
             oxker:toggle()
         end
 
-        vim.keymap.set('n', '<leader>gg', '<cmd>lua lazygit_toggle()<CR>', { noremap = true, silent = true })
         vim.keymap.set('n', '<leader>ox', '<cmd>lua oxker_toggle()<CR>', { noremap = true, silent = true })
 
         require('toggleterm').setup({

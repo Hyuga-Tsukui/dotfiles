@@ -15,14 +15,6 @@ return {
         end,
     },
     {
-        'nvim-mini/mini.pairs',
-        version = '*',
-        event = 'InsertEnter',
-        config = function()
-            require('mini.pairs').setup({})
-        end,
-    },
-    {
         'nvim-mini/mini.splitjoin',
         version = '*',
         keys = { 'gS' },

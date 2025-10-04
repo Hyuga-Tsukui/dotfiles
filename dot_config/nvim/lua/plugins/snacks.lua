@@ -5,6 +5,8 @@ return {
     ---@type snacks.Config
     opts = {
         picker = {
+            layout = 'dropdown',
+            formatters = { file = { truncate = 200 } },
             enabled = true,
             sources = {
                 files = {
@@ -44,7 +46,7 @@ return {
             desc = 'Git Log Line',
         },
         {
-            '<leader>gbr',
+            '<leader>gb',
             function()
                 Snacks.picker.git_branches({ layout = 'select' })
             end,
@@ -92,6 +94,13 @@ return {
             desc = 'Grep Word',
         },
         {
+            '<leader>pr',
+            function()
+                Snacks.picker.recent()
+            end,
+            desc = 'Pick Recent File',
+        },
+        {
             '<leader>pk',
             function()
                 Snacks.picker.keymaps({ layout = 'ivy' })
@@ -131,6 +140,20 @@ return {
                 Snacks.picker.notifications()
             end,
             desc = 'Notifications',
+        },
+        {
+            'gr',
+            function()
+                Snacks.picker.lsp_references({ layout = 'dropdown' })
+            end,
+            desc = 'lsp references',
+        },
+        {
+            'gd',
+            function()
+                Snacks.picker.lsp_definitions({ layout = 'dropdown' })
+            end,
+            desc = 'lsp definitions',
         },
     },
 }

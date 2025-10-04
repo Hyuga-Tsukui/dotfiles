@@ -40,7 +40,7 @@ local plugins = {
     -- 'plugins.comfy-line-numbers',
     'plugins.lsp_signature',
     'plugins.no-neck-pain',
-    -- 'plugins.autopairs',
+    'plugins.autopairs',
     'plugins.vim-list2tree',
     'plugins.alpha',
     -- 'plugins.flash',
