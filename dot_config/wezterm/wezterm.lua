@@ -113,9 +113,4 @@ local vague_scheme = {
 	},
 }
 
-config.color_schemes = {
-	["vague-custom"] = vague_scheme,
-}
-config.color_scheme = "vague-custom"
-
 return config
