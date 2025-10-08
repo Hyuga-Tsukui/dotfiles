@@ -28,6 +28,22 @@ return {
         config = function()
             require('mini.bracketed').setup({})
         end,
-        event = 'VeryLazy',
+        keys = {
+            -- Buffer
+            '[b',
+            ']b',
+            '[B',
+            ']B',
+            -- Conflict Marker
+            '[x',
+            ']x',
+            '[X',
+            ']X',
+            -- Indent Change
+            '[I',
+            'I]',
+            '[i',
+            'i]',
+        },
     },
 }

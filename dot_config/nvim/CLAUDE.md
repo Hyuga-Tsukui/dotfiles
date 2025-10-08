@@ -30,6 +30,7 @@ This is a modern Neovim configuration built for performance and developer produc
 ## Plugin Configuration Conventions
 
 Each plugin file in `lua/plugins/` follows this structure:
+
 ```lua
 return {
     {

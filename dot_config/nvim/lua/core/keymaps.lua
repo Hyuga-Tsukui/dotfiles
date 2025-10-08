@@ -17,3 +17,11 @@ vim.keymap.set(
     '<cmd>silent vimgrep//gj%|copen<cr>',
     { desc = 'Populate latest search result to quickfix list' }
 )
+
+vim.keymap.set('n', 'p', 'p`]', { silent = true })
+vim.keymap.set('n', 'P', 'P`]', { silent = true })
+
+vim.keymap.set('x', '<', '<gv')
+vim.keymap.set('x', '>', '>gv')
+
+vim.keymap.set('n', '<CR>', ':<C-u>w<CR>')

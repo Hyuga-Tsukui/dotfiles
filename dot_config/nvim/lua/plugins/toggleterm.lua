@@ -1,7 +1,10 @@
 return {
     'akinsho/toggleterm.nvim',
     version = '*',
-    event = 'VeryLazy',
+    keys = {
+        { '<C-p>', '<cmd>exe v:count1 . "ToggleTerm"<CR>', mode = 'n', desc = 'Toggle Terminal' },
+        { '<leader>ox', '<cmd>lua oxker_toggle()<CR>', mode = 'n', desc = 'Toggle Oxker Terminal' },
+    },
     config = function()
         local opts = { noremap = true }
         function _G.set_terminal_keymaps()
@@ -10,9 +13,9 @@ return {
 
         vim.cmd('autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()')
 
-        vim.keymap.set('n', '<C-p>', function()
-            vim.cmd("exe v:count1 . 'ToggleTerm'")
-        end, { silent = true })
+        -- vim.keymap.set('n', '<C-p>', function()
+        --     vim.cmd("exe v:count1 . 'ToggleTerm'")
+        -- end, { silent = true })
 
         local Terminal = require('toggleterm.terminal').Terminal
 

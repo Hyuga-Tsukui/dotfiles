@@ -16,7 +16,7 @@ local plugins = {
     'plugins.harpoon',
     'plugins.memolist',
     'plugins.nvim-tree',
-    'plugins.obsidian',
+    -- 'plugins.obsidian',
     'plugins.which-key-nvim',
     'plugins.tmux-navigator',
     'plugins.copilot.init',
@@ -37,15 +37,14 @@ local plugins = {
     'plugins.luasnip',
 
     -- experimental plugins
-    -- 'plugins.comfy-line-numbers',
     'plugins.lsp_signature',
-    'plugins.no-neck-pain',
     'plugins.autopairs',
     'plugins.vim-list2tree',
     'plugins.alpha',
-    -- 'plugins.flash',
     'plugins.oil',
     'plugins.mini',
+    'plugins.render-markdown',
+    'plugins.nvim-treesitter-textsubjects',
 }
 
 -- this is a workaround for lazy.nvim not being able to load plugins
