@@ -54,6 +54,7 @@ end
 
 local save_handlers_by_client_name = {
     ruff = { synchronize_organize_imports, synchronize_format },
+    sqls = { synchronize_format },
     ['null-ls'] = { synchronize_format },
 }
 

@@ -45,6 +45,7 @@ local plugins = {
     'plugins.mini',
     'plugins.render-markdown',
     'plugins.nvim-treesitter-textsubjects',
+    'plugins.git',
 }
 
 -- this is a workaround for lazy.nvim not being able to load plugins

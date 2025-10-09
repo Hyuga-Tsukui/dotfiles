@@ -45,26 +45,26 @@ return {
             end,
             desc = 'Git Log Line',
         },
-        {
-            '<leader>gb',
-            function()
-                Snacks.picker.git_branches({ layout = 'select' })
-            end,
-            desc = 'Switch Git Branches',
-        },
-        {
-            '<leader>gs',
-            function()
-                Snacks.picker.git_status()
-            end,
-            desc = 'Git Status',
-        },
-        {
-            '<leader>gd',
-            function()
-                Snacks.picker.git_diff()
-            end,
-        },
+        -- {
+        --     '<leader>gb',
+        --     function()
+        --         Snacks.picker.git_branches({ layout = 'select' })
+        --     end,
+        --     desc = 'Switch Git Branches',
+        -- },
+        -- {
+        --     '<leader>gs',
+        --     function()
+        --         Snacks.picker.git_status()
+        --     end,
+        --     desc = 'Git Status',
+        -- },
+        -- {
+        --     '<leader>gd',
+        --     function()
+        --         Snacks.picker.git_diff()
+        --     end,
+        -- },
         {
             '<leader>/',
             function()
