@@ -1,4 +1,5 @@
 local plugins = {
+    'plugins.vimdoc-ja',
     -- text editing
     'plugins.dial',
 
