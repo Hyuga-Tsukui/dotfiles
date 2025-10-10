@@ -37,7 +37,7 @@ local plugins = {
     'plugins.luasnip',
 
     -- experimental plugins
-    'plugins.lsp_signature',
+    -- 'plugins.lsp_signature',
     'plugins.autopairs',
     'plugins.vim-list2tree',
     'plugins.alpha',

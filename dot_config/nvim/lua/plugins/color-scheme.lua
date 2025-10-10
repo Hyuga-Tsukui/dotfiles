@@ -13,17 +13,17 @@
 --         -- vim.api.nvim_set_hl(0, "Search", { underline = true, bold = true })
 --     end,
 -- }
--- return {
---     'rose-pine/neovim',
---     priority = 1000,
---     name = 'rose-pine',
---     config = function()
---         require('rose-pine').setup({
---             variant = 'moon',
---         })
---         vim.cmd('colorscheme rose-pine')
---     end,
--- }
+return {
+    'rose-pine/neovim',
+    priority = 1000,
+    name = 'rose-pine',
+    config = function()
+        require('rose-pine').setup({
+            variant = 'moon',
+        })
+        vim.cmd('colorscheme rose-pine')
+    end,
+}
 -- return {
 --     'folke/tokyonight.nvim',
 --     lazy = false,
@@ -43,15 +43,15 @@
 --         vim.cmd([[colorscheme aomi-grayscale]])
 --     end,
 -- }
-return {
-    'vague2k/vague.nvim',
-    lazy = false, -- make sure we load this during startup if it is your main colorscheme
-    priority = 1000, -- make sure to load this before all the other plugins
-    config = function()
-        -- NOTE: you do not need to call setup if you don't want to.
-        require('vague').setup({
-            -- optional configuration here
-        })
-        vim.cmd('colorscheme vague')
-    end,
-}
+-- return {
+--     'vague2k/vague.nvim',
+--     lazy = false, -- make sure we load this during startup if it is your main colorscheme
+--     priority = 1000, -- make sure to load this before all the other plugins
+--     config = function()
+--         -- NOTE: you do not need to call setup if you don't want to.
+--         require('vague').setup({
+--             -- optional configuration here
+--         })
+--         vim.cmd('colorscheme vague')
+--     end,
+-- }
