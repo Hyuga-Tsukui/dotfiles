@@ -1,5 +1,33 @@
 return {
     {
+        'nvim-mini/mini.indentscope',
+        version = '*',
+        config = function()
+            require('mini.indentscope').setup({
+                draw = {
+                    delay = 0,
+                    animation = require('mini.indentscope').gen_animation.none(),
+                    predicate = function(scope)
+                        local ft = vim.api.nvim_get_option_value('filetype', { buf = scope.buf_id })
+                        local disabled_ft = {
+                            alpha = true,
+                        }
+
+                        if disabled_ft[ft] then
+                            return false
+                        end
+
+                        return not scope.body.is_incomplete
+                    end,
+                },
+                options = {
+                    n_lines = 300,
+                },
+                symbol = '┊',
+            })
+        end,
+    },
+    {
         'nvim-mini/mini.surround',
         version = '*',
         keys = { 'ys', 'ds', 'cs' },

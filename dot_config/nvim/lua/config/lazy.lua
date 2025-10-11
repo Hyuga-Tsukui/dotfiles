@@ -7,7 +7,7 @@ local plugins = {
     'plugins.color-scheme',
     'plugins.barbar',
     'plugins.lualine',
-    'plugins.hlchunk',
+    -- 'plugins.hlchunk',
     'plugins.nvim-hlslens',
 
     -- Tools and utilities
