@@ -11,6 +11,7 @@ return {
                         local ft = vim.api.nvim_get_option_value('filetype', { buf = scope.buf_id })
                         local disabled_ft = {
                             alpha = true,
+                            NvimTree = true,
                         }
 
                         if disabled_ft[ft] then

@@ -22,7 +22,7 @@ return {
             temperature = 0.1,
             prompts = {
                 Explain = {
-                    prompt = '/COPILOT_EXPLAIN 選択したコードの説明を段落をつけて書いてください。',
+                    prompt = '/COPILOT_EXPLAIN 選択したコードの説明を段落をつけて書いてください。なお日本語で説明してください',
                     selection = selectCb,
                 },
                 Fix = {

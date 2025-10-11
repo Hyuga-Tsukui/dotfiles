@@ -13,7 +13,7 @@ vim.keymap.set('n', 'qd', ':lua vim.diagnostic.setloclist()<CR>')
 -- 最後の検索結果をquickfixにセット
 vim.keymap.set(
     'n',
-    'q/',
+    '?',
     '<cmd>silent vimgrep//gj%|copen<cr>',
     { desc = 'Populate latest search result to quickfix list' }
 )
@@ -24,4 +24,16 @@ vim.keymap.set('n', 'P', 'P`]', { silent = true })
 vim.keymap.set('x', '<', '<gv')
 vim.keymap.set('x', '>', '>gv')
 
-vim.keymap.set('n', '<CR>', ':<C-u>w<CR>')
+-- vim.keymap.set('n', '<CR>', ':<C-u>w<CR>')
+
+-- ref: `:NewGrep` in `:help grep`
+vim.api.nvim_create_user_command('Grep', function(arg)
+    local grep_cmd = 'silent grep! ' .. (arg.bang and '--fixed-strings -- ' or '') .. vim.fn.shellescape(arg.args, true)
+    vim.cmd(grep_cmd)
+    if vim.fn.getqflist({ size = true }).size > 0 then
+        vim.cmd.copen()
+    else
+        vim.notify('no matches found', vim.log.levels.WARN)
+        vim.cmd.cclose()
+    end
+end, { nargs = '+', bang = true, desc = 'Enhounced grep' })

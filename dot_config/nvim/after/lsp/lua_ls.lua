@@ -2,8 +2,8 @@ return {
     settings = {
         Lua = {
             runtime = {
-                version = "LuaJIT",
-                path = vim.split(package.path, ";"),
+                version = 'LuaJIT',
+                path = vim.split(package.path, ';'),
             },
             hints = {
                 enable = true,
@@ -14,7 +14,7 @@ return {
                 preloadFileSize = 5000,
             },
             completion = {
-                callSnippet = "Replace",
+                callSnippet = 'Replace',
             },
             telemetry = {
                 enable = false,
