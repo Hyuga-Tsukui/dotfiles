@@ -2,14 +2,12 @@ local plugins = {
     'plugins.vimdoc-ja',
     -- text editing
     'plugins.dial',
-
     -- UI and appearance
     'plugins.color-scheme',
-    'plugins.barbar',
+    -- 'plugins.barbar',
     'plugins.lualine',
     -- 'plugins.hlchunk',
     'plugins.nvim-hlslens',
-
     -- Tools and utilities
     'plugins.vim-maketable',
     'plugins.gitlinker',
@@ -25,7 +23,6 @@ local plugins = {
     'plugins.toggleterm',
     'plugins.aerial',
     'plugins.overseer',
-    'plugins.plamo-translate',
 
     -- LSP and completion
     'plugins.mason-null-ls',
@@ -38,7 +35,6 @@ local plugins = {
     'plugins.luasnip',
 
     -- experimental plugins
-    -- 'plugins.lsp_signature',
     'plugins.autopairs',
     'plugins.vim-list2tree',
     'plugins.alpha',

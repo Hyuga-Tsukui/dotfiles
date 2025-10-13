@@ -132,12 +132,12 @@ return {
                     --     vim.lsp.buf.references,
                     --     vim.tbl_extend('force', opts, { desc = 'lsp references' })
                     -- )
-                    vim.keymap.set(
-                        'n',
-                        '<leader>ls',
-                        vim.lsp.buf.signature_help,
-                        vim.tbl_extend('force', opts, { desc = 'lsp signature_help' })
-                    )
+                    -- vim.keymap.set(
+                    --     'n',
+                    --     '<leader>ls',
+                    --     vim.lsp.buf.signature_help,
+                    --     vim.tbl_extend('force', opts, { desc = 'lsp signature_help' })
+                    -- )
                     vim.keymap.set('n', 'K', vim.lsp.buf.hover, vim.tbl_extend('force', opts, { desc = 'lsp hover' }))
 
                     vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'

@@ -24,13 +24,13 @@ return {
         notifier = {},
     },
     keys = {
-        {
-            '<leader>lg',
-            function()
-                Snacks.lazygit()
-            end,
-            desc = 'Lazygit',
-        },
+        -- {
+        --     '<leader>lg',
+        --     function()
+        --         Snacks.lazygit()
+        --     end,
+        --     desc = 'Lazygit',
+        -- },
         {
             '<leader>gl',
             function()

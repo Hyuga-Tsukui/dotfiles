@@ -4,7 +4,6 @@ return {
         'lewis6991/gitsigns.nvim',
         'nvim-tree/nvim-web-devicons',
     },
-    -- event = { 'BufRead', 'BufNewFile' },
     event = 'VeryLazy',
     cond = function()
         local exclude_filetypes = { 'NvimTree' }

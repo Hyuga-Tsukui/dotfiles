@@ -3,8 +3,12 @@ return {
     branch = 'harpoon2',
     dependencies = { 'nvim-lua/plenary.nvim' },
     keys = {
-        '<leader>ha',
-        '<leader>he',
+        { '<leader>a', desc = 'Add Harpoon Mark' },
+        { '<leader>m', desc = 'Toggle Harpoon Menu' },
+        { '<leader>h', desc = 'Open harpoon 1' },
+        { '<leader>j', desc = 'Open harpoon 2' },
+        { '<leader>k', desc = 'Open harpoon 3' },
+        { '<leader>l', desc = 'Open harpoon 4' },
     },
     config = function()
         local harpoon = require('harpoon')
@@ -18,11 +22,24 @@ return {
         })
 
         -- Add a new harpoon mark
-        vim.keymap.set('n', '<leader>ha', function()
+        vim.keymap.set('n', '<leader>a', function()
             harpoon:list():add()
         end)
-        vim.keymap.set('n', '<leader>he', function()
+        vim.keymap.set('n', '<leader>m', function()
             harpoon.ui:toggle_quick_menu(harpoon:list())
-        end)
+        end, { desc = 'Toggle Harpoon Menu List' })
+
+        vim.keymap.set('n', '<leader>h', function()
+            harpoon:list():select(1)
+        end, { desc = 'Go to Harpoon 1' })
+        vim.keymap.set('n', '<leader>j', function()
+            harpoon:list():select(2)
+        end, { desc = 'Go to Harpoon 2' })
+        vim.keymap.set('n', '<leader>k', function()
+            harpoon:list():select(3)
+        end, { desc = 'Go to Harpoon 3' })
+        vim.keymap.set('n', '<leader>l', function()
+            harpoon:list():select(4)
+        end, { desc = 'Go to Harpoon 4' })
     end,
 }

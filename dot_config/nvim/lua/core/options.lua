@@ -4,7 +4,6 @@ opt.clipboard:append('unnamedplus') -- share yanked text with system clipboard
 -- appearance settings
 opt.nu = true
 opt.relativenumber = true
-
 -- search settings.
 opt.incsearch = true
 opt.hlsearch = true
@@ -25,7 +24,8 @@ opt.sidescrolloff = 8
 opt.iskeyword:append('-')
 
 -- appearance settings
-opt.guicursor = 'n-v-c:block,i-ci-ve:ver25,r-cr-o:hor20'
+-- opt.guicursor = 'n-v-c:block,i-ci-ve:ver25,r-cr-o:hor20'
+opt.guicursor = 'a:block'
 opt.cmdheight = 0
 opt.conceallevel = 2
 opt.wrap = false
@@ -43,6 +43,7 @@ opt.updatetime = 50
 opt.timeoutlen = 500
 opt.lazyredraw = true -- 画面の更新を遅延させることでパフォーマンスを向上させる
 opt.autoread = true -- ファイルの変更を自動で読み込む
+-- opt.laststatus = 0 -- ステータスラインを常に表示しない
 
 -- backup settings
 opt.swapfile = false
