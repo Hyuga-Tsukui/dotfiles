@@ -1,5 +1,6 @@
 return {
     'RRethy/nvim-treesitter-textsubjects',
+    event = 'BufReadPost',
     config = function()
         require('nvim-treesitter-textsubjects').configure({
             prev_selection = ',', -- (Optional) keymap to select the previous selection

@@ -24,7 +24,18 @@ vim.keymap.set('n', 'P', 'P`]', { silent = true })
 vim.keymap.set('x', '<', '<gv')
 vim.keymap.set('x', '>', '>gv')
 
--- vim.keymap.set('n', '<CR>', ':<C-u>w<CR>')
+-- ref: https://zenn.dev/kawarimidoll/books/6064bf6f193b51/viewer/b14229
+vim.opt.grepprg = table.concat({
+    'rg',
+    '--vimgrep',
+    '--trim',
+    '--hidden',
+    [[--glob='!.git']],
+    [[--glob='!*.lock']],
+    [[--glob='!*-lock.json']],
+    [[--glob='!*generated*']],
+}, ' ')
+vim.opt.grepformat = '%f:%l:%c:%m'
 
 -- ref: `:NewGrep` in `:help grep`
 vim.api.nvim_create_user_command('Grep', function(arg)

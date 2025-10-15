@@ -4,9 +4,10 @@ local config = wezterm.config_builder()
 config.font = wezterm.font("UDEV Gothic 35NF")
 config.font_size = 18
 config.macos_window_background_blur = 100
+config.window_background_opacity = 0.9
 config.line_height = 1.1
--- config.colors = require("cyberdream")
-config.color_scheme = "rose-pine-moon"
+config.colors = require("cyberdream")
+-- config.color_scheme = "rose-pine-moon"
 config.window_decorations = "RESIZE"
 config.use_ime = true
 
@@ -39,6 +40,22 @@ config.keys = {
 		key = "n",
 		mods = "CMD",
 		action = act.DisableDefaultAssignment,
+	},
+	{
+		key = "P",
+		mods = "CTRL",
+		action = wezterm.action.QuickSelectArgs({
+			label = "open url",
+			patterns = {
+				"https?://\\S+",
+			},
+			skip_action_on_paste = true,
+			action = wezterm.action_callback(function(window, pane)
+				local url = window:get_selection_text_for_pane(pane)
+				wezterm.log_info("opening: " .. url)
+				wezterm.open_with(url)
+			end),
+		}),
 	},
 }
 

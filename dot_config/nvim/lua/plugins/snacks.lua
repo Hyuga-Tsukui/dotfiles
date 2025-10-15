@@ -24,13 +24,6 @@ return {
         notifier = {},
     },
     keys = {
-        -- {
-        --     '<leader>lg',
-        --     function()
-        --         Snacks.lazygit()
-        --     end,
-        --     desc = 'Lazygit',
-        -- },
         {
             '<leader>gl',
             function()
@@ -45,26 +38,6 @@ return {
             end,
             desc = 'Git Log Line',
         },
-        -- {
-        --     '<leader>gb',
-        --     function()
-        --         Snacks.picker.git_branches({ layout = 'select' })
-        --     end,
-        --     desc = 'Switch Git Branches',
-        -- },
-        -- {
-        --     '<leader>gs',
-        --     function()
-        --         Snacks.picker.git_status()
-        --     end,
-        --     desc = 'Git Status',
-        -- },
-        -- {
-        --     '<leader>gd',
-        --     function()
-        --         Snacks.picker.git_diff()
-        --     end,
-        -- },
         {
             '<leader>/',
             function()
@@ -82,14 +55,36 @@ return {
         {
             '<leader>pb',
             function()
-                Snacks.picker.buffers()
+                Snacks.picker.buffers({
+                    on_show = function()
+                        vim.cmd.stopinsert()
+                    end,
+                    layout = 'ivy_split',
+                })
             end,
             desc = 'Pick Buffer',
         },
         {
+            '<leader>pj',
+            function()
+                Snacks.picker.jumps({
+                    on_show = function()
+                        vim.cmd.stopinsert()
+                    end,
+                    layout = 'ivy_split',
+                })
+            end,
+            desc = 'Pick Jumps',
+        },
+        {
             '<leader>ps',
             function()
-                Snacks.picker.grep_word()
+                Snacks.picker.grep_word({
+                    on_show = function()
+                        vim.cmd.stopinsert()
+                    end,
+                    layout = 'ivy_split',
+                })
             end,
             desc = 'Grep Word',
         },
@@ -110,7 +105,12 @@ return {
         {
             '<leader>pws',
             function()
-                Snacks.picker.grep_word()
+                Snacks.picker.grep_word({
+                    on_show = function()
+                        vim.cmd.stopinsert()
+                    end,
+                    layout = 'ivy_split',
+                })
             end,
             desc = 'Search Visual Selection or Word',
             mode = { 'n', 'x' },
@@ -130,28 +130,48 @@ return {
         {
             '<leader>ds',
             function()
-                Snacks.picker.diagnostics()
+                Snacks.picker.diagnostics({
+                    on_show = function()
+                        vim.cmd.stopinsert()
+                    end,
+                    layout = 'ivy_split',
+                })
             end,
             desc = 'Diagnostics',
         },
         {
             '<leader>nn',
             function()
-                Snacks.picker.notifications()
+                Snacks.picker.notifications({
+                    on_show = function()
+                        vim.cmd.stopinsert()
+                    end,
+                    layout = 'ivy_split',
+                })
             end,
             desc = 'Notifications',
         },
         {
             'gr',
             function()
-                Snacks.picker.lsp_references({ layout = 'dropdown' })
+                Snacks.picker.lsp_references({
+                    on_show = function()
+                        vim.cmd.stopinsert()
+                    end,
+                    layout = 'ivy_split',
+                })
             end,
             desc = 'lsp references',
         },
         {
             'gd',
             function()
-                Snacks.picker.lsp_definitions({ layout = 'dropdown' })
+                Snacks.picker.lsp_definitions({
+                    on_show = function()
+                        vim.cmd.stopinsert()
+                    end,
+                    layout = 'ivy_split',
+                })
             end,
             desc = 'lsp definitions',
         },

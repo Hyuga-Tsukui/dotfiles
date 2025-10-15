@@ -8,6 +8,7 @@ return {
 
             { path = 'snacks.nvim/lua/snacks' },
             { path = 'blink.nvim/lua/blink' },
+            { path = 'overseer.nvim/lua/overseer' },
         },
     },
 }

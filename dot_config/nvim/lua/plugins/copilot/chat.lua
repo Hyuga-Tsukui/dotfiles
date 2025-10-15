@@ -14,6 +14,7 @@ return {
         local selectCb = function(source)
             return select.visual(source) or select.buffer(source)
         end
+        local in_jp = 'なお日本語で説明してください'
         require('CopilotChat').setup({
             debug = false,
             proxy = nil,
@@ -22,39 +23,47 @@ return {
             temperature = 0.1,
             prompts = {
                 Explain = {
-                    prompt = '/COPILOT_EXPLAIN 選択したコードの説明を段落をつけて書いてください。なお日本語で説明してください',
+                    prompt = '/COPILOT_EXPLAIN 選択したコードの説明を段落をつけて書いてください。'
+                        .. in_jp,
                     selection = selectCb,
                 },
                 Fix = {
-                    prompt = '/COPILOT_FIX このコードには問題があります。バグを修正したコードに書き換えてください。',
+                    prompt = '/COPILOT_FIX このコードには問題があります。バグを修正したコードに書き換えてください。'
+                        .. in_jp,
                     selection = selectCb,
                 },
                 Optimize = {
-                    prompt = '/COPILOT_OPTIMIZE 選択したコードを最適化し、パフォーマンスと可読性を向上させてください。',
+                    prompt = '/COPILOT_OPTIMIZE 選択したコードを最適化し、パフォーマンスと可読性を向上させてください。'
+                        .. in_jp,
                     selection = selectCb,
                 },
                 Docs = {
-                    prompt = '/COPILOT_DOCS 選択したコードのドキュメントを日本語で書いてください。ドキュメントをコメントとして追加した元のコードを含むコードブロックで回答してください。使用するプログラミング言語に最も適したドキュメントスタイルを使用してください（例：JavaScriptのJSDoc、Pythonのdocstringsなど）',
+                    prompt = '/COPILOT_DOCS 選択したコードのドキュメントを日本語で書いてください。ドキュメントをコメントとして追加した元のコードを含むコードブロックで回答してください。使用するプログラミング言語に最も適したドキュメントスタイルを使用してください（例：JavaScriptのJSDoc、Pythonのdocstringsなど）'
+                        .. in_jp,
                     selection = selectCb,
                 },
                 Tests = {
-                    prompt = '/COPILOT_TESTS 選択したコードの詳細な単体テスト関数を書いてください。',
+                    prompt = '/COPILOT_TESTS 選択したコードの詳細な単体テスト関数を書いてください。'
+                        .. in_jp,
                     selection = selectCb,
                 },
                 FixDiagnostic = {
-                    prompt = '/COPILOT_FIXDIAGNOSTIC ファイル内の次のような診断上の問題を解決してください：',
+                    prompt = '/COPILOT_FIXDIAGNOSTIC ファイル内の次のような診断上の問題を解決してください：'
+                        .. in_jp,
                     selection = selectCb,
                 },
                 Commit = {
-                    prompt = '/COPILOT_COMMIT この変更をコミットしてください。',
+                    prompt = '/COPILOT_COMMIT この変更をコミットしてください。' .. in_jp,
                     selection = selectCb,
                 },
                 CommitStaged = {
-                    prompt = '/COPILOT_COMMITSTAGED ステージングされた変更をコミットしてください。',
+                    prompt = '/COPILOT_COMMITSTAGED ステージングされた変更をコミットしてください。'
+                        .. in_jp,
                     selection = selectCb,
                 },
                 Rename = {
-                    prompt = '/COPILOT_RENAME CONTEXTに基づき，選択したコードの変数名を適切な名前に変更してください。',
+                    prompt = '/COPILOT_RENAME CONTEXTに基づき，選択したコードの変数名を適切な名前に変更してください。'
+                        .. in_jp,
                     selection = selectCb,
                 },
             },

@@ -5,7 +5,7 @@ local plugins = {
     -- UI and appearance
     'plugins.color-scheme',
     -- 'plugins.barbar',
-    'plugins.lualine',
+    -- 'plugins.lualine',
     -- 'plugins.hlchunk',
     'plugins.nvim-hlslens',
     -- Tools and utilities
@@ -45,6 +45,7 @@ local plugins = {
     'plugins.git',
     'plugins.quicker',
     'plugins.leap',
+    'plugins.bqf',
 }
 
 -- this is a workaround for lazy.nvim not being able to load plugins

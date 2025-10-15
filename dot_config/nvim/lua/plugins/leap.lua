@@ -1,5 +1,6 @@
 return {
     'https://github.com/ggandor/leap.nvim',
+    key = { 's', 'S' },
     config = function()
         vim.api.nvim_set_hl(0, 'LeapBackdrop', { link = 'Comment' })
         local leap = require('leap')

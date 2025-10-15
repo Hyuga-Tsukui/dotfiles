@@ -3,9 +3,14 @@ return {
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
         require('lualine').setup({
-            theme = 'tokyonight',
+            -- theme = 'tokyonight',
             sections = {
                 lualine_x = { 'overseer' },
+            },
+
+            disabled_filetypes = {
+                statusline = { 'alpha' },
+                winbar = { 'alpha' },
             },
         })
     end,
