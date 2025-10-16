@@ -12,6 +12,7 @@ require('core.options')
 require('core.keymaps')
 require('config.lazy')
 require('core.autocmd')
+require('core.usercmd')
 
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1
