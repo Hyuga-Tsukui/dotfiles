@@ -1,5 +1,14 @@
 vim.g.mapleader = ' '
 
+-- ペースト時にレジスタを汚さない
+vim.keymap.set('x', 'p', 'P')
+vim.keymap.set('x', 'P', 'p')
+
+vim.keymap.set({ 'n', 'x' }, 'x', '"_d')
+vim.keymap.set('n', 'X', '"_D')
+vim.keymap.set('o', 'x', 'd')
+vim.keymap.set({ 'n', 'x' }, '-', '"_')
+
 -- 検索ハイライトを消す
 vim.keymap.set('n', '<leader>nh', ':nohl<CR>', { noremap = true, silent = true })
 
