@@ -1,0 +1,20 @@
+snippets:
+  - name: git status
+    keyword: gs
+    snippet: git status --short --branch
+
+  - name: git commit message
+    keyword: gc
+    snippet: git commit -m '{{commit_message}}'
+
+  - name: open file by nvim
+    keyword: v
+    snippet: nvim {{file}}
+
+  - name: chezmoi re-add
+    keyword: czr
+    snippet: chezmoi re-add 
+
+  - name: chezmoi add
+    keyword: cza
+    snippet: chezmoi add {{file}}

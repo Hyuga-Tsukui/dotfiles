@@ -81,7 +81,7 @@ config.mouse_bindings = {
 	},
 }
 
-config.default_prog = { "zsh", "-l", "-c", "tmux a -t default || tmux new -s default" }
+-- config.default_prog = { "zsh", "-l", "-c", "tmux a -t default || tmux new -s default" }
 config.send_composed_key_when_left_alt_is_pressed = true
 config.send_composed_key_when_right_alt_is_pressed = false
 

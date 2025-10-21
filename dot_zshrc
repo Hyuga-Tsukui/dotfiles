@@ -35,6 +35,8 @@ alias v="nvim"
 alias vim="nvim"
 alias vi="nvim"
 
+eval "$(fzf --zsh)"
+
 # ─────────────────────────────────────────────
 # 🧩 [ZINIT SETUP]
 # ─────────────────────────────────────────────
@@ -53,7 +55,25 @@ fi
 # ─────────────────────────────────────────────
 # 🌟 [ZSH PLUGINS]
 # ─────────────────────────────────────────────
-# zinit ice depth=1; zinit light olets/zsh-abbr
+
+# pure prompt
+zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
+zinit light sindresorhus/pure
+zstyle :prompt:pure:path color green
+
+# zeno
+export ZENO_HOME=~/.config/zeno
+zinit ice lucid depth"1" blockf
+zinit light yuki-yano/zeno.zsh
+
+if [[ -n $ZENO_LOADED ]]; then
+  bindkey ' ' zeno-auto-snippet
+  # bindkey '^m' zeno-auto-snippet-and-accept-line
+  # bindkey '^i' zeno-completion
+  # bindkey '^g' zeno-ghq-cd
+  bindkey '^r' zeno-history-selection
+  # bindkey '^x' zeno-insert-snippet
+fi
 
 # ─────────────────────────────────────────────
 # 💻 [ZSH]
@@ -72,28 +92,25 @@ setopt APPEND_HISTORY # セッション終了時、履歴ファイルを上書�
 
 # コマンドの補完リストの読み込み
 fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
-# autoload -Uz compinit
-# compinit
 
 # Setup aqua
 # -----------------------------------------------------------------
 export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"
 export AQUA_GLOBAL_CONFIG="$HOME/.config/aqua/aqua.yaml"
 
-eval "$(fzf --zsh)"
 
-export FZF_DEFAULT_OPTS='--height 40% --reverse --border --inline-info'
-
-# Setting fd as the default source for fzf
-export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
-
-export FZF_CTRL_T_OPTS="
-  --walker-skip .git,node_modules,target
-  --preview 'bat -n --color=always {}'
-  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
-
-# To apply the command to CTRL-T as well
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# export FZF_DEFAULT_OPTS='--height 40% --reverse --border --inline-info'
+#
+# # Setting fd as the default source for fzf
+# export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
+#
+# export FZF_CTRL_T_OPTS="
+#   --walker-skip .git,node_modules,target
+#   --preview 'bat -n --color=always {}'
+#   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+#
+# # To apply the command to CTRL-T as well
+# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Add PATH My Scripts
 export PATH="$HOME/bin:$PATH"
@@ -107,15 +124,19 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 
 # https://git-scm.com/book/ms/v2/Appendix-A%3A-Git-in-Other-Environments-Git-in-Zsh
 autoload bashcompinit && bashcompinit
-# autoload -Uz compinit && compinit
-
-# aws cli auto complete
-complete -C '/usr/local/bin/aws_completer' aws
 
 # https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 export PATH="$HOME/go/bin:$PATH"
+
+bindkey -r "^G"
+bindkey -r "^J"
+bindkey "^[u" undo
+
+eval "$(zoxide init zsh --hook prompt )"
+eval "$(uv generate-shell-completion zsh)"
+eval "$(mise activate zsh)"
 
 WORK_ZSH="${HOME}/.zsh/work.zsh"
 if [[ -f "${WORK_ZSH}" ]]; then
@@ -126,12 +147,3 @@ PRIVATE_ZSH="${HOME}/.zsh/private.zsh"
 if [[ -f "${PRIVATE_ZSH}" ]]; then
   source "${PRIVATE_ZSH}"
 fi
-
-bindkey -r "^G"
-bindkey -r "^J"
-bindkey "^[u" undo
-
-eval "$(zoxide init zsh --hook prompt )"
-eval "$(uv generate-shell-completion zsh)"
-eval "$(mise activate zsh)"
-eval "$(starship init zsh)"
