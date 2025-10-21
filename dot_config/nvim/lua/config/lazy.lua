@@ -1,51 +1,46 @@
 local plugins = {
+    -- general
     'plugins.vimdoc-ja',
+    'plugins.tmux-navigator',
+    'plugins.which-key-nvim',
+
     -- text editing
     'plugins.dial',
+    'plugins.autopairs',
+    'plugins.vim-maketable',
+
     -- UI and appearance
     'plugins.color-scheme',
-    -- 'plugins.barbar',
-    -- 'plugins.lualine',
-    -- 'plugins.hlchunk',
     'plugins.nvim-hlslens',
+    'plugins.alpha',
+    'plugins.render-markdown',
+
     -- Tools and utilities
-    'plugins.vim-maketable',
-    'plugins.gitlinker',
-    'plugins.gitsigns',
     'plugins.harpoon',
     'plugins.memolist',
     'plugins.nvim-tree',
-    -- 'plugins.obsidian',
-    'plugins.which-key-nvim',
-    'plugins.tmux-navigator',
     'plugins.copilot.init',
     'plugins.copilot.chat',
     'plugins.toggleterm',
     'plugins.aerial',
     'plugins.overseer',
+    'plugins.git',
+    'plugins.gitsigns',
+    'plugins.gitlinker',
+    'plugins.mini',
+    'plugins.quicker',
+    'plugins.bqf',
 
     -- LSP and completion
     'plugins.mason-null-ls',
     'plugins.mason-nvim',
     'plugins.nvim-lspconfig',
     'plugins.nvim-treesitter',
+    'plugins.nvim-treesitter-textsubjects',
     'plugins.lazydev',
     'plugins.snacks',
     'plugins.blink-cmp',
     'plugins.luasnip',
-
-    -- experimental plugins
-    'plugins.autopairs',
-    'plugins.vim-list2tree',
-    'plugins.alpha',
-    'plugins.oil',
-    'plugins.mini',
-    'plugins.render-markdown',
-    'plugins.nvim-treesitter-textsubjects',
-    'plugins.git',
-    'plugins.quicker',
-    'plugins.leap',
-    'plugins.bqf',
 }
 
 -- this is a workaround for lazy.nvim not being able to load plugins
