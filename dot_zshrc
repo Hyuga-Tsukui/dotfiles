@@ -3,7 +3,6 @@
 # ─────────────────────────────────────────────
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/opt/homebrew/opt/git/bin:$PATH" # use brew git
-export GH_EDITOR="nvim"
 
 # ─────────────────────────────────────────────
 # 🧪 [FUNCTIONS]
@@ -31,15 +30,16 @@ _compinit() {
 # ─────────────────────────────────────────────
 # 💻 [ALIASES]
 # ─────────────────────────────────────────────
-alias v="nvim"
 alias vim="nvim"
 alias vi="nvim"
+alias ls="eza"
 
 eval "$(fzf --zsh)"
 
 # ─────────────────────────────────────────────
 # 🧩 [ZINIT SETUP]
 # ─────────────────────────────────────────────
+bindkey -e
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
@@ -69,7 +69,7 @@ zinit light yuki-yano/zeno.zsh
 if [[ -n $ZENO_LOADED ]]; then
   bindkey ' ' zeno-auto-snippet
   # bindkey '^m' zeno-auto-snippet-and-accept-line
-  # bindkey '^i' zeno-completion
+  bindkey '^i' zeno-completion
   # bindkey '^g' zeno-ghq-cd
   bindkey '^r' zeno-history-selection
   # bindkey '^x' zeno-insert-snippet
@@ -99,7 +99,7 @@ export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua
 export AQUA_GLOBAL_CONFIG="$HOME/.config/aqua/aqua.yaml"
 
 
-# export FZF_DEFAULT_OPTS='--height 40% --reverse --border --inline-info'
+export FZF_DEFAULT_OPTS='--height 40% --reverse --border --inline-info'
 #
 # # Setting fd as the default source for fzf
 # export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'

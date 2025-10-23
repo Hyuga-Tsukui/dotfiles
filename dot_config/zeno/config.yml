@@ -11,6 +11,10 @@ snippets:
     keyword: v
     snippet: nvim {{file}}
 
+  - name: chezmoi
+    keyword: cz
+    snippet: chezmoi
+
   - name: chezmoi re-add
     keyword: czr
     snippet: chezmoi re-add 
