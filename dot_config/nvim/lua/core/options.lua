@@ -17,8 +17,8 @@ opt.shiftwidth = 4
 opt.expandtab = true
 opt.autoindent = true
 opt.backspace = 'indent,eol,start'
-opt.scrolloff = 8
-opt.sidescrolloff = 8
+opt.scrolloff = 4
+opt.sidescrolloff = 4
 
 -- completion settings
 opt.iskeyword:append('-')
