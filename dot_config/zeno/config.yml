@@ -7,6 +7,10 @@ snippets:
     keyword: gw
     snippet: git switch {{branch}}
 
+  - name: git push
+    keyword: gp
+    snippets: git push
+
   - name: git commit message
     keyword: gc
     snippet: git commit -m '{{commit_message}}'
