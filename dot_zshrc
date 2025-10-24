@@ -136,9 +136,9 @@ eval "$(zoxide init zsh --hook prompt )"
 eval "$(uv generate-shell-completion zsh)"
 eval "$(mise activate zsh)"
 
-WORK_ZSH="${HOME}/.zsh/work.zsh"
-if [[ -f "${WORK_ZSH}" ]]; then
-  source "${WORK_ZSH}"
+LOCAL_ZSH="${HOME}/.zsh/local.zsh"
+if [[ -f "${LOCAL_ZSH}" ]]; then
+  source "${LOCAL_ZSH}"
 fi
 
 PRIVATE_ZSH="${HOME}/.zsh/private.zsh"

@@ -1,0 +1,9 @@
+# zmodload zsh/zprof
+
+# XDG Base Directories
+export XDG_CONFIG_HOME=${HOME}/.config
+
+# editors
+export EDITOR="nvim"
+export GH_EDITOR=${EDITOR}
+export GIT_EDITOR=${EDITOR}
