@@ -3,6 +3,10 @@ snippets:
     keyword: gs
     snippet: git status --short --branch
 
+  - name: git switch
+    keyword: gw
+    snippet: git switch {{branch}}
+
   - name: git commit message
     keyword: gc
     snippet: git commit -m '{{commit_message}}'
@@ -22,3 +26,15 @@ snippets:
   - name: chezmoi add
     keyword: cza
     snippet: chezmoi add {{file}}
+
+completions:
+  - name: ssh
+    patterns:
+      - "^ssh $"
+    sourceCommand: "grep -iE '^Host\\s+' \"$HOME/.ssh/config\" \
+      | awk '{for(i=2;i<=NF;i++) print $i}' \
+      | grep -vE '^[*?]' \
+      | grep -vi '^github\\..*' \
+      | sort -u"
+    options:
+      --prompt: "'SSH Host> '"
