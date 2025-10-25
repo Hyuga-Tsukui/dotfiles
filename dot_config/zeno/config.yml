@@ -9,7 +9,7 @@ snippets:
 
   - name: git push
     keyword: gp
-    snippets: git push
+    snippet: git push
 
   - name: git commit message
     keyword: gc

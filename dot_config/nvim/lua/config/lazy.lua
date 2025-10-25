@@ -18,7 +18,8 @@ local plugins = {
     -- Tools and utilities
     'plugins.harpoon',
     'plugins.memolist',
-    'plugins.nvim-tree',
+    'plugins.oil',
+    -- 'plugins.nvim-tree',
     'plugins.copilot.init',
     'plugins.copilot.chat',
     'plugins.toggleterm',

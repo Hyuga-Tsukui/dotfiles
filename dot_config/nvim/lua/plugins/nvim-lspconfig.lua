@@ -115,24 +115,24 @@ return {
                         vim.lsp.buf.declaration,
                         vim.tbl_extend('force', opts, { desc = 'lsp declaration' })
                     )
-                    -- vim.keymap.set(
-                    --     'n',
-                    --     'gd',
-                    --     vim.lsp.buf.definition,
-                    --     vim.tbl_extend('force', opts, { desc = 'lsp definition' })
-                    -- )
+                    vim.keymap.set(
+                        'n',
+                        'gd',
+                        vim.lsp.buf.definition,
+                        vim.tbl_extend('force', opts, { desc = 'lsp definition' })
+                    )
                     vim.keymap.set(
                         'n',
                         '<space>rn',
                         vim.lsp.buf.rename,
                         vim.tbl_extend('force', opts, { desc = 'lsp rename' })
                     )
-                    -- vim.keymap.set(
-                    --     'n',
-                    --     'gr',
-                    --     vim.lsp.buf.references,
-                    --     vim.tbl_extend('force', opts, { desc = 'lsp references' })
-                    -- )
+                    vim.keymap.set(
+                        'n',
+                        'gr',
+                        vim.lsp.buf.references,
+                        vim.tbl_extend('force', opts, { desc = 'lsp references' })
+                    )
                     -- vim.keymap.set(
                     --     'n',
                     --     '<leader>ls',

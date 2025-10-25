@@ -151,29 +151,29 @@ return {
             end,
             desc = 'Notifications',
         },
-        {
-            'gr',
-            function()
-                Snacks.picker.lsp_references({
-                    on_show = function()
-                        vim.cmd.stopinsert()
-                    end,
-                    layout = 'ivy_split',
-                })
-            end,
-            desc = 'lsp references',
-        },
-        {
-            'gd',
-            function()
-                Snacks.picker.lsp_definitions({
-                    on_show = function()
-                        vim.cmd.stopinsert()
-                    end,
-                    layout = 'ivy_split',
-                })
-            end,
-            desc = 'lsp definitions',
-        },
+        -- {
+        --     'gr',
+        --     function()
+        --         Snacks.picker.lsp_references({
+        --             on_show = function()
+        --                 vim.cmd.stopinsert()
+        --             end,
+        --             layout = 'ivy_split',
+        --         })
+        --     end,
+        --     desc = 'lsp references',
+        -- },
+        -- {
+        --     'gd',
+        --     function()
+        --         Snacks.picker.lsp_definitions({
+        --             on_show = function()
+        --                 vim.cmd.stopinsert()
+        --             end,
+        --             layout = 'ivy_split',
+        --         })
+        --     end,
+        --     desc = 'lsp definitions',
+        -- },
     },
 }
