@@ -1,3 +1,4 @@
+vim.env.XDG_STATE_HOME = '/tmp'
 vim.loader.enable()
 -- TODO refactor file type detection
 -- neovim not resolving filetype for terraform files

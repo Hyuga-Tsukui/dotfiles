@@ -68,7 +68,7 @@ zinit light yuki-yano/zeno.zsh
 
 if [[ -n $ZENO_LOADED ]]; then
   bindkey ' ' zeno-auto-snippet
-  # bindkey '^m' zeno-auto-snippet-and-accept-line
+  bindkey '^m' zeno-auto-snippet-and-accept-line
   bindkey '^i' zeno-completion
   # bindkey '^g' zeno-ghq-cd
   bindkey '^r' zeno-history-selection

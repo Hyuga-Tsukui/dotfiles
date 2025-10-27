@@ -25,7 +25,8 @@ snippets:
 
   - name: chezmoi re-add
     keyword: czr
-    snippet: chezmoi re-add 
+    snippet: chezmoi re-add
+    # evaluate: true
 
   - name: chezmoi add
     keyword: cza
@@ -42,3 +43,10 @@ completions:
       | sort -u"
     options:
       --prompt: "'SSH Host> '"
+
+  - name: pick file to nvim
+    patterns:
+      - "^nvim $"
+    sourceCommand: "fd -t f --exclude .git ."
+    options:
+      --prompt: "'EDIT>'"

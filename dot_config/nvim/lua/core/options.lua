@@ -24,7 +24,6 @@ opt.sidescrolloff = 4
 opt.iskeyword:append('-')
 
 -- appearance settings
--- opt.guicursor = 'n-v-c:block,i-ci-ve:ver25,r-cr-o:hor20'
 opt.guicursor = 'a:block'
 opt.cmdheight = 0
 opt.conceallevel = 2
@@ -49,7 +48,8 @@ opt.laststatus = 0 -- ステータスラインを常に表示しない
 opt.swapfile = false
 opt.backup = false
 
-local undodir = vim.fn.expand('$HOME/.local/share/nvim/undo')
+-- ref: https://zenn.dev/vim_jp/articles/c96e9b1bdb9241
+local undodir = vim.env.XDG_STATE_HOME .. '/nvim/undo'
 if vim.fn.isdirectory(undodir) == 0 then
     vim.fn.mkdir(undodir, 'p')
 end
