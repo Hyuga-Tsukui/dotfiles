@@ -8,6 +8,7 @@ return {
             analysis = {
                 autoSearchPaths = true,
                 autoImportCompletions = true,
+                typeCheckingMode = 'off',
             },
         },
     },

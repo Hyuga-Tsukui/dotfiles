@@ -61,15 +61,7 @@ local save_handlers_by_client_name = {
 
 return {
     {
-        'williamboman/mason.nvim',
-        config = function()
-            require('mason').setup({})
-        end,
-        cmd = { 'Mason' },
-        lazy = true,
-    },
-    {
-        'neovim/nvim-lspconfig',
+        'https://github.com/neovim/nvim-lspconfig',
         event = { 'BufReadPre', 'BufNewFile' },
         cond = function()
             local exclude_filetypes = { 'NvimTree' }
@@ -81,8 +73,8 @@ return {
 
             -- TODO: after/lsp/ruff.luaに移行する
             -- Lspへの読み込みがなぜか、自動解決の場合とここで書く場合で挙動が異なる
-            ---@type vim.lsp.Config
-            vim.lsp.config('ruff', {})
+            -- ---@type vim.lsp.Config
+            -- vim.lsp.config('ruff', {})
 
             local lsp_utils = require('utils.lsp')
             vim.lsp.enable(lsp_utils.get_available_lsp_servers())
@@ -133,12 +125,12 @@ return {
                         vim.lsp.buf.references,
                         vim.tbl_extend('force', opts, { desc = 'lsp references' })
                     )
-                    -- vim.keymap.set(
-                    --     'n',
-                    --     '<leader>ls',
-                    --     vim.lsp.buf.signature_help,
-                    --     vim.tbl_extend('force', opts, { desc = 'lsp signature_help' })
-                    -- )
+                    vim.keymap.set(
+                        'n',
+                        '<leader>ls',
+                        vim.lsp.buf.signature_help,
+                        vim.tbl_extend('force', opts, { desc = 'lsp signature_help' })
+                    )
                     vim.keymap.set('n', 'K', vim.lsp.buf.hover, vim.tbl_extend('force', opts, { desc = 'lsp hover' }))
 
                     vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
