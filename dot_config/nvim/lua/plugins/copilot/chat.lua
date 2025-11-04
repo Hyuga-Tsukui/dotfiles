@@ -1,6 +1,5 @@
 return {
-    'CopilotC-Nvim/CopilotChat.nvim',
-    tag = 'v4.2.0',
+    'https://github.com/CopilotC-Nvim/CopilotChat.nvim',
     dependencies = {
         { 'nvim-lua/plenary.nvim', branch = 'master' },
     },
@@ -10,12 +9,14 @@ return {
     },
     cmd = 'CopilotChat',
     config = function()
-        local select = require('CopilotChat.select')
-        local selectCb = function(source)
-            return select.visual(source) or select.buffer(source)
-        end
+        local chat = require('CopilotChat')
+        vim.keymap.set({ 'n', 'v' }, '<leader>ax', function()
+            vim.g.chat_title = nil
+            chat.reset()
+        end)
+
         local in_jp = 'なお日本語で説明してください'
-        require('CopilotChat').setup({
+        chat.setup({
             debug = false,
             proxy = nil,
             allow_insecure = false,
@@ -25,46 +26,37 @@ return {
                 Explain = {
                     prompt = '/COPILOT_EXPLAIN 選択したコードの説明を段落をつけて書いてください。'
                         .. in_jp,
-                    selection = selectCb,
                 },
                 Fix = {
                     prompt = '/COPILOT_FIX このコードには問題があります。バグを修正したコードに書き換えてください。'
                         .. in_jp,
-                    selection = selectCb,
                 },
                 Optimize = {
                     prompt = '/COPILOT_OPTIMIZE 選択したコードを最適化し、パフォーマンスと可読性を向上させてください。'
                         .. in_jp,
-                    selection = selectCb,
                 },
                 Docs = {
                     prompt = '/COPILOT_DOCS 選択したコードのドキュメントを日本語で書いてください。ドキュメントをコメントとして追加した元のコードを含むコードブロックで回答してください。使用するプログラミング言語に最も適したドキュメントスタイルを使用してください（例：JavaScriptのJSDoc、Pythonのdocstringsなど）'
                         .. in_jp,
-                    selection = selectCb,
                 },
                 Tests = {
                     prompt = '/COPILOT_TESTS 選択したコードの詳細な単体テスト関数を書いてください。'
                         .. in_jp,
-                    selection = selectCb,
                 },
                 FixDiagnostic = {
                     prompt = '/COPILOT_FIXDIAGNOSTIC ファイル内の次のような診断上の問題を解決してください：'
                         .. in_jp,
-                    selection = selectCb,
                 },
                 Commit = {
                     prompt = '/COPILOT_COMMIT この変更をコミットしてください。' .. in_jp,
-                    selection = selectCb,
                 },
                 CommitStaged = {
                     prompt = '/COPILOT_COMMITSTAGED ステージングされた変更をコミットしてください。'
                         .. in_jp,
-                    selection = selectCb,
                 },
                 Rename = {
                     prompt = '/COPILOT_RENAME CONTEXTに基づき，選択したコードの変数名を適切な名前に変更してください。'
                         .. in_jp,
-                    selection = selectCb,
                 },
             },
             window = {
@@ -88,6 +80,29 @@ return {
                 reset = '<C-l>',
                 complete = '<Tab>',
             },
+            callback = function(response, source)
+                if vim.g.chat_title then
+                    chat.save(vim.g.chat_title)
+                end
+                local prompt = [[
+                Generate chat title in filepath-friendly format for:
+
+                ```
+                %s
+                ```
+
+                output only the title and nothing else in your response.
+                ]]
+
+                chat.ask(vim.trim(prompt:format(response.content)), {
+                    headless = true,
+                    callback = function(gen_response, _)
+                        vim.g.chat_title = vim.trim(gen_response.content)
+                        print('Chat title set to: ' .. vim.g.chat_title)
+                        chat.save(vim.g.chat_title)
+                    end,
+                })
+            end,
         })
     end,
     keys = {

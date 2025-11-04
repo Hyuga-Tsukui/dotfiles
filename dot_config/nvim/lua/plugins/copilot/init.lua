@@ -3,6 +3,9 @@ return {
     cmd = 'Copilot',
     event = 'InsertEnter',
     build = ':Copilot auth',
+    dependencies = {
+        'https://github.com/copilotlsp-nvim/copilot-lsp',
+    },
     config = function()
         -- REF: integration nvim-cmp https://github.com/zbirenbaum/copilot-cmp
         require('copilot').setup({
