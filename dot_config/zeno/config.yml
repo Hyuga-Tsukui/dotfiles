@@ -11,6 +11,10 @@ snippets:
     keyword: gp
     snippet: git push
 
+  - name: git pull
+    keyword: gpl
+    snippet: git pull --all
+
   - name: git commit message
     keyword: gc
     snippet: git commit -m '{{commit_message}}'
