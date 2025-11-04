@@ -18,7 +18,6 @@ local plugins = {
     -- Tools and utilities
     'plugins.harpoon',
     'plugins.memolist',
-    -- 'plugins.oil',
     'plugins.nvim-tree',
     'plugins.copilot.init',
     'plugins.copilot.chat',
@@ -31,6 +30,7 @@ local plugins = {
     'plugins.mini',
     'plugins.quicker',
     'plugins.bqf',
+    'plugins.obsidian',
 
     -- LSP and completion
     'plugins.mason-null-ls',
