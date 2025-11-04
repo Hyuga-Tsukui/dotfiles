@@ -90,6 +90,10 @@ setopt HIST_REDUCE_BLANKS # 複数のスペースを1つに圧縮して履歴に
 setopt SHARE_HISTORY # 複数の Zsh セッション（たとえば複数ターミナル）間で履歴をリアルタイムに共有する
 setopt APPEND_HISTORY # セッション終了時、履歴ファイルを上書きせず末尾に追加する
 
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey "^O" edit-command-line
+
 # コマンドの補完リストの読み込み
 fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
 
