@@ -68,7 +68,7 @@ return {
             return not vim.tbl_contains(exclude_filetypes, vim.bo.filetype)
         end,
         config = function()
-            vim.lsp.set_log_level('ERROR')
+            vim.lsp.log.set_level('ERROR')
             local g = vim.api.nvim_create_augroup('UserLspConfig', {})
 
             -- TODO: after/lsp/ruff.luaに移行する
