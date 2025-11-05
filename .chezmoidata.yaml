@@ -10,7 +10,6 @@ packages:
     - "colima"
     - "docker"
     - "fd"
-    - "fzf"
     - "git"
     - "jq"
     - "oxker"
