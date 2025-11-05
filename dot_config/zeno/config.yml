@@ -36,6 +36,10 @@ snippets:
     keyword: cza
     snippet: chezmoi add {{file}}
 
+  - name: tmux attach sessions
+    keyword: ta
+    snippet: tmux a -t 
+
 completions:
   - name: ssh
     patterns:
@@ -54,3 +58,10 @@ completions:
     sourceCommand: "fd -t f --exclude .git ."
     options:
       --prompt: "'EDIT>'"
+
+  - name: tmux attach sessions
+    patterns:
+      - "^tmux a -t $"
+    sourceCommand: "tmux ls | awk '{ print $1}' | cut -f 1 -d ':'"
+    options:
+      --prompt: "'Tmux Sessions> '"
