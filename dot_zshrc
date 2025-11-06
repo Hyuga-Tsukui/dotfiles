@@ -4,6 +4,10 @@
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/opt/homebrew/opt/git/bin:$PATH" # use brew git
 
+# https://deno.land/
+export DENO_INSTALL="$HOME/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
 # ─────────────────────────────────────────────
 # 🧪 [FUNCTIONS]
 # ─────────────────────────────────────────────
@@ -130,6 +134,7 @@ export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 # https://volta.sh/
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+
 
 # https://git-scm.com/book/ms/v2/Appendix-A%3A-Git-in-Other-Environments-Git-in-Zsh
 autoload bashcompinit && bashcompinit

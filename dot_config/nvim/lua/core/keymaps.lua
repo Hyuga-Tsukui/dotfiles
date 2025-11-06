@@ -57,3 +57,6 @@ vim.api.nvim_create_user_command('Grep', function(arg)
         vim.cmd.cclose()
     end
 end, { nargs = '+', bang = true, desc = 'Enhounced grep' })
+
+vim.keymap.set('n', '<C-g>s', '<cmd>GinStatus<cr>', { desc = 'Open Git Status' })
+vim.keymap.set('n', '<C-g>l', '<Cmd>GinLog --graph --oneline<Cr>', { desc = 'Open Git Log' })

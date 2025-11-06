@@ -1,12 +1,17 @@
 return {
-    'tpope/vim-fugitive',
-    event = 'VeryLazy',
+    'https://github.com/lambdalisue/vim-gin',
+    dependencies = {
+        'https://github.com/vim-denops/denops.vim',
+    },
+    cmd = { 'GinStatus', 'GinDiff', 'GinLog' },
+    -- REF: https://github.com/atusy/dotfiles/blob/ac73621b4839d68ea9983d3a6aaf401405e61179/dot_config/nvim/lua/plugins/git/init.lua#L80C2-L86C5
     config = function()
-        vim.keymap.set('n', '<leader>gs', ':tab Git<CR>', { desc = 'Git Status' })
-        vim.keymap.set('n', '<leader>gc', ':Git commit<CR>', { desc = 'Git Commit' })
-        -- vim.keymap.set('n', '<leader>gp', ':Git push<CR>', { desc = 'Git Push' })
-        -- vim.keymap.set('n', '<leader>gl', ':Git pull<CR>', { desc = 'Git Pull' })
-        vim.keymap.set('n', '<leader>gb', ':Git blame<CR>', { desc = 'Git Blame' })
-        vim.keymap.set('n', '<leader>gd', ':Gdiffsplit<CR>', { desc = 'Git Diff Split' })
+        local has_delta = vim.fn.executable('delta') == 1
+        -- disable delta as <CR> won't work
+        local processor = nil
+        if has_delta then
+            processor = 'delta --no-gitconfig --color-only' -- also requires tsnode-marker to reproduce highlights
+            vim.g.gin_diff_persistent_args = { '++processor=' .. processor }
+        end
     end,
 }

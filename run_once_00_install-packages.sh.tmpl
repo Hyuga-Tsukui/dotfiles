@@ -1,4 +1,3 @@
-{{ if eq .chezmoi.os "darwin" -}}
 #!/bin/sh
 set -eu
 
@@ -27,6 +26,7 @@ print_error() {
     printf "${RED}✖ %s${RESET}\n" "$1" >&2
 }
 
+{{ if eq .chezmoi.os "darwin" -}}
 # Homebrew チェックとインストール
 print_section "Checking for Homebrew"
 if [ ! -x "$(command -v brew)" ]; then
@@ -49,8 +49,13 @@ cask {{ . | quote }}
 EOF
 print_success "brew bundle completed"
 
+{{ end -}}
+
 # Volta インストール
 print_section "Installing Volta"
 curl https://get.volta.sh | bash
 print_success "Volta installed"
-{{ end -}}
+
+# install deno
+print_section "Installing Deno"
+curl -fsSL https://deno.land/install.sh | sh
