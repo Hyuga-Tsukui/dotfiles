@@ -1,5 +1,6 @@
 return {
     'tpope/vim-fugitive',
+    event = 'VeryLazy',
     config = function()
         vim.keymap.set('n', '<leader>gs', ':tab Git<CR>', { desc = 'Git Status' })
         vim.keymap.set('n', '<leader>gc', ':Git commit<CR>', { desc = 'Git Commit' })
