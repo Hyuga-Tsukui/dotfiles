@@ -1,5 +1,5 @@
 return {
-    cmd = { 'npx', 'biome', 'lsp-proxy' },
+    cmd = { 'npx', '-y', '@biomejs/biome', 'lsp-proxy' },
     root_dir = function(bufnr, on_dir)
         local fname = vim.api.nvim_buf_get_name(bufnr)
         local root = vim.fs.root(fname, { 'biome.json', '.git' }) or vim.fn.getcwd()
