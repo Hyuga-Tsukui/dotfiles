@@ -3,11 +3,25 @@ return {
     build = ':TSUpdate',
     event = { 'BufReadPost', 'BufNewFile' },
     exclude = { 'NvimTree' },
-    -- dependencies = {
-    --     'nvim-treesitter/nvim-treesitter-textobjects',
-    -- },
+    dependencies = {
+        -- 'nvim-treesitter/nvim-treesitter-textobjects',
+        'nvim-treesitter/nvim-treesitter-context',
+    },
     config = function()
         local configs = require('nvim-treesitter.configs')
+        require('treesitter-context').setup({
+            enable = true,
+            multiwindow = false,
+            max_lines = 0,
+            min_window_height = 0,
+            line_numbers = true,
+            multiline_threshold = 20,
+            trim_scope = 'outer',
+            mode = 'cursor',
+            separator = '-',
+            zindex = 20,
+            on_attach = nil,
+        })
 
         configs.setup({
             ensure_installed = {
