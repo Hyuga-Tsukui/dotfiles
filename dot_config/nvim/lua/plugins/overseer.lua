@@ -30,5 +30,6 @@ return {
         { '<leader>tc', '<cmd>OverseerClose<cr>', desc = 'Overseer Close' },
         { '<leader>tr', '<cmd>OverseerRestart<cr>', desc = 'Overseer Restart' },
         { '<leader>td', '<cmd>OverseerDelete<cr>', desc = 'Overseer Delete' },
+        { '<leader>ta', '<cmd>OverseerTaskAction<cr>', desc = 'Overseer Task Action' },
     },
 }

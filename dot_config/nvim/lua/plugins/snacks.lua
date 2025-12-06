@@ -21,7 +21,7 @@ return {
                 },
             },
         },
-        notifier = {},
+        -- notifier = {},
     },
     keys = {
         {
@@ -114,6 +114,15 @@ return {
             end,
             desc = 'Search Visual Selection or Word',
             mode = { 'n', 'x' },
+        },
+        {
+            '<leader>sB',
+            function()
+                Snacks.picker.grep_buffers({
+                    layout = 'ivy_split',
+                })
+            end,
+            desc = 'Grep Open Buffers',
         },
         {
             '<leader>sc',

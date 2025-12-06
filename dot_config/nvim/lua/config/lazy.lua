@@ -3,6 +3,7 @@ local plugins = {
     'plugins.vimdoc-ja',
     'plugins.tmux-navigator',
     'plugins.which-key-nvim',
+    'plugins.backandforward',
 
     -- text editing
     'plugins.dial',
@@ -14,6 +15,9 @@ local plugins = {
     'plugins.nvim-hlslens',
     'plugins.alpha',
     'plugins.render-markdown',
+    'plugins.noice',
+    'plugins.notify',
+    -- 'plugins.incline',
 
     -- Tools and utilities
     'plugins.harpoon',

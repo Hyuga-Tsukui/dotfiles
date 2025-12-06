@@ -43,6 +43,7 @@ opt.timeoutlen = 500
 opt.lazyredraw = true -- 画面の更新を遅延させることでパフォーマンスを向上させる
 opt.autoread = true -- ファイルの変更を自動で読み込む
 opt.laststatus = 0 -- ステータスラインを常に表示しない
+opt.lazyredraw = false
 
 -- backup settings
 opt.swapfile = false

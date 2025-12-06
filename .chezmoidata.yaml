@@ -10,6 +10,7 @@ packages:
     - "docker"
     - "fd"
     - "git"
+    - "gitmux"
     - "jq"
     - "ripgrep"
     - "tmux"

@@ -65,3 +65,13 @@ completions:
     sourceCommand: "tmux ls | awk '{ print $1}' | cut -f 1 -d ':'"
     options:
       --prompt: "'Tmux Sessions> '"
+
+  - name: "git switch (sorted by date)"  
+    patterns:  
+      - "^git switch(?: .*)? $"  
+    sourceCommand: "git branch --sort=-committerdate --sort=-HEAD --color=always --format='%(color:magenta)%(refname:short)%(color:yellow) %(committerdate:relative)%(color:blue) [%(authorname)] %(color:reset)%(subject)' 2> /dev/null | column -t -s $'\\t'"  
+    options:  
+      --prompt: "'Git Switch> '"  
+      --preview: "git log {1} --oneline --graph --decorate --color=always -10"
+      --preview-window: "up"
+    callback: "awk '{print $1}'"
