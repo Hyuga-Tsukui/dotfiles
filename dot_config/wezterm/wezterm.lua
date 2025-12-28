@@ -30,16 +30,17 @@ local act = wezterm.action
 config.keys = {
 	{ key = "[", mods = "LEADER", action = act.ActivateCopyMode },
 	-- disabled tab activation.
-	-- {
-	-- 	key = "t",
-	-- 	mods = "CMD",
-	-- 	action = act.DisableDefaultAssignment,
-	-- },
-	-- {
-	-- 	key = "n",
-	-- 	mods = "CMD",
-	-- 	action = act.DisableDefaultAssignment,
-	-- },
+	{
+		key = "t",
+		mods = "CMD",
+		action = act.DisableDefaultAssignment,
+	},
+	{
+		key = "n",
+		mods = "CMD",
+		action = act.DisableDefaultAssignment,
+	},
+	-- Quick Select To Open URL.
 	{
 		key = "P",
 		mods = "CTRL",
@@ -82,7 +83,7 @@ config.mouse_bindings = {
 	},
 }
 
--- config.default_prog = { "zsh", "-l", "-c", "tmux a -t default || tmux new -s default" }
+-- zshのAltキーで特殊文字を送信する設定
 config.send_composed_key_when_left_alt_is_pressed = true
 config.send_composed_key_when_right_alt_is_pressed = false
 

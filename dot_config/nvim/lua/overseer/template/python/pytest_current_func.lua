@@ -82,13 +82,6 @@ return {
             name = 'pytest ' .. exec_target,
             components = {
                 { 'open_output', focus = false, direction = 'vertical' },
-                -- { 'on_complete_dispose', require_view = { 'FAILURE' } },
-                -- {
-                --     'on_output_notify',
-                --     delay_ms = 2000, -- 2秒後に通知開始
-                --     max_lines = 1, -- 表示する行数
-                --     output_on_complete = true, -- 完了時も出力を表示
-                -- },
                 'default',
             },
         }
