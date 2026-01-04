@@ -2,7 +2,7 @@
 # 🧪 [ENVIRONMENT]
 # ─────────────────────────────────────────────
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="/opt/homebrew/opt/git/bin:$PATH" # use brew git
+export PATH="$HOME/.nix-profile/bin:$PATH" # use nix profile
 
 # https://deno.land/
 export DENO_INSTALL="$HOME/.deno"
@@ -56,14 +56,6 @@ if alias zi &>/dev/null; then
 fi
 
 # ─────────────────────────────────────────────
-# 🧩 [Packages with ZINIT]
-# ─────────────────────────────────────────────
-zinit ice from"gh-r" as"program" \
-  atclone"./install --bin" atpull"%atclone" \
-  pick"bin/fzf"
-zinit light junegunn/fzf
-
-# ─────────────────────────────────────────────
 # 🌟 [ZSH PLUGINS]
 # ─────────────────────────────────────────────
 
@@ -83,7 +75,6 @@ if [[ -n $ZENO_LOADED ]]; then
   bindkey '^i' zeno-completion
   bindkey '^gq' zeno-ghq-cd
   bindkey '^r' zeno-history-selection
-  # bindkey '^x' zeno-insert-snippet
 fi
 
 # ─────────────────────────────────────────────
@@ -106,7 +97,7 @@ zle -N edit-command-line
 bindkey "^O" edit-command-line
 
 # コマンドの補完リストの読み込み
-fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
+fpath=($HOME/.nix-profile/share/zsh/site-functions $fpath)
 
 # Setup aqua
 # -----------------------------------------------------------------
@@ -115,8 +106,8 @@ export AQUA_GLOBAL_CONFIG="$HOME/.config/aqua/aqua.yaml"
 
 
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border --inline-info'
-#
-# # Setting fd as the default source for fzf
+
+# Setting fd as the default source for fzf
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
 export FZF_CTRL_T_OPTS="
   --walker-skip .git,node_modules,target
@@ -128,9 +119,6 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # Add PATH My Scripts
 export PATH="$HOME/bin:$PATH"
 
-# ADD PATH curl by Homebrew
-export PATH="/opt/homebrew/opt/curl/bin:$PATH"
-
 # https://volta.sh/
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
@@ -140,7 +128,7 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 autoload bashcompinit && bashcompinit
 
 # https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source "$HOME/.nix-profile/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 export PATH="$HOME/go/bin:$PATH"
 

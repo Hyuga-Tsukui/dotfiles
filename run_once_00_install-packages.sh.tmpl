@@ -50,12 +50,3 @@ EOF
 print_success "brew bundle completed"
 
 {{ end -}}
-
-# Volta インストール
-print_section "Installing Volta"
-curl https://get.volta.sh | bash
-print_success "Volta installed"
-
-# install deno
-print_section "Installing Deno"
-curl -fsSL https://deno.land/install.sh | sh

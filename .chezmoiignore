@@ -1,6 +1,9 @@
 README.md
 
 tmux/plugins/
+
 nix/
+flake.nix
+flake.lock
 
 .*work/
