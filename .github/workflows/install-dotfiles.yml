@@ -20,6 +20,4 @@ jobs:
         env:
           NIX_CONFIG: "access-tokens = github.com=${{ github.token }}"
         run: |
-          curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install --no-confirm
-          . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
           sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply Hyuga-Tsukui

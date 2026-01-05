@@ -3,6 +3,14 @@
 # ─────────────────────────────────────────────
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.nix-profile/bin:$PATH" # use nix profile
+export PATH="$HOME/go/bin:$PATH"
+
+# https://volta.sh/
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+
+# Add PATH My Scripts
+export PATH="$HOME/bin:$PATH"
 
 # ─────────────────────────────────────────────
 # 🧪 [FUNCTIONS]
@@ -33,7 +41,6 @@ _compinit() {
 alias vim="nvim"
 alias vi="nvim"
 alias ls="eza"
-
 
 # ─────────────────────────────────────────────
 # 🧩 [ZINIT SETUP]
@@ -106,21 +113,11 @@ export FZF_CTRL_T_OPTS="
 # To apply the command to CTRL-T as well
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-# Add PATH My Scripts
-export PATH="$HOME/bin:$PATH"
-
-# https://volta.sh/
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
-
-
 # https://git-scm.com/book/ms/v2/Appendix-A%3A-Git-in-Other-Environments-Git-in-Zsh
 autoload bashcompinit && bashcompinit
 
 # https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
 source "$HOME/.nix-profile/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-
-export PATH="$HOME/go/bin:$PATH"
 
 bindkey -r "^G"
 bindkey -r "^J"

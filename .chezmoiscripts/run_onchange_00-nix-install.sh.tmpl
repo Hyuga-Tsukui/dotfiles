@@ -1,0 +1,26 @@
+#!/bin/bash
+# flake.nix:  {{ (joinPath .chezmoi.sourceDir "flake.nix") | include | sha256sum }}
+# flake.lock: {{ (joinPath .chezmoi.sourceDir "flake.lock") | include | sha256sum }}
+set -euo pipefail
+
+if command -v nix >/dev/null 2>&1; then
+    echo "Nix is already installed. Skipping installation."
+else
+    echo "Nix is not installed. Proceeding with installation."
+    curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix \
+      | sh -s -- install --no-confirm
+fi
+
+if [ -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]; then
+  . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+fi
+
+if ! nix profile list | grep -q 'my-packages$'; then
+    echo "Nix flake my-packages is not installed. Proceeding with installation."
+    cd "{{ .chezmoi.sourceDir }}"
+    nix profile add .#my-packages
+fi
+
+cd "{{ .chezmoi.sourceDir }}"
+nix flake update
+nix profile upgrade my-packages
