@@ -1,4 +1,16 @@
-# zmodload zsh/zprof
+# ─────────────────────────────────────────────
+# 🧪 [PATH SETTINGS]
+# ─────────────────────────────────────────────
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.nix-profile/bin:$PATH" # use nix profile
+export PATH="$HOME/go/bin:$PATH"
+
+# https://volta.sh/
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+
+# Add PATH My Scripts
+export PATH="$HOME/bin:$PATH"
 
 # XDG Base Directories
 export XDG_CONFIG_HOME=${HOME}/.config

@@ -1,21 +1,6 @@
 # ─────────────────────────────────────────────
-# 🧪 [ENVIRONMENT]
-# ─────────────────────────────────────────────
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.nix-profile/bin:$PATH" # use nix profile
-export PATH="$HOME/go/bin:$PATH"
-
-# https://volta.sh/
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
-
-# Add PATH My Scripts
-export PATH="$HOME/bin:$PATH"
-
-# ─────────────────────────────────────────────
 # 🧪 [FUNCTIONS]
 # ─────────────────────────────────────────────
-
 _compinit() {
    local re_initialize=0
    for match in ${ZDOTDIR}/.zcompdump*(.Nmh+24); do
@@ -68,7 +53,6 @@ zinit light sindresorhus/pure
 zstyle :prompt:pure:path color green
 
 # zeno
-export ZENO_HOME=~/.config/zeno
 zinit ice lucid depth"1" blockf
 zinit light yuki-yano/zeno.zsh
 
