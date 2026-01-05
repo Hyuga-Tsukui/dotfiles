@@ -26,6 +26,11 @@ print_error() {
     printf "${RED}✖ %s${RESET}\n" "$1" >&2
 }
 
+# TODO: 依存を無くしたい. run_x間でプロセスが共有されないため、nix-daemonの環境を再度読み込む必要がある.
+if [ -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]; then
+  . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+fi
+
 # TPM (tmux plugin manager)
 if [ ! -d "$HOME/.config/tmux/plugins/tpm" ]; then
     print_section "Installing tmux plugin manager"
