@@ -1,26 +1,26 @@
-return {
-    'https://github.com/rebelot/kanagawa.nvim',
-    lazy = false,
-    priority = 1000,
-    config = function()
-        require('kanagawa').load('dragon')
-    end,
-}
 -- return {
---     'scottmckendry/cyberdream.nvim',
+--     'https://github.com/rebelot/kanagawa.nvim',
 --     lazy = false,
 --     priority = 1000,
 --     config = function()
---         require('cyberdream').setup({
---             transparent = true,
---         })
---         vim.cmd([[colorscheme cyberdream]])
---
---         -- vim.api.nvim_set_hl(0, "Search", { bg = "NONE", bold = true, reverse = true })
---         -- vim.api.nvim_set_hl(0, "CurSearch", { underline = true, bold = true })
---         -- vim.api.nvim_set_hl(0, "Search", { underline = true, bold = true })
+--         require('kanagawa').load('dragon')
 --     end,
 -- }
+return {
+    'scottmckendry/cyberdream.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+        require('cyberdream').setup({
+            transparent = true,
+        })
+        vim.cmd([[colorscheme cyberdream]])
+
+        -- vim.api.nvim_set_hl(0, "Search", { bg = "NONE", bold = true, reverse = true })
+        -- vim.api.nvim_set_hl(0, "CurSearch", { underline = true, bold = true })
+        -- vim.api.nvim_set_hl(0, "Search", { underline = true, bold = true })
+    end,
+}
 -- return {
 --     'rose-pine/neovim',
 --     priority = 1000,
