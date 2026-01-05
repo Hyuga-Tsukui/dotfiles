@@ -146,8 +146,3 @@ LOCAL_ZSH="${HOME}/.zsh/local.zsh"
 if [[ -f "${LOCAL_ZSH}" ]]; then
   source "${LOCAL_ZSH}"
 fi
-
-PRIVATE_ZSH="${HOME}/.zsh/private.zsh"
-if [[ -f "${PRIVATE_ZSH}" ]]; then
-  source "${PRIVATE_ZSH}"
-fi
