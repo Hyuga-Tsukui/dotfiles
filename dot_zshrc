@@ -4,10 +4,6 @@
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.nix-profile/bin:$PATH" # use nix profile
 
-# https://deno.land/
-export DENO_INSTALL="$HOME/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
-
 # ─────────────────────────────────────────────
 # 🧪 [FUNCTIONS]
 # ─────────────────────────────────────────────

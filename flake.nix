@@ -13,6 +13,7 @@
         nixpkgs.legacyPackages.aarch64-darwin.bat
         nixpkgs.legacyPackages.aarch64-darwin.curl
         nixpkgs.legacyPackages.aarch64-darwin.delta
+        nixpkgs.legacyPackages.aarch64-darwin.deno
         nixpkgs.legacyPackages.aarch64-darwin.eza
         nixpkgs.legacyPackages.aarch64-darwin.fd
         nixpkgs.legacyPackages.aarch64-darwin.fzf
