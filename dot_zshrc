@@ -99,12 +99,6 @@ bindkey "^O" edit-command-line
 # コマンドの補完リストの読み込み
 fpath=($HOME/.nix-profile/share/zsh/site-functions $fpath)
 
-# Setup aqua
-# -----------------------------------------------------------------
-export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"
-export AQUA_GLOBAL_CONFIG="$HOME/.config/aqua/aqua.yaml"
-
-
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border --inline-info'
 
 # Setting fd as the default source for fzf

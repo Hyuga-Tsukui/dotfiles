@@ -4,6 +4,5 @@ packages:
       - "wezterm@nightly"
       - "font-hackgen"
   cmdline:
-    - "aqua"
     - "colima"
     - "docker"
