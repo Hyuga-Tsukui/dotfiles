@@ -1,9 +1,12 @@
 packages:
   darwin:
+    taps:
+      - "FelixKratz/formulae" # https://github.com/FelixKratz/JankyBorders
     casks:
       - "wezterm@nightly"
       - "font-hackgen"
       - "nikitabobko/tap/aerospace"
-  cmdline:
-    - "colima"
-    - "docker"
+    defaults:
+      - "colima"
+      - "docker"
+      - "borders" # https://github.com/FelixKratz/JankyBorders
