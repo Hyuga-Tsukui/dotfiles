@@ -20,6 +20,7 @@
         nixpkgs.legacyPackages.aarch64-darwin.gitmux
         nixpkgs.legacyPackages.aarch64-darwin.jq
         nixpkgs.legacyPackages.aarch64-darwin.mise
+        nixpkgs.legacyPackages.aarch64-darwin.uv
         nixpkgs.legacyPackages.aarch64-darwin.ripgrep
         nixpkgs.legacyPackages.aarch64-darwin.tmux
         nixpkgs.legacyPackages.aarch64-darwin.typos
