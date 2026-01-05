@@ -3,6 +3,7 @@ packages:
     casks:
       - "wezterm@nightly"
       - "font-hackgen"
+      - "nikitabobko/tap/aerospace"
   cmdline:
     - "colima"
     - "docker"
