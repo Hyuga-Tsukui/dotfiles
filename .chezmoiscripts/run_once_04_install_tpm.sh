@@ -31,6 +31,9 @@ if [ ! -d "$HOME/.config/tmux/plugins/tpm" ]; then
     print_section "Installing tmux plugin manager"
 
     git clone --depth 1 https://github.com/tmux-plugins/tpm "$HOME/.config/tmux/plugins/tpm"
+
+    # tmux環境外で実行するため、TMUX_PLUGIN_MANAGER_PATHを指定してプラグインをインストール
+    export TMUX_PLUGIN_MANAGER_PATH="$HOME/.config/tmux/plugins/"
     "$HOME/.config/tmux/plugins/tpm/bin/install_plugins"
 
     print_success "tmux plugin manager installed"
