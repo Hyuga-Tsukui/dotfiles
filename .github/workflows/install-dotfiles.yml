@@ -7,6 +7,8 @@ concurrency:
 defaults:
   run:
     shell: bash
+permissions:
+  contents: read
 jobs:
   install:
     name: install
@@ -15,6 +17,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: install
+        env:
+          NIX_CONFIG: "access-tokens = github.com=${{ github.token }}"
         run: |
           curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install --no-confirm
           . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+cd "{{ .chezmoi.sourceDir }}"
+
+nix profile install my-packages
