@@ -11,14 +11,7 @@
 
 ## 初期化手順
 
-1. chezmoiのインストールとdotfilesの展開
-
-```sh
-cd
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply Hyuga-Tsukui
-```
-
-2. nixのインストールとプロファイルの有効化
+1. nixのインストールとプロファイルの有効化
 
 ```sh
 curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
@@ -26,4 +19,11 @@ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix 
 
 ```sh
 nix profile install .#my-packages
+```
+
+2. chezmoiのインストールとdotfilesの展開
+
+```sh
+cd
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply Hyuga-Tsukui
 ```
