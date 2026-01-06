@@ -1,0 +1,7 @@
+# Set PATH, MANPATH, etc., for Homebrew.
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Editor settings
+export EDITOR="nvim"
+export GH_EDITOR=${EDITOR}
+export GIT_EDITOR=${EDITOR}
