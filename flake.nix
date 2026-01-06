@@ -24,6 +24,7 @@
         nixpkgs.legacyPackages.aarch64-darwin.uv
         nixpkgs.legacyPackages.aarch64-darwin.ripgrep
         nixpkgs.legacyPackages.aarch64-darwin.tmux
+        nixpkgs.legacyPackages.aarch64-darwin.tlrc
         nixpkgs.legacyPackages.aarch64-darwin.typos
         neovim-nightly-overlay.packages.aarch64-darwin.neovim
         nixpkgs.legacyPackages.aarch64-darwin.volta
