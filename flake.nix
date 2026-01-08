@@ -11,6 +11,7 @@
       name = "my-packages-list";
       paths = [
         nixpkgs.legacyPackages.aarch64-darwin.bat
+        nixpkgs.legacyPackages.aarch64-darwin.codex
         nixpkgs.legacyPackages.aarch64-darwin.curl
         nixpkgs.legacyPackages.aarch64-darwin.delta
         nixpkgs.legacyPackages.aarch64-darwin.deno
