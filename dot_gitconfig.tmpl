@@ -50,9 +50,4 @@
 	shp = stash pop
 	shc = stash clear
 [include]
-{{- if eq .chezmoi.hostname "private" }}
-	path = ~/.gitconfig.private
-{{- else }}
-	path = ~/.gitconfig.work
-{{- end }}
-
+	path = ~/.gitconfig.local

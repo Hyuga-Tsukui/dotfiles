@@ -17,6 +17,7 @@
         nixpkgs.legacyPackages.aarch64-darwin.eza
         nixpkgs.legacyPackages.aarch64-darwin.fd
         nixpkgs.legacyPackages.aarch64-darwin.fzf
+        nixpkgs.legacyPackages.aarch64-darwin.ghq
         nixpkgs.legacyPackages.aarch64-darwin.git
         nixpkgs.legacyPackages.aarch64-darwin.gitmux
         nixpkgs.legacyPackages.aarch64-darwin.jq
