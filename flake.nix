@@ -10,6 +10,7 @@
     packages.aarch64-darwin.my-packages = nixpkgs.legacyPackages.aarch64-darwin.buildEnv {
       name = "my-packages-list";
       paths = [
+        nixpkgs.legacyPackages.aarch64-darwin.adr-tools
         nixpkgs.legacyPackages.aarch64-darwin.bat
         nixpkgs.legacyPackages.aarch64-darwin.codex
         nixpkgs.legacyPackages.aarch64-darwin.curl
@@ -18,6 +19,7 @@
         nixpkgs.legacyPackages.aarch64-darwin.eza
         nixpkgs.legacyPackages.aarch64-darwin.fd
         nixpkgs.legacyPackages.aarch64-darwin.fzf
+        nixpkgs.legacyPackages.aarch64-darwin.gh
         nixpkgs.legacyPackages.aarch64-darwin.ghq
         nixpkgs.legacyPackages.aarch64-darwin.git
         nixpkgs.legacyPackages.aarch64-darwin.gitmux
