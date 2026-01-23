@@ -200,10 +200,13 @@ alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
 [[on-window-detected]]
-if.app-id = 'company.thebrowser.Browser' 
-run = 'move-node-to-workspace W'
+if.app-id = 'com.google.Chrome' 
+run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
 if.app-id = 'com.github.wez.wezterm' 
-run = 'move-node-to-workspace T'
+run = 'move-node-to-workspace 1'
 
+[[on-window-detected]]
+if.app-id = "com.apple.finder"
+run = "layout floating"

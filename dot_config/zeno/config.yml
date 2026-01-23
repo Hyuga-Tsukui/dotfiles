@@ -23,6 +23,11 @@ snippets:
     keyword: v
     snippet: nvim {{file}}
 
+  - name: yazi
+    keyword: Y
+    snippet: yazi
+    evaluate: true
+
   - name: chezmoi
     keyword: cz
     snippet: chezmoi

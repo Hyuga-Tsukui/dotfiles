@@ -46,6 +46,7 @@
           pkgs.git
           pkgs.gitmux
           pkgs.jq
+          pkgs.just
           pkgs.mise
           pkgs.uv
           pkgs.ripgrep
