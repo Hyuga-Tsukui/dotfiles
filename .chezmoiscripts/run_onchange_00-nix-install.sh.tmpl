@@ -22,5 +22,4 @@ if ! nix profile list | grep -q 'my-packages$'; then
 fi
 
 cd "{{ .chezmoi.sourceDir }}"
-nix flake update
 nix profile upgrade my-packages
