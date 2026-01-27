@@ -4,8 +4,8 @@ packages:
       - "FelixKratz/formulae" # https://github.com/FelixKratz/JankyBorders
     casks:
       - "wezterm@nightly"
-      - "font-hackgen"
       - "nikitabobko/tap/aerospace"
+      - "obsidian"
     defaults:
       - "colima"
       - "docker"

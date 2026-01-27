@@ -2,81 +2,63 @@ snippets:
   - name: git status
     keyword: gs
     snippet: git status --short --branch
-
   - name: git switch
     keyword: gw
     snippet: git switch {{branch}}
-
   - name: git push
     keyword: gp
     snippet: git push
-
   - name: git pull
     keyword: gpl
     snippet: git pull --all
-
   - name: git commit message
     keyword: gc
     snippet: git commit -m '{{commit_message}}'
-
   - name: open file by nvim
     keyword: v
     snippet: nvim {{file}}
-
   - name: yazi
     keyword: Y
     snippet: yazi
     evaluate: true
-
   - name: chezmoi
     keyword: cz
     snippet: chezmoi
-
   - name: chezmoi re-add
     keyword: czr
     snippet: chezmoi re-add
     # evaluate: true
-
   - name: chezmoi add
     keyword: cza
     snippet: chezmoi add {{file}}
-
   - name: tmux attach sessions
     keyword: ta
-    snippet: tmux a -t 
-
+    snippet: tmux a -t
 completions:
   - name: ssh
     patterns:
       - "^ssh $"
-    sourceCommand: "grep -iE '^Host\\s+' \"$HOME/.ssh/config\" \
-      | awk '{for(i=2;i<=NF;i++) print $i}' \
-      | grep -vE '^[*?]' \
-      | grep -vi '^github\\..*' \
-      | sort -u"
+    sourceCommand: "grep -iE '^Host\\s+' \"$HOME/.ssh/config\" | awk '{for(i=2;i<=NF;i++) print $i}' | grep -vE '^[*?]' | grep -vi '^github\\..*' | sort -u"
     options:
       --prompt: "'SSH Host> '"
-
   - name: pick file to nvim
     patterns:
       - "^nvim $"
     sourceCommand: "fd -t f --exclude .git ."
     options:
       --prompt: "'EDIT>'"
-
   - name: tmux attach sessions
     patterns:
       - "^tmux a -t $"
     sourceCommand: "tmux ls | awk '{ print $1}' | cut -f 1 -d ':'"
     options:
       --prompt: "'Tmux Sessions> '"
-
-  - name: "git switch (sorted by date)"  
-    patterns:  
-      - "^git switch(?: .*)? $"  
-    sourceCommand: "git branch --sort=-committerdate --sort=-HEAD --color=always --format='%(color:magenta)%(refname:short)%(color:yellow) %(committerdate:relative)%(color:blue) [%(authorname)] %(color:reset)%(subject)' 2> /dev/null | column -t -s $'\\t'"  
-    options:  
-      --prompt: "'Git Switch> '"  
+  - name: "git switch (sorted by date)"
+    patterns:
+      - "^git switch(?: .*)? $"
+    sourceCommand: "git branch --sort=-committerdate --sort=-HEAD --color=always --format='%(color:magenta)%(refname:short)%(color:yellow) %(committerdate:relative)%(color:blue) [%(authorname)] %(color:reset)%(subject)' 2> /dev/null | column -t -s $'\\t'"
+    options:
+      --prompt: "'Git Switch> '"
       --preview: "git log {1} --oneline --graph --decorate --color=always -10"
       --preview-window: "up"
     callback: "awk '{print $1}'"
