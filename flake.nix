@@ -6,10 +6,19 @@
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
-  outputs = { self, nixpkgs, neovim-nightly-overlay, }:
+  outputs = { self, ... } @ inputs:
     let
+      nixpkgs = inputs.nixpkgs;
+      neovim-nightly-overlay = inputs.neovim-nightly-overlay;
       system = "aarch64-darwin";
-      pkgs = nixpkgs.legacyPackages.${system};
+
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfreePredicate = pkg:
+          builtins.elem (pkgs.lib.getName pkg) [
+            "claude-code"
+          ];
+      };
 
       ghost = pkgs.stdenvNoCC.mkDerivation rec {
         pname = "ghost";
@@ -21,14 +30,11 @@
         };
 
         installPhase = ''
-          runHook preInstall
           mkdir -p $out/bin
           install -m 0755 ghost $out/bin/ghost
-          runHook postInstall
         '';
       };
-    in
-    {
+    in {
       packages.${system}.my-packages = pkgs.buildEnv {
         name = "my-packages-list";
         paths = [
@@ -36,6 +42,8 @@
           pkgs.bat
           pkgs.codex
           pkgs.curl
+          pkgs.claude-code
+          pkgs.claude-code-router
           pkgs.delta
           pkgs.deno
           pkgs.eza
@@ -53,7 +61,7 @@
           pkgs.tmux
           pkgs.tlrc
           pkgs.typos
-          neovim-nightly-overlay.packages.aarch64-darwin.neovim
+          neovim-nightly-overlay.packages.${system}.neovim
           pkgs.volta
           pkgs.zoxide
           pkgs.zsh-completions
