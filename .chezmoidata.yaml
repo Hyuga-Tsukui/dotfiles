@@ -6,6 +6,7 @@ packages:
       - "wezterm@nightly"
       - "nikitabobko/tap/aerospace"
       - "obsidian"
+      - "chatgpt"
     defaults:
       - "colima"
       - "docker"
