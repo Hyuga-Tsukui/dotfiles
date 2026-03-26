@@ -42,7 +42,7 @@
           pkgs.bat
           pkgs.codex
           pkgs.curl
-          pkgs.claude-code
+          # pkgs.claude-code
           pkgs.claude-code-router
           pkgs.delta
           pkgs.deno
@@ -66,6 +66,7 @@
           pkgs.zoxide
           pkgs.zsh-completions
           pkgs.zsh-autosuggestions
+          pkgs.terminal-notifier
           ghost
         ];
       };

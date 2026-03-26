@@ -7,6 +7,9 @@ packages:
       - "nikitabobko/tap/aerospace"
       - "obsidian"
       - "chatgpt"
+      - "hammerspoon"
+      - "logseq"
+      - "ghostty"
     defaults:
       - "colima"
       - "docker"

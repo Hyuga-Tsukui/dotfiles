@@ -23,6 +23,7 @@ return {
             'Method',
             'Struct',
         },
+        disable_max_lines = 30000,
     },
     -- Optional dependencies
     dependencies = {

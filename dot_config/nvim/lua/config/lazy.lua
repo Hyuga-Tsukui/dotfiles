@@ -15,8 +15,8 @@ local plugins = {
     'plugins.nvim-hlslens',
     'plugins.alpha',
     'plugins.render-markdown',
-    'plugins.noice',
-    'plugins.notify',
+    -- 'plugins.noice',
+    -- 'plugins.notify',
     -- 'plugins.incline',
 
     -- Tools and utilities
